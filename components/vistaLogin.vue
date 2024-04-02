@@ -1,5 +1,5 @@
 <template>
-	<section id="vista_login" class="min-h-screen flex justify-center items-center bg-blue-800">
+	<section id="vista_login" class="hidden min-h-screen flex justify-center items-center bg-blue-800">
 		<div class="py-8 px-4">
 			<article class="bg-white p-8 rounded-xl">
 				<img src="~/assets/images/logo_transparente.png" class="w-40 mb-4 block mx-auto" draggable="false" >

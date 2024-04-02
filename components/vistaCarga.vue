@@ -1,5 +1,5 @@
 <template>
-	<section id="vista_carga" class="min-h-screen flex justify-center items-center">
+	<section id="vista_carga" class="hidden min-h-screen flex justify-center items-center">
 		<article class="flex flex-wrap justify-center">
 			<div class="w-full">
 				<img src="~/assets/images/logo_transparente.png" class="w-60 mx-auto" draggable="false">
