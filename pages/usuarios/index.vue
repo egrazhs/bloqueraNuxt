@@ -9,10 +9,21 @@
 		<hr class="border-1 border-slate-300 my-4">
 
 		<section>
-			<div class="hidden transition-opacity bg-blue-200 text-blue-800 text-xs p-2 italic my-2">*Se ha agregado el usuario de manera exitosa.</div>
-			<div class="hidden transition-opacity bg-yellow-200 text-yellow-800 text-xs p-2 italic my-2">*Se ha actualizado la información del usuario.</div>
-			<div class="hidden transition-opacity bg-red-200 text-red-800 text-xs p-2 italic my-2">*Se ha borrado el usuario de manera exitosa.</div>
-			<div class="hidden transition-opacity bg-yellow-200 text-yellow-800 text-xs p-2 italic my-2">*Se ha actualizado la contraseña del usuario.</div>
+			 <!-- Mensaje de éxito -->
+		    <div v-if="$route.query.c" class="transition-opacity bg-blue-200 text-blue-800 text-xs p-2 italic my-2">
+		    	*Se ha agregado el usuario de manera exitosa.
+		    </div>
+
+
+			<div v-if="$route.query.usuarioActualizado" class="hidden transition-opacity bg-yellow-200 text-yellow-800 text-xs p-2 italic my-2">
+				*Se ha actualizado la información del usuario.
+			</div>
+
+			<div v-if="$route.query.usuarioEliminado" class="transition-opacity bg-red-200 text-red-800 text-xs p-2 italic my-2">
+				*Se ha borrado el usuario de manera exitosa.
+			</div>
+
+			<div v-if="$route.query.passwordActualizado" class="transition-opacity bg-yellow-200 text-yellow-800 text-xs p-2 italic my-2">*Se ha actualizado la contraseña del usuario.</div>
 		</section>
 	</section>
 

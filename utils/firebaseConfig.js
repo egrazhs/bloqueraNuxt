@@ -1,4 +1,6 @@
-// See: https://support.google.com/firebase/answer/7015592
+import { initializeApp } from 'firebase/app';
+import { getFirestore } from 'firebase/firestore';
+
 export default {
   apiKey: "AIzaSyCiW5zcOVHPXDCdkWTzliLPiJhbUBh5M0o",
   authDomain: "bloqueraguadalajara.firebaseapp.com",
