@@ -40,7 +40,7 @@
   <article v-else>
     <table class="w-full text-xs">
       <thead class="font-bold text-sm">
-        <tr>
+        <tr class="text-left">
           <th class="pl-2">ID</th>
           <th>Nombre de Usuario</th>
           <th>Nombre</th>

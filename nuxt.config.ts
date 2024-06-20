@@ -4,6 +4,9 @@ export default defineNuxtConfig({
   build: {
     transpile: ['vuetify'],
   },
+  css: [
+    '@/assets/css/main.css'
+  ],
   devtools: { enabled: true },
   modules: [
     (_options, nuxt) => {
