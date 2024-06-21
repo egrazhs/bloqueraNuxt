@@ -56,7 +56,7 @@
           <td>{{usuario.alias}}</td>
           <td class="py-2 pr-2">
           	<buttonsSeeMore :route="`./usuarios/read/${usuario.id}`" />
-            <NuxtLink :to="`./usuarios/edit/${usuario.id}`" class="p-2 ml-2 text-xs bg-orange-600 hover:bg-orange-700 text-white rounded-md">Editar</NuxtLink>
+          	<ButtonsEdit :route="`./usuarios/edit/${usuario.id}`" />
             <button @click="confirmarEliminacion(usuario)" class="p-2 ml-2 text-xs bg-red-600 hover:bg-red-700 text-white rounded-md">Eliminar</button>
           </td>
         </tr>
