@@ -50,7 +50,7 @@
 			</thead>
 			<tbody class="border-1 border-black pl-2">
 				<tr v-for="usuario in usuarios" :key="usuario.id" :data-key="usuario.id" class="odd:bg-slate-200 even:bg-slate-50 hover:bg-slate-300">
-					<td class="pl-2">{{usuario.id}}</td>
+					<td class="pl-2">{{ parseInt(usuario.id, 10)}}</td>
 					<td>{{usuario.username}}</td>
 					<td>{{usuario.nombre_completo}}</td>
 					<td>{{usuario.alias}}</td>

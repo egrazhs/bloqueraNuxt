@@ -37,14 +37,17 @@ const alias = ref('');
 
 const handleSubmit = async () => {
 	try {
+		const nuevo_id = await getNextId("usuarios");
+
 		// Crear un nuevo objeto con los datos del usuario
 		const nuevoUsuario = {
 			nombre_completo: nombre.value,
 	  		username: username.value,
-	  		alias: alias.value
+	  		alias: alias.value,
+	  		id: nuevo_id
 		};
 
-		const nuevo_id = await getNextId("usuarios");
+		
 
 		// Agregar el nuevo usuario a Firestore utilizando el ID personalizado
 		await agregarDocumento('usuarios', nuevoUsuario, nuevo_id);
