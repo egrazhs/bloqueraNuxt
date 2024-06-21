@@ -6,7 +6,6 @@
 			<ButtonsAddNew route="./usuarios/create" text="Usuario" />
 		</div>
 
-		<v-divider color="success"></v-divider>
 		<hr class="border-1 border-slate-300 my-4">
 
 		<section>

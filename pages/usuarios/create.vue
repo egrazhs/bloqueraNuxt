@@ -1,6 +1,12 @@
 <template>
 	<section>
-		<h1 class="font-bold text-4xl">Crear Usuario</h1>
+		<div class="flex align-center">
+			<ButtonsReturnArrow class="mr-4" size="x-small" />
+			<h1 class="font-bold text-4xl">Crear Usuario</h1>
+		</div>
+
+		<v-divider :thickness="2" class="border-opacity-100 border-slate-400 my-4"></v-divider>
+
 		<form @submit.prevent="handleSubmit">
 			<div class="my-4">
 				<label for="nombre" class="block font-semibold">Nombre:</label>
@@ -21,10 +27,7 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
 import { agregarDocumento } from '~/utils/firebaseUtils';
-
-import { useRouter } from 'vue-router';
 
 const router = useRouter();
 
@@ -61,28 +64,28 @@ const handleSubmit = async () => {
 </script>
 
 <style>
-.input-field {
-	width: 100%;
-	padding: 0.5rem;
-	font-size: 1rem;
-	border: 1px solid #ccc;
-	border-radius: 0.25rem;
-	transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-}
+	.input-field {
+		width: 100%;
+		padding: 0.5rem;
+		font-size: 1rem;
+		border: 1px solid #ccc;
+		border-radius: 0.25rem;
+		transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+	}
 
-.btn-primary {
-	padding: 0.5rem 1rem;
-	font-size: 1rem;
-	color: #fff;
-	background-color: #007bff;
-	border-color: #007bff;
-	border-radius: 0.25rem;
-	cursor: pointer;
-	transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-}
+	.btn-primary {
+		padding: 0.5rem 1rem;
+		font-size: 1rem;
+		color: #fff;
+		background-color: #007bff;
+		border-color: #007bff;
+		border-radius: 0.25rem;
+		cursor: pointer;
+		transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+	}
 
-.btn-primary:hover {
-	background-color: #0056b3;
-	border-color: #0056b3;
-}
+	.btn-primary:hover {
+		background-color: #0056b3;
+		border-color: #0056b3;
+	}
 </style>
