@@ -44,7 +44,7 @@ const handleSubmit = async () => {
 	  		alias: alias.value
 		};
 
-		const nuevo_id = "8"; // Aquí puedes definir tu nuevo ID
+		const nuevo_id = await getNextId("usuarios");
 
 		// Agregar el nuevo usuario a Firestore utilizando el ID personalizado
 		await agregarDocumento('usuarios', nuevoUsuario, nuevo_id);
