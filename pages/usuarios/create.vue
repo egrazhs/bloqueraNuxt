@@ -27,7 +27,6 @@
 </template>
 
 <script setup>
-import { agregarDocumento } from '~/utils/firebaseUtils';
 
 const router = useRouter();
 
