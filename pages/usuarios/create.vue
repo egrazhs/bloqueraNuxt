@@ -36,7 +36,7 @@ const handleSubmit = async () => {
 	try {
 		// Crear un nuevo objeto con los datos del usuario
 		const nuevoUsuario = {
-			nombre: nombre.value,
+			nombre_completo: nombre.value,
 	  		username: username.value,
 	  		alias: alias.value
 		};

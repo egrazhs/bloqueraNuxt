@@ -3,9 +3,10 @@
 		<h1 class="font-bold text-4xl">Usuarios</h1>
 
 		<div class="mt-4">
-			<NuxtLink to="./usuarios/create" class="py-2 px-4 bg-green-600 hover:bg-green-700 text-white rounded-xl text-xs">Agregar nuevo Usuario</NuxtLink>
+			<ButtonsAddNew route="./usuarios/create" text="Usuario" />
 		</div>
 
+		<v-divider color="success"></v-divider>
 		<hr class="border-1 border-slate-300 my-4">
 
 		<section>
@@ -14,7 +15,7 @@
 				*Se ha agregado el usuario de manera exitosa.
 			</div>
 
-			<div v-if="$route.query.usuarioActualizado" class="hidden transition-opacity bg-yellow-200 text-yellow-800 text-xs p-2 italic my-2">
+			<div v-if="$route.query.usuarioActualizado" class="transition-opacity bg-yellow-200 text-yellow-800 text-xs p-2 italic my-2">
 				*Se ha actualizado la información del usuario.
 			</div>
 
