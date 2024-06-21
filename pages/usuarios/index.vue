@@ -55,7 +55,7 @@
           <td>{{usuario.nombre_completo}}</td>
           <td>{{usuario.alias}}</td>
           <td class="py-2 pr-2">
-            <NuxtLink :to="`./usuarios/read/${usuario.id}`" class="p-2 text-xs bg-blue-500 hover:bg-blue-600 text-white rounded-md">Ver Más</NuxtLink>
+          	<buttonsSeeMore :route="`./usuarios/read/${usuario.id}`" />
             <NuxtLink :to="`./usuarios/edit/${usuario.id}`" class="p-2 ml-2 text-xs bg-orange-600 hover:bg-orange-700 text-white rounded-md">Editar</NuxtLink>
             <button @click="confirmarEliminacion(usuario)" class="p-2 ml-2 text-xs bg-red-600 hover:bg-red-700 text-white rounded-md">Eliminar</button>
           </td>
@@ -83,14 +83,14 @@
       <v-card-actions>
         <v-spacer></v-spacer>
         <v-btn color="red darken-1" text @click="cancelarEliminacion">Cancelar</v-btn>
-        <v-btn :disabled="eliminando" color="green darken-1" text @click="eliminarUsuarioConfirmado">
-          <template v-if="eliminando">
-            <v-progress-circular indeterminate size="20"></v-progress-circular>
-          </template>
-          <template v-else>
-            Eliminar
-          </template>
-        </v-btn>
+          <v-btn :disabled="eliminando" color="green darken-1" text @click="eliminarUsuarioConfirmado">
+            <template v-if="eliminando">
+              <v-progress-circular indeterminate size="20"></v-progress-circular>
+            </template>
+            <template v-else>
+              Eliminar
+            </template>
+          </v-btn>
       </v-card-actions>
     </v-card>
   </v-dialog>
@@ -104,6 +104,7 @@ const usuarioSeleccionado = ref(null);
 const usuarioEliminado = ref(false);
 const eliminando = ref(false);
 const error = ref('');
+
 
 const fetchDataFromFirebase = async () => {
   const data = await fetchDataByCollection('usuarios');
