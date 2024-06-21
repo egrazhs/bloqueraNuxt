@@ -13,7 +13,7 @@
 					<v-list-item>
 						<v-list-item-content>
 							<v-list-item-title>ID:</v-list-item-title>
-							<v-list-item-subtitle>{{usuario.id}}</v-list-item-subtitle>
+							<v-list-item-subtitle>{{parseInt(usuario.id, 10)}}</v-list-item-subtitle>
 						</v-list-item-content>
 					</v-list-item>
 
