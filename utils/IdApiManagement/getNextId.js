@@ -36,7 +36,7 @@ export const getNextId = async (collectionName) => {
         const nextId = padWithZeros(nextIdNumber, 6);
 
         // Devuelve el siguiente ID autoincrementado con padding
-        console.log("Siguiente ID:", nextId);
+        //console.log("Siguiente ID:", nextId);
         return nextId;
     } catch (error) {
         console.error("Error obteniendo el siguiente ID:", error);
