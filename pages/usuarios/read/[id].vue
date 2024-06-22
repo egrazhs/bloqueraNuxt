@@ -11,24 +11,18 @@
 			<v-card-text>
 				<v-list>
 					<v-list-item>
-						<v-list-item-content>
-							<v-list-item-title>ID:</v-list-item-title>
-							<v-list-item-subtitle>{{parseInt(usuario.id, 10)}}</v-list-item-subtitle>
-						</v-list-item-content>
+						<v-list-item-title>ID:</v-list-item-title>
+						<v-list-item-subtitle>{{parseInt(usuario.id, 10)}}</v-list-item-subtitle>
 					</v-list-item>
 
 					<v-list-item>
-						<v-list-item-content>
-							<v-list-item-title>Nombre:</v-list-item-title>
-							<v-list-item-subtitle>{{usuario.nombre_completo}}</v-list-item-subtitle>
-						</v-list-item-content>
+						<v-list-item-title>Nombre:</v-list-item-title>
+						<v-list-item-subtitle>{{usuario.nombre_completo}}</v-list-item-subtitle>
 					</v-list-item>
 
 					<v-list-item>
-						<v-list-item-content>
-							<v-list-item-title>Username:</v-list-item-title>
-							<v-list-item-subtitle>{{usuario.username}}</v-list-item-subtitle>
-						</v-list-item-content>
+						<v-list-item-title>Username:</v-list-item-title>
+						<v-list-item-subtitle>{{usuario.username}}</v-list-item-subtitle>
 					</v-list-item>
 				</v-list>
 
@@ -68,9 +62,6 @@
 
 	const router = useRouter();
 	const usuario = ref(null);
-
-
-
 
 	onMounted(async () => {
 		try {

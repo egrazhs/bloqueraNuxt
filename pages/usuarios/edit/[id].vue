@@ -49,6 +49,16 @@
 </template>
 
 <script setup>
+	import { getDoc, updateDoc, doc, getFirestore } from 'firebase/firestore';
+	import firebaseConfig from '~/utils/firebaseConfig';
+	import { initializeApp } from 'firebase/app';
+
+	const app = initializeApp(firebaseConfig);
+	// Obtiene la instancia de Firestore
+	const db = getFirestore(app);
+
+	const router = useRouter();
+	const route = useRoute();
 
 	const usuario = ref({
 		nombre_completo: '',
@@ -58,7 +68,7 @@
 	const loading = ref(true);
 	const valid = ref(false);
 	const rules = {
-		required: value => !!value || 'Este campo es requerido'
+		required: [value => !!value || 'Este campo es requerido']
 	};
 
 	const volver = () => {
@@ -71,12 +81,13 @@
 			const usuarioDoc = await getDoc(doc(db, 'usuarios', id));
 			if (usuarioDoc.exists()) {
 				usuario.value = usuarioDoc.data();
-				loading.value = false;
 			} else {
 				console.error('Usuario no encontrado');
 			}
 		} catch (error) {
 			console.error('Error al obtener detalles del usuario:', error.message);
+		} finally {
+			loading.value = false;
 		}
 	};
 
