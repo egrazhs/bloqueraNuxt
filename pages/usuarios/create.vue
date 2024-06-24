@@ -4,7 +4,7 @@
 		<form @submit.prevent="handleSubmit">
 			<div class="my-4">
 				<label for="nombre" class="block font-semibold">Nombre:</label>
-				<input v-model="nombre" type="text" id="nombre" class="input-field" required>
+				<input v-model="nombre_completo" type="text" id="nombre" class="input-field" required>
 			</div>
 			<div class="my-4">
 				<label for="username" class="block font-semibold">Username:</label>
@@ -28,7 +28,7 @@ import { useRouter } from 'vue-router';
 
 const router = useRouter();
 
-const nombre = ref('');
+const nombre_completo = ref('');
 const username = ref('');
 const alias = ref('');
 
@@ -36,7 +36,7 @@ const handleSubmit = async () => {
 	try {
 		// Crear un nuevo objeto con los datos del usuario
 		const nuevoUsuario = {
-			nombre: nombre.value,
+			nombre_completo: nombre_completo.value,
 	  		username: username.value,
 	  		alias: alias.value
 		};
@@ -47,7 +47,7 @@ const handleSubmit = async () => {
 		await agregarDocumento('usuarios', nuevoUsuario, nuevo_id);
 
 		// Limpiar los campos del formulario después de agregar el usuario
-		nombre.value = '';
+		nombre_completo.value = '';
 		username.value = '';
 		alias.value = '';
 
