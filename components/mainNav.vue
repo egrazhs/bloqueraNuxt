@@ -1,7 +1,7 @@
 <template>
 	<article class="bg-blue-800 text-white flex flex-col justify-between">
 		<div>
-            <NavItem to="./" imgSource="clipboard.svg" text="Inicio" />
+            <NavItem to="/" imgSource="clipboard.svg" text="Inicio" />
             <NavItem to="/usuarios" imgSource="user.svg" text="Usuarios" />
             <NavItem to="/clientes" imgSource="user-group.svg" text="Clientes" />
             <NavItem to="/proveedores" imgSource="briefcase.svg" text="Proveedores" />

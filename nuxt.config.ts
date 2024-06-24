@@ -1,10 +1,15 @@
 import vuetify, { transformAssetUrls } from 'vite-plugin-vuetify'
 export default defineNuxtConfig({
-  //...
   build: {
     transpile: ['vuetify'],
   },
+  css: [
+    '@/assets/css/main.css'
+  ],
   devtools: { enabled: true },
+  imports: {
+    dirs: ['utils/**']
+  },
   modules: [
     (_options, nuxt) => {
       nuxt.hooks.hook('vite:extendConfig', (config) => {
