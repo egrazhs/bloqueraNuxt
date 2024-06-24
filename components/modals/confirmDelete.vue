@@ -10,7 +10,7 @@
 						<strong>ID:</strong> {{ item.id }}
 					</v-col>
 					<v-col cols="5" md="5">
-						<strong>Nombre:</strong> {{ item.nombre_completo }}
+						<strong>{{ data_name }} : </strong> {{ data_value }}
 					</v-col>
 				</v-row>
 			</div>
@@ -43,6 +43,15 @@
 		confirmMessage: {
 			type: String,
 			default: '¿Estás seguro de que deseas eliminar este elemento?'
+		},
+		data_name: {
+			type: String,
+			required: false,
+			default: 'Nombre'
+		},
+		data_value: {
+			type: String,
+			required: true
 		}
 	});
 

@@ -68,6 +68,8 @@
       :show="dialog" 
       :item="usuarioSeleccionado" 
       confirmMessage="¿Estás seguro de que deseas eliminar este usuario?" 
+      data_name="Nombre" 
+      :data_value="data_value"
       :deleteFunction="eliminarUsuarioConfirmado" 
       @cancel="cancelarEliminacion" 
       @confirm="eliminarUsuarioConfirmado" 
@@ -82,7 +84,7 @@
 	const usuarioEliminado = ref(false);
 	const eliminando = ref(false);
 	const error = ref('');
-
+	let data_value = ref("");
 
 	const fetchDataFromFirebase = async () => {
 		const data = await fetchDataByCollection('usuarios');
@@ -94,6 +96,7 @@
 
 	const confirmarEliminacion = (usuario) => {
 		usuarioSeleccionado.value = usuario;
+		data_value = usuario.nombre_completo;
 		dialog.value = true;
 	};
 
