@@ -3,7 +3,7 @@
 		<h1 class="font-bold text-4xl">Remisiones</h1>
 	
 		<div class="mt-4">
-			<NuxtLink to="./remisiones/create" class="py-2 px-4 bg-green-600 hover:bg-green-700 text-white rounded-xl text-xs">Agregar nuevo Usuario</NuxtLink>
+			<ButtonsAddNew route="./remisiones/create" text="Remision" />
 		</div>
 
 		<hr class="border-1 border-slate-300 my-4">

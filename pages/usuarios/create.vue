@@ -10,7 +10,7 @@
 		<form @submit.prevent="handleSubmit">
 			<div class="my-4">
 				<label for="nombre" class="block font-semibold">Nombre:</label>
-				<input v-model="nombre_completo" type="text" id="nombre" class="input-field" required>
+				<input v-model="nombre" type="text" id="nombre" class="input-field" required>
 			</div>
 			<div class="my-4">
 				<label for="username" class="block font-semibold">Username:</label>
@@ -30,7 +30,7 @@
 
 const router = useRouter();
 
-const nombre_completo = ref('');
+const nombre = ref('');
 const username = ref('');
 const alias = ref('');
 
@@ -40,11 +40,7 @@ const handleSubmit = async () => {
 
 		// Crear un nuevo objeto con los datos del usuario
 		const nuevoUsuario = {
-<<<<<<< HEAD
-			nombre_completo: nombre_completo.value,
-=======
 			nombre_completo: nombre.value,
->>>>>>> b55e77ec30160e40abe477eb34f78045f3d3e9f3
 	  		username: username.value,
 	  		alias: alias.value,
 	  		id: nuevo_id,
@@ -88,7 +84,7 @@ const handleSubmit = async () => {
 		await agregarDocumento('usuarios', nuevoUsuario, nuevo_id);
 
 		// Limpiar los campos del formulario después de agregar el usuario
-		nombre_completo.value = '';
+		nombre.value = '';
 		username.value = '';
 		alias.value = '';
 
