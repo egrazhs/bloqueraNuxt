@@ -9,14 +9,29 @@
 		<hr class="border-1 border-slate-300 my-4">
 
 		<section>
-			<div class="hidden transition-opacity bg-blue-200 text-blue-800 text-xs p-2 italic my-2">*Se ha agregado el usuario de manera exitosa.</div>
-			<div class="hidden transition-opacity bg-yellow-200 text-yellow-800 text-xs p-2 italic my-2">*Se ha actualizado la información del usuario.</div>
-			<div class="hidden transition-opacity bg-red-200 text-red-800 text-xs p-2 italic my-2">*Se ha borrado el usuario de manera exitosa.</div>
-			<div class="hidden transition-opacity bg-yellow-200 text-yellow-800 text-xs p-2 italic my-2">*Se ha actualizado la contraseña del usuario.</div>
+			<!-- Mensaje de éxito -->
+			<div v-if="$route.query.c" class="transition-opacity bg-blue-200 text-blue-800 text-xs p-2 italic my-2">
+				*Se ha agregado el arqueo de manera exitosa.
+			</div>
+
+			<div v-if="$route.query.documentoActualizado" class="transition-opacity bg-yellow-200 text-yellow-800 text-xs p-2 italic my-2">
+				*Se ha actualizado la información del arqueo.
+			</div>
+
+			<div v-if="documento_eliminado" class="transition-opacity bg-red-200 text-red-800 text-xs p-2 italic my-2">
+				*Se ha borrado el usuario de manera exitosa.
+			</div>
+
+			<!-- Mensaje de error -->
+			<div v-if="error" class="transition-opacity bg-red-200 text-red-800 text-xs p-2 italic my-2">
+				{{ error }}
+			</div>
 		</section>
 	</section>
 
-	<article>
+	<ScreensLoading v-if="loading"></ScreensLoading>
+
+	<article v-else>
 		<table class="w-full text-xs">
 			<thead class="font-bold text-sm">
 				<td class="pl-2">ID</td>
@@ -30,24 +45,79 @@
 					<td>{{cliente.nombre}}</td>
 					<td>{{cliente.alias}}</td>
 					<td class="py-2 pr-2">
-						<NuxtLink :to="`./usuarios/read/${cliente.id}`" class="p-2 text-xs bg-blue-500 hover:bg-blue-600 text-white rounded-md">Ver Más</NuxtLink>
-						<NuxtLink :to="`./usuarios/edit/${cliente.id}`" class="p-2 ml-2 text-xs bg-orange-600 hover:bg-orange-700 text-white rounded-md text-slate-20">Editar</NuxtLink>
-						<button class="p-2 ml-2 text-xs bg-red-600 hover:bg-red-700 text-white rounded-md">Eliminar</button>
+						<buttonsSeeMore :route="`./clientes/read/${cliente.id}`" />
+						<ButtonsEdit :route="`./clientes/edit/${cliente.id}`" />
+						<ButtonsDelete :item="cliente" @confirm="confirmar_eliminacion" />
 					</td>
 				</tr>
 			</tbody>
 		</table>
 	</article>	
+
+	<ModalsConfirmDelete 
+      :show="dialog" 
+      :item="documento_seleccionado" 
+      confirmMessage="¿Estás seguro de que deseas eliminar este Cliente?" 
+      :deleteFunction="eliminar_documento_confirmado" 
+      @cancel="cancelar_eliminacion" 
+      @confirm="eliminar_documento_confirmado"
+      data_name="" 
+      :data_value="data_value"
+    />
 </template>
 
 <script setup>
 	const clientes = ref([]);
+	const loading = ref(true);
+	const dialog = ref(false);
+	const documento_seleccionado = ref(null);
+	const documento_eliminado = ref(false);
+	const eliminando = ref(false);
+	const error = ref('');
+	let data_value = ref('');
 
 	const fetchDataFromFirebase = async () => {
 		const data = await fetchDataByCollection("clientes");
 		clientes.value = data;
+		loading.value = false;
 	};
 
-	// Llama a la función fetchDataFromFirebase cuando el componente se monte
 	onMounted(fetchDataFromFirebase);
+
+	const confirmar_eliminacion = (doc) => {
+		documento_seleccionado.value = doc;
+		dialog.value = true;
+	};
+
+	const cancelar_eliminacion = () => {
+		documento_seleccionado.value = null;
+		dialog.value = false;
+	};
+
+	const eliminar_documento_confirmado = async () => {
+		if (documento_seleccionado.value) {
+			eliminando.value = true; // Comienza la eliminación
+			error.value = ''; // Resetea el mensaje de error
+
+			const doc_row = document.querySelector(`tr[data-key="${documento_seleccionado.value.id}"]`);
+			doc_row.classList.add('fading-out');
+
+			setTimeout(async () => {
+				try {
+					await deleteDataByDocId('clientes', documento_seleccionado.value.id);
+					productos.value = productos.value.filter(u => u.id !== documento_seleccionado.value.id);
+					documento_seleccionado.value = null;
+					dialog.value = false;
+					documento_eliminado.value = true;
+				} catch (err) {
+					error.value = 'Error eliminando el usuario. Por favor, intenta de nuevo.';
+				} finally {
+				eliminando.value = false; // Termina la eliminación
+			}
+			setTimeout(() => {
+				documento_eliminado.value = false;
+			  }, 3000); // Ocultar el mensaje de éxito después de 3 segundos
+			}, 500); // Duración de la animación
+		}
+	};
 </script>
