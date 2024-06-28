@@ -25,7 +25,7 @@
 			<h6 class="font-bold">Clientes</h6>
 			<ol class="text-xs">
 				<li>Crear</li>
-				<li>Ver</li>
+				<li><span class="text-green-600">✓</span>Ver</li>
 				<li>Modificar</li>
 				<li>Eliminar</li>
 			</ol>
@@ -33,7 +33,7 @@
 			<h6 class="font-bold">Proveedores</h6>
 			<ol class="text-xs">
 				<li>Crear.</li>
-				<li>Ver</li>
+				<li><span class="text-green-600">✓</span>Ver</li>
 				<li>Modificar</li>
 				<li>Eliminar</li>
 			</ol>
@@ -41,7 +41,7 @@
 			<h6 class="font-bold">Productos</h6>
 			<ol class="text-xs">
 				<li>Crear</li>
-				<li>Ver</li>
+				<li><span class="text-green-600">✓</span>Ver</li>
 				<li>Modificar</li>
 				<li>Eliminar</li>
 			</ol>
@@ -49,7 +49,7 @@
 			<h6 class="font-bold">Remisiones</h6>
 			<ol class="text-xs">
 				<li>Crear.</li>
-				<li>Ver</li>
+				<li><span class="text-green-600">✓</span>Ver</li>
 				<li>Modificar</li>
 				<li>Eliminar</li>
 			</ol>
@@ -57,7 +57,7 @@
 			<h6 class="font-bold">Sucursales</h6>
 			<ol class="text-xs">
 				<li>Crear.</li>
-				<li>Ver</li>
+				<li><span class="text-green-600">✓</span>Ver</li>
 				<li>Modificar</li>
 				<li>Eliminar</li>
 			</ol>
@@ -65,7 +65,7 @@
 			<h6 class="font-bold">Vehiculos</h6>
 			<ol class="text-xs">
 				<li>Crear.</li>
-				<li>Ver</li>
+				<li><span class="text-green-600">✓</span>Ver</li>
 				<li>Modificar</li>
 				<li>Eliminar</li>
 			</ol>

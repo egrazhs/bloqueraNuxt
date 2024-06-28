@@ -1,6 +1,6 @@
 <template>
 	<section>
-		<h1 class="font-bold text-4xl">Vehiculos</h1>
+		<h1 class="font-bold text-4xl">Sucursales</h1>
 	
 		<div class="mt-4">
 			<ButtonsAddNew route="./sucursales/create" text="Sucursal" />
@@ -78,7 +78,7 @@
 
 	const fetchDataFromFirebase = async () => {
 		const data = await fetchDataByCollection("sucursales");
-		remisiones.value = data;
+		sucursales.value = data;
 		loading.value = false;
 	};
 

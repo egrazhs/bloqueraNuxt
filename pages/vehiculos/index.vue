@@ -82,7 +82,7 @@
 
 	const fetchDataFromFirebase = async () => {
 		const data = await fetchDataByCollection("vehiculos");
-		remisiones.value = data;
+		vehiculos.value = data;
 		loading.value = false;
 	};
 
