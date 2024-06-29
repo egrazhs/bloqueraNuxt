@@ -16,16 +16,17 @@
 			<hr>
 			<h6 class="font-bold">Usuarios</h6>
 			<ol class="text-xs">
-				<li><span class="text-green-600">✓</span> - Crear</li>
-				<li><span class="text-green-600">✓</span> - Ver</li>
-				<li><span class="text-green-600">✓</span> - Modificar</li>
-				<li><span class="text-green-600">✓</span> - Eliminar</li>
+				<li><span class="text-green-600">✓ - </span>Crear</li>
+				<li><span class="text-green-600">✓ - </span>Ver</li>
+				<li><span class="text-green-600">✓ - </span>Modificar</li>
+				<li><span class="text-green-600">✓ - </span>Eliminar</li>
 			</ol>
 
 			<h6 class="font-bold">Clientes</h6>
 			<ol class="text-xs">
+				<li><span class="text-green-600">✓ - </span>Detalles</li>
 				<li>Crear</li>
-				<li><span class="text-green-600">✓</span>Ver</li>
+				<li><span class="text-green-600">✓ - </span>Ver</li>
 				<li>Modificar</li>
 				<li>Eliminar</li>
 			</ol>
@@ -33,49 +34,55 @@
 			<h6 class="font-bold">Proveedores</h6>
 			<ol class="text-xs">
 				<li>Crear.</li>
-				<li><span class="text-green-600">✓</span>Ver</li>
+				<li><span class="text-green-600">✓ - </span>Ver</li>
 				<li>Modificar</li>
 				<li>Eliminar</li>
+				<li>Detalles</li>
 			</ol>
 
 			<h6 class="font-bold">Productos</h6>
 			<ol class="text-xs">
 				<li>Crear</li>
-				<li><span class="text-green-600">✓</span>Ver</li>
+				<li><span class="text-green-600">✓ - </span>Ver</li>
 				<li>Modificar</li>
 				<li>Eliminar</li>
+				<li>Detalles</li>
 			</ol>
 
 			<h6 class="font-bold">Remisiones</h6>
 			<ol class="text-xs">
 				<li>Crear.</li>
-				<li><span class="text-green-600">✓</span>Ver</li>
+				<li><span class="text-green-600">✓ - </span>Ver</li>
 				<li>Modificar</li>
 				<li>Eliminar</li>
+				<li>Detalles</li>
 			</ol>
 
 			<h6 class="font-bold">Sucursales</h6>
 			<ol class="text-xs">
 				<li>Crear.</li>
-				<li><span class="text-green-600">✓</span>Ver</li>
+				<li><span class="text-green-600">✓ - </span>Ver</li>
 				<li>Modificar</li>
 				<li>Eliminar</li>
+				<li>Detalles</li>
 			</ol>
 
 			<h6 class="font-bold">Vehiculos</h6>
 			<ol class="text-xs">
 				<li>Crear.</li>
-				<li><span class="text-green-600">✓</span>Ver</li>
+				<li><span class="text-green-600">✓ - </span>Ver</li>
 				<li>Modificar</li>
 				<li>Eliminar</li>
+				<li>Detalles</li>
 			</ol>
 
 			<h6 class="font-bold">Arqueos</h6>
 			<ol class="text-xs">
 				<li>Crear.</li>
-				<li><span class="text-green-600">✓</span> - Ver</li>
+				<li><span class="text-green-600">✓ - </span>Ver</li>
 				<li>Modificar</li>
 				<li>Eliminar</li>
+				<li>Detalles</li>
 			</ol>
 		</section>
 	</section>
