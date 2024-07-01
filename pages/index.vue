@@ -100,3 +100,58 @@
 		</section>
 	</section>
 </template>
+
+<script setup>
+	import { initializeApp } from 'firebase/app';
+	import { getFirestore, collection, getDocs, doc, setDoc, deleteDoc } from 'firebase/firestore';
+	import firebaseConfig from '~/utils/firebaseConfig';
+
+	// Inicializa la aplicación Firebase
+	const app = initializeApp(firebaseConfig);
+	const db = getFirestore(app);
+
+	useHead({
+		title: 'Bloquera GDL'
+	});
+
+	// Función para agregar padding a un número
+	const padWithZeros = (num, length) => {
+	    return num.toString().padStart(length, "0");
+	};
+
+
+	const arreglarIds = async () => {
+		console.log('Función para arreglar Ids de documentos llamada');
+
+		const documento = 'clientes';
+		
+		try {
+			let abonos = await fetchDataByCollection(documento);
+			console.log('Abonos obtenidos:', abonos);
+			let contador = 1;
+			for (const abono of abonos) {
+				// Convertir el ID a un número, agregar ceros a la izquierda y convertir de nuevo a string
+				const newId = padWithZeros(contador, 6);
+				const viejo_id = abono.id;
+				console.log('Nuevo ID:', newId);
+
+				// Crear un nuevo documento con el ID ajustado
+				abono.id = newId;
+				const newDocRef = doc(db, documento, newId);
+				await setDoc(newDocRef, abono);
+
+				// Eliminar el documento original si es necesario
+				const oldDocRef = doc(db, documento, viejo_id);
+				await deleteDoc(oldDocRef);
+
+				console.log(`Documento con ID ${viejo_id} renombrado a ${newId}`);
+				contador++;
+			}
+
+		} catch (error) {
+			console.error('Error al arreglar los IDs:', error);
+		}
+
+		
+	};
+</script>
