@@ -42,7 +42,7 @@
 			</thead>
 			<tbody class="border-1 border-black pl-2">
 				<tr v-for="arqueo in arqueos" :key="arqueo.id" :data-key="arqueo.id" class="odd:bg-slate-200 even:bg-slate-50 hover:bg-slate-300">
-					<td class="pl-2">{{arqueo.id}}</td>
+					<td class="pl-2">{{ parseInt(arqueo.id, 10) }}</td>
 					<td>{{arqueo.fecha}}</td>
 					<td>{{arqueo.hora}}</td>
 					<td>{{calcular_total_arqueo(arqueo)}}</td>

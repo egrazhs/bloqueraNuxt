@@ -8,18 +8,19 @@
 			<ol class="text-xs">
 				<li>~ Reemplazo de Links por componentes de Boton <i>AddNew</i> en todos los tipos de documentos.</li>
 				<li>~ Realizadas pruebas en Paginas index de todos los documentos.</li>
+				<li>~ Cambiar el id de los documentos en la BD para normalizar el tipo de numeración</li>
 			</ol>
 		</section>
 
 		<section class="p-2 hover:bg-slate-200">
 			<h4 class="font-bold">To Do:</h4>
 			<ol class="text-xs">
-				<li>~ Cambiar el id de los documentos en la BD para normalizar el tipo de numeración</li>
 				<li>~ Utils para arqueos</li>
 				<li>~ Utils para consultas a BD.</li>
 				<li>~ Barras de búsqueda en documentos</li>
 				<li>~ Paginar documentos en donde haya mas de 10 en una pagina.</li>
 				<li>~ Subir página a dominio de prueba.</li>
+				<li>~ Dar formato a 0´s a la izquierda en numeraciones de las tablas [UI/UX]</li>
 			</ol>
 		</section>
 

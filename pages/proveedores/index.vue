@@ -41,7 +41,7 @@
 			</thead>
 			<tbody class="border-1 border-black pl-2">
 				<tr v-for="proveedor in proveedores" class="odd:bg-slate-200 even:bg-slate-50 hover:bg-slate-300">
-					<td class="pl-2">{{proveedor.id}}</td>
+					<td class="pl-2">{{parseInt(proveedor.id, 10) }}</td>
 					<td>{{proveedor.nombre}}</td>
 					<td>{{proveedor.alias}}</td>
 					<td class="py-2 pr-2">

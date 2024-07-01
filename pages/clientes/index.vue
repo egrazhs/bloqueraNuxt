@@ -41,7 +41,7 @@
 			</thead>
 			<tbody class="border-1 border-black pl-2">
 				<tr v-for="cliente in clientes" class="odd:bg-slate-200 even:bg-slate-50 hover:bg-slate-300">
-					<td class="pl-2">{{cliente.id}}</td>
+					<td class="pl-2">{{ parseInt(cliente.id, 10) }}</td>
 					<td>{{cliente.nombre}}</td>
 					<td>{{cliente.alias}}</td>
 					<td class="py-2 pr-2">
