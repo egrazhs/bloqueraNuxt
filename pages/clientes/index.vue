@@ -40,7 +40,7 @@
 				<td>Acciones</td>
 			</thead>
 			<tbody class="border-1 border-black pl-2">
-				<tr v-for="cliente in clientes" class="odd:bg-slate-200 even:bg-slate-50 hover:bg-slate-300">
+				<tr v-for="cliente in clientes" :key="cliente.id" :data-key="cliente.id" class="odd:bg-slate-200 even:bg-slate-50 hover:bg-slate-300">
 					<td class="pl-2">{{ parseInt(cliente.id, 10) }}</td>
 					<td>{{cliente.nombre}}</td>
 					<td>{{cliente.alias}}</td>
@@ -105,7 +105,7 @@
 			setTimeout(async () => {
 				try {
 					await deleteDataByDocId('clientes', documento_seleccionado.value.id);
-					productos.value = productos.value.filter(u => u.id !== documento_seleccionado.value.id);
+					clientes.value = clientes.value.filter(u => u.id !== documento_seleccionado.value.id);
 					documento_seleccionado.value = null;
 					dialog.value = false;
 					documento_eliminado.value = true;

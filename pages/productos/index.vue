@@ -39,7 +39,7 @@
 				<td>Acciones</td>
 			</thead>
 			<tbody class="border-1 border-black pl-2">
-				<tr v-for="producto in productos" class="odd:bg-slate-200 even:bg-slate-50 hover:bg-slate-300">
+				<tr v-for="producto in productos" :key="producto.id" :data-key="producto.id" class="odd:bg-slate-200 even:bg-slate-50 hover:bg-slate-300">
 					<td class="pl-2">{{ parseInt(producto.id, 10) }}</td>
 					<td>{{producto.nombre}}</td>
 					<td class="py-2 pr-2">

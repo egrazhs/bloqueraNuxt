@@ -7,7 +7,7 @@
 				<v-row class="text-xs italic">
 					<v-col cols="1"></v-col>
 					<v-col cols="5" md="5">
-						<strong>ID:</strong> {{ item.id }}
+						<strong>ID:</strong> {{ parseInt(item.id, 10) }}
 					</v-col>
 					<v-col cols="5" md="5">
 						<strong>{{ data_name }} : </strong> {{ data_value }}

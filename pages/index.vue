@@ -9,6 +9,7 @@
 				<li>~ Reemplazo de Links por componentes de Boton <i>AddNew</i> en todos los tipos de documentos.</li>
 				<li>~ Realizadas pruebas en Paginas index de todos los documentos.</li>
 				<li>~ Cambiar el id de los documentos en la BD para normalizar el tipo de numeración</li>
+				<li>~ Dar formato a 0´s a la izquierda en numeraciones de las tablas [UI/UX]</li>
 			</ol>
 		</section>
 
@@ -20,7 +21,7 @@
 				<li>~ Barras de búsqueda en documentos</li>
 				<li>~ Paginar documentos en donde haya mas de 10 en una pagina.</li>
 				<li>~ Subir página a dominio de prueba.</li>
-				<li>~ Dar formato a 0´s a la izquierda en numeraciones de las tablas [UI/UX]</li>
+				<li>~ Mostrar bien el formato de la fecha en arqueos</li>
 			</ol>
 		</section>
 
@@ -39,7 +40,7 @@
 			<h6 class="font-bold">Clientes</h6>
 			<ol class="text-xs">
 				<li><span class="text-green-600">✓ - </span>Detalles</li>
-				<li>Crear</li>
+				<li><span class="text-green-600">✓ - </span>Crear</li>
 				<li><span class="text-green-600">✓ - </span>Ver</li>
 				<li>Modificar</li>
 				<li><span class="text-yellow-600">~ - </span>Eliminar</li>
@@ -92,10 +93,10 @@
 
 			<h6 class="font-bold">Arqueos</h6>
 			<ol class="text-xs">
-				<li>Crear.</li>
+				<li><span class="text-green-600">✓ - </span>Crear.</li>
 				<li><span class="text-green-600">✓ - </span>Ver</li>
 				<li>Modificar</li>
-				<li><span class="text-yellow-600">~ - </span>Eliminar</li>
+				<li><span class="text-green-600">✓ - </span>Eliminar</li>
 				<li><span class="text-green-600">✓ - </span>Detalles</li>
 			</ol>
 		</section>

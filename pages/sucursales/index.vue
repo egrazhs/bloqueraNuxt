@@ -40,7 +40,7 @@
 				<td>Acciones</td>
 			</thead>
 			<tbody class="border-1 border-black pl-2">
-				<tr v-for="sucursal in sucursales" class="odd:bg-slate-200 even:bg-slate-50 hover:bg-slate-300">
+				<tr v-for="sucursal in sucursales" :key="sucursal.id" :data-key="sucursal.id" class="odd:bg-slate-200 even:bg-slate-50 hover:bg-slate-300">
 					<td class="pl-2">{{ parseInt(sucursal.id, 10) }}</td>
 					<td>{{sucursal.nombre}}</td>
 					<td>{{sucursal.direccion}}</td>
