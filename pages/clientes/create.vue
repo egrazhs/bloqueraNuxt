@@ -28,7 +28,6 @@
 const router = useRouter();
 
 const nombre = ref('');
-const username = ref('');
 const alias = ref('');
 
 const handleSubmit = async () => {

@@ -42,7 +42,7 @@
 				<td>Acciones</td>
 			</thead>
 			<tbody class="border-1 border-black pl-2">
-				<tr v-for="vehiculo in vehiculos" class="odd:bg-slate-200 even:bg-slate-50 hover:bg-slate-300">
+				<tr v-for="vehiculo in vehiculos" :key="vehiculo.id" :data-key="vehiculo.id" class="odd:bg-slate-200 even:bg-slate-50 hover:bg-slate-300">
 					<td class="pl-2">{{ parseInt(vehiculo.id, 10) }}</td>
 					<td>{{vehiculo.modelo}}</td>
 					<td>{{vehiculo.year}}</td>

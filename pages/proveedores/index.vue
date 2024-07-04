@@ -11,7 +11,7 @@
 		<section>
 			<!-- Mensaje de éxito -->
 			<div v-if="$route.query.c" class="transition-opacity bg-blue-200 text-blue-800 text-xs p-2 italic my-2">
-				*Se ha agregado el Proovedor de manera exitosa.
+				*Se ha agregado el Proveedor de manera exitosa.
 			</div>
 
 			<div v-if="$route.query.documentoActualizado" class="transition-opacity bg-yellow-200 text-yellow-800 text-xs p-2 italic my-2">
@@ -19,7 +19,7 @@
 			</div>
 
 			<div v-if="documento_eliminado" class="transition-opacity bg-red-200 text-red-800 text-xs p-2 italic my-2">
-				*Se ha borrado el Porveedor de manera exitosa.
+				*Se ha borrado el Proveedor de manera exitosa.
 			</div>
 
 			<!-- Mensaje de error -->

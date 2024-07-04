@@ -48,19 +48,19 @@
 
 			<h6 class="font-bold">Proveedores</h6>
 			<ol class="text-xs">
-				<li>Crear</li>
+				<li><span class="text-green-600">✓ - </span>Crear</li>
 				<li><span class="text-green-600">✓ - </span>Ver</li>
 				<li>Modificar</li>
-				<li><span class="text-yellow-600">~ - </span>Eliminar</li>
+				<li><span class="text-green-600">✓ - </span>Eliminar</li>
 				<li><span class="text-green-600">✓ - </span>Detalles</li>
 			</ol>
 
 			<h6 class="font-bold">Productos</h6>
 			<ol class="text-xs">
-				<li>Crear</li>
+				<li><span class="text-green-600">✓ - </span>Crear</li>
 				<li><span class="text-green-600">✓ - </span>Ver</li>
 				<li>Modificar</li>
-				<li><span class="text-yellow-600">~ - </span>Eliminar</li>
+				<li><span class="text-green-600">✓ - </span>Eliminar</li>
 				<li><span class="text-green-600">✓ - </span>Detalles</li>
 			</ol>
 
@@ -84,10 +84,10 @@
 
 			<h6 class="font-bold">Vehiculos</h6>
 			<ol class="text-xs">
-				<li>Crear.</li>
+				<li><span class="text-green-600">✓ - </span>Crear.</li>
 				<li><span class="text-green-600">✓ - </span>Ver</li>
 				<li>Modificar</li>
-				<li><span class="text-yellow-600">~ - </span>Eliminar</li>
+				<li><span class="text-green-600">✓ - </span>Eliminar</li>
 				<li><span class="text-green-600">✓ - </span>Detalles</li>
 			</ol>
 
