@@ -24,6 +24,11 @@
 						<v-list-item-title>Prefijo:</v-list-item-title>
 						<v-list-item-subtitle>{{doc_info.prefijo}}</v-list-item-subtitle>
 					</v-list-item>
+
+					<v-list-item>
+						<v-list-item-title>Dirección:</v-list-item-title>
+						<v-list-item-subtitle>{{doc_info.direccion}}</v-list-item-subtitle>
+					</v-list-item>
 				</v-list>
 			</v-card-text>
 		</v-card>
