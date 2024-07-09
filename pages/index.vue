@@ -10,6 +10,7 @@
 				<li>~ Realizadas pruebas en Paginas index de todos los documentos.</li>
 				<li>~ Cambiar el id de los documentos en la BD para normalizar el tipo de numeración</li>
 				<li>~ Dar formato a 0´s a la izquierda en numeraciones de las tablas [UI/UX]</li>
+				<li>~ Utils para consultas a BD.</li>
 			</ol>
 		</section>
 
@@ -17,7 +18,6 @@
 			<h4 class="font-bold">To Do:</h4>
 			<ol class="text-xs">
 				<li>~ Utils para arqueos</li>
-				<li>~ Utils para consultas a BD.</li>
 				<li>~ Barras de búsqueda en documentos</li>
 				<li>~ Paginar documentos en donde haya mas de 10 en una pagina.</li>
 				<li>~ Subir página a dominio de prueba.</li>
@@ -42,7 +42,7 @@
 				<li><span class="text-green-600">✓ - </span>Detalles</li>
 				<li><span class="text-green-600">✓ - </span>Crear</li>
 				<li><span class="text-green-600">✓ - </span>Ver</li>
-				<li>Modificar</li>
+				<li><span class="text-green-600">✓ - </span>Modificar</li>
 				<li><span class="text-green-600">✓ - </span>Eliminar</li>
 			</ol>
 
@@ -50,7 +50,7 @@
 			<ol class="text-xs">
 				<li><span class="text-green-600">✓ - </span>Crear</li>
 				<li><span class="text-green-600">✓ - </span>Ver</li>
-				<li>Modificar</li>
+				<li><span class="text-green-600">✓ - </span>Modificar</li>
 				<li><span class="text-green-600">✓ - </span>Eliminar</li>
 				<li><span class="text-green-600">✓ - </span>Detalles</li>
 			</ol>
@@ -59,7 +59,7 @@
 			<ol class="text-xs">
 				<li><span class="text-green-600">✓ - </span>Crear</li>
 				<li><span class="text-green-600">✓ - </span>Ver</li>
-				<li>Modificar</li>
+				<li><span class="text-green-600">✓ - </span>Modificar</li>
 				<li><span class="text-green-600">✓ - </span>Eliminar</li>
 				<li><span class="text-green-600">✓ - </span>Detalles</li>
 			</ol>
@@ -77,7 +77,7 @@
 			<ol class="text-xs">
 				<li><span class="text-green-600">✓ - </span>Crear.</li>
 				<li><span class="text-green-600">✓ - </span>Ver</li>
-				<li>Modificar</li>
+				<li><span class="text-green-600">✓ - </span>Modificar</li>
 				<li><span class="text-green-600">✓ - </span>Eliminar</li>
 				<li><span class="text-green-600">✓ - </span>Detalles</li>
 			</ol>
@@ -86,7 +86,7 @@
 			<ol class="text-xs">
 				<li><span class="text-green-600">✓ - </span>Crear.</li>
 				<li><span class="text-green-600">✓ - </span>Ver</li>
-				<li>Modificar</li>
+				<li><span class="text-green-600">✓ - </span>Modificar</li>
 				<li><span class="text-green-600">✓ - </span>Eliminar</li>
 				<li><span class="text-green-600">✓ - </span>Detalles</li>
 			</ol>
@@ -95,7 +95,7 @@
 			<ol class="text-xs">
 				<li><span class="text-green-600">✓ - </span>Crear.</li>
 				<li><span class="text-green-600">✓ - </span>Ver</li>
-				<li>Modificar</li>
+				<li><span class="text-green-600">✓ - </span>Modificar</li>
 				<li><span class="text-green-600">✓ - </span>Eliminar</li>
 				<li><span class="text-green-600">✓ - </span>Detalles</li>
 			</ol>
