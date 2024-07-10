@@ -17,12 +17,12 @@
 
 					<v-list-item>
 						<v-list-item-title>Fecha:</v-list-item-title>
-						<v-list-item-subtitle>{{doc_info.fecha}}</v-list-item-subtitle>
+						<v-list-item-subtitle>{{doc_info.fecha.split('T')[0]}}</v-list-item-subtitle>
 					</v-list-item>
 
 					<v-list-item>
 						<v-list-item-title>Hora:</v-list-item-title>
-						<v-list-item-subtitle>{{doc_info.hora}}</v-list-item-subtitle>
+						<v-list-item-subtitle>{{doc_info.fecha.split('T')[1]}}</v-list-item-subtitle>
 					</v-list-item>
 
 					<v-list-item>

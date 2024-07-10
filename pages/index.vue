@@ -11,17 +11,23 @@
 				<li>~ Cambiar el id de los documentos en la BD para normalizar el tipo de numeración</li>
 				<li>~ Dar formato a 0´s a la izquierda en numeraciones de las tablas [UI/UX]</li>
 				<li>~ Utils para consultas a BD.</li>
+				<li>~ mostrar Hora de arqueo en index</li>
+				<li>~ Utils para arqueos</li>
+				<li>~ Mostrar bien el formato de la fecha en arqueos</li>
 			</ol>
 		</section>
 
 		<section class="p-2 hover:bg-slate-200">
 			<h4 class="font-bold">To Do:</h4>
 			<ol class="text-xs">
-				<li>~ Utils para arqueos</li>
 				<li>~ Barras de búsqueda en documentos</li>
 				<li>~ Paginar documentos en donde haya mas de 10 en una pagina.</li>
 				<li>~ Subir página a dominio de prueba.</li>
-				<li>~ Mostrar bien el formato de la fecha en arqueos</li>
+				<li>~ mostrar nombre del cliente en remisiones en index</li>
+				<li>~ Hacer ejemplo de estado de cuenta de un cliente/Proveedor</li>
+				<li>~ Agregar boton para ver estado de cuenta en tabla de clientes/ proveedores.</li>
+				<li>~ Manejo de sesión de usuarios.</li>
+				<li>~ Mostrar nombre de usuario conectado en el panel de admin</li> 
 			</ol>
 		</section>
 
