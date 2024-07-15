@@ -1,10 +1,5 @@
-import { initializeApp } from 'firebase/app';
 import { getFirestore, doc, setDoc } from 'firebase/firestore';
-import firebaseConfig from '~/utils/firebaseConfig';
-
-const app = initializeApp(firebaseConfig);
-// Obtiene la instancia de Firestore
-const db = getFirestore(app);
+import { db } from '~/utils/firebase';
 
 
 export async function agregarDocumento(tipoDocumento, documento, id) {

@@ -48,6 +48,7 @@
 						<buttonsSeeMore :route="`./clientes/read/${cliente.id}`" />
 						<ButtonsEdit :route="`./clientes/edit/${cliente.id}`" />
 						<ButtonsDelete :item="cliente" @confirm="confirmar_eliminacion" />
+						<ButtonsSeeAccount :route="`./estado_de_cuenta/${cliente.id}`" />
 					</td>
 				</tr>
 			</tbody>

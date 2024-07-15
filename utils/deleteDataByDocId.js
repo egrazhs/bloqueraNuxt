@@ -1,12 +1,5 @@
-import { initializeApp } from 'firebase/app';
+import { db } from '~/utils/firebase';
 import { getFirestore, collection, doc, deleteDoc } from 'firebase/firestore';
-import firebaseConfig from './firebaseConfig';
-
-// Inicializa la aplicación Firebase
-const app = initializeApp(firebaseConfig);
-
-// Obtiene la instancia de Firestore
-const db = getFirestore(app);
 
 // Función para eliminar un documento por ID
 export const deleteDataByDocId = async (collectionName, docId) => {

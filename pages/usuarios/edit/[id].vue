@@ -49,13 +49,8 @@
 </template>
 
 <script setup>
+	import { db } from '~/utils/firebase';
 	import { getDoc, updateDoc, doc, getFirestore } from 'firebase/firestore';
-	import firebaseConfig from '~/utils/firebaseConfig';
-	import { initializeApp } from 'firebase/app';
-
-	const app = initializeApp(firebaseConfig);
-	// Obtiene la instancia de Firestore
-	const db = getFirestore(app);
 
 	const router = useRouter();
 	const route = useRoute();

@@ -1,10 +1,5 @@
-// composables/useFirebase.js
 import { collection, getDocs, getFirestore } from 'firebase/firestore';
-import { initializeApp } from 'firebase/app';
-import firebaseConfig from './firebaseConfig';
-
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
+import { db } from '~/utils/firebase';
 
 export const fetchDataByCollection = async (collectionName) => {
 	try {

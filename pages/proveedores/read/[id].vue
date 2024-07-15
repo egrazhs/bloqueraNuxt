@@ -33,13 +33,8 @@
 </template>
 
 <script setup>
+	import { db } from '~/utils/firebase';
 	import { getDoc, doc } from 'firebase/firestore';
-	import { initializeApp } from 'firebase/app';
-	import { getFirestore } from 'firebase/firestore';
-	import firebaseConfig from '~/utils/firebaseConfig';
-
-	const app = initializeApp(firebaseConfig);
-	const db = getFirestore(app);
 
 	const router = useRouter();
 	const doc_info = ref(null);

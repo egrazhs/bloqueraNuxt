@@ -110,13 +110,8 @@
 </template>
 
 <script setup>
-	import { initializeApp } from 'firebase/app';
+	import { db } from '~/utils/firebase';
 	import { getFirestore, collection, getDocs, doc, setDoc, deleteDoc } from 'firebase/firestore';
-	import firebaseConfig from '~/utils/firebaseConfig';
-
-	// Inicializa la aplicación Firebase
-	const app = initializeApp(firebaseConfig);
-	const db = getFirestore(app);
 
 	useHead({
 		title: 'Bloquera GDL'
