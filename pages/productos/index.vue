@@ -78,6 +78,7 @@
 		const data = await fetchDataByCollection("productos");
 		productos.value = data;
 		loading.value = false;
+		console.log(productos.value);
 	};
 
 	onMounted(fetchDataFromFirebase);

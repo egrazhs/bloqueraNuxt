@@ -81,6 +81,7 @@
 		const data = await fetchDataByCollection("clientes");
 		clientes.value = data;
 		loading.value = false;
+		//console.log(clientes);
 	};
 
 	onMounted(fetchDataFromFirebase);
