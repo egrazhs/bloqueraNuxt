@@ -17,6 +17,7 @@
 				<li>~ API local de productos y clientes</li>
 				<li>~ Agregar boton para ver estado de cuenta en tabla de clientes.</li>
 				<li>~ mostrar nombre del cliente en remisiones en index</li>
+				<li>~ Hacer ejemplo de estado de cuenta de un cliente/Proveedor</li>
 			</ol>
 		</section>
 
@@ -26,7 +27,6 @@
 				<li>~ Barras de búsqueda en documentos</li>
 				<li>~ Paginar documentos en donde haya mas de 10 en una pagina.</li>
 				<li>~ Subir página a dominio de prueba.</li>
-				<li>~ Hacer ejemplo de estado de cuenta de un cliente/Proveedor</li>
 				<li>~ Manejo de sesión de usuarios.</li>
 				<li>~ Mostrar nombre de usuario conectado en el panel de admin</li>
 			</ol>
