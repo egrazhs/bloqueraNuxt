@@ -1,7 +1,7 @@
 <template>
 	<v-container>
 		<ScreensLoading v-if="loading"></ScreensLoading>
-		<section>
+		<section v-else>
 			<div class="flex align-center">
 				<ButtonsReturnArrow class="mr-4" size="x-small" />
 				<h1 class="font-bold text-4xl">Crear Remisión</h1>
@@ -13,98 +13,106 @@
 				<div class="my-2">
 					<label for="id_remision" class="block font-semibold">Número de remisión:</label>
 					<v-text-field
-						v-model="id_remision_personalizada"
-						:label="id_remision"
-						type="number"
-						placeholder="el numero será el indicado arriba si no se especifica uno.">
-					</v-text-field>
-				</div>
+					v-model="id_remision_personalizada"
+					:label="id_remision"
+					type="number"
+					placeholder="el numero será el indicado arriba si no se especifica uno.">
+				</v-text-field>
+			</div>
 
-				<div class="my-2">
-					<label for="cliente" class="block font-semibold">Cliente:</label>
-					<v-autocomplete
-						v-model="cliente"
-						:items="nombres_clientes"
-						item-text="nombre"
-						item-value="id"
-						label="Cliente"
-						no-data-text="Cliente inexistente"
-						required>
-					</v-autocomplete>
-				</div>
+			<div class="my-2">
+				<label for="cliente" class="block font-semibold">Cliente:</label>
+				<v-autocomplete
+					v-model="cliente"
+					:items="nombres_clientes"
+					item-text="nombre"
+					item-value="id"
+					label="Cliente"
+					no-data-text="Cliente inexistente"
+					required>
+				</v-autocomplete>
+			</div>
 
-				<v-row>
-					<v-col cols="6">
-						<div class="my-2">
-							<label for="obra" class="block font-semibold">Obra:</label>
-							<input v-model="obra" type="text" id="obra" class="input-field">
-						</div>
-					</v-col>
+			<v-row>
+				<v-col cols="6">
+					<div>
+						<label for="obra" class="block font-semibold">Obra (Opcional):</label>
+						<input v-model="obra" type="text" id="obra" class="input-field">
+					</div>
+				</v-col>
 
-					<v-col cols="6">
-						<div class="my-4">
-							<label for="datetime" class="block font-semibold">Fecha:</label>
-							<input v-model="fecha" type="datetime-local" id="datetime" class="input-field" required>
-						</div>
+				<v-col cols="6">
+					<div>
+						<label for="datetime" class="block font-semibold">Fecha:</label>
+						<input v-model="fecha" type="datetime-local" id="datetime" class="input-field" required>
+					</div>
 
-						<div class="my-4">
-							<input v-model="usarHoraActual" type="checkbox" id="usarHoraActual" @change="actualizarFecha">
-			      			<label for="usarHoraActual" class="font-semibold italic">: *Usar hora actual</label>
-			    		</div>
-					</v-col>
-				</v-row>
-				
-				<v-divider :thickness="2" class="border-opacity-100 border-slate-400 my-4"></v-divider>
+					<div class="my-4">
+						<input v-model="usarHoraActual" type="checkbox" id="usarHoraActual" @change="actualizarFecha">
+						<label for="usarHoraActual" class="font-semibold italic">: *Usar hora actual</label>
+					</div>
+				</v-col>
+			</v-row>
 
-				<h4 class="font-bold">Materiales:</h4>
+			<v-divider :thickness="2" class="border-opacity-100 border-slate-400 my-6"></v-divider>
 
-				<v-btn @click="addMaterial" class="mb-4 bg-green-600">Agregar Material</v-btn>
+			<div class="flex justify-between">
+				<h4 class="font-bold text-2xl">Materiales:</h4>
+				<v-btn @click="addMaterial" color="primary">+ Agregar Material</v-btn>
+			</div>
 
-				<div v-for="(material, index) in materiales" :key="index" class="my-4">
-					<v-card class="pa-4 mb-4">
-						<h6>{{index+1}})</h6>
-						<v-row>
-							<v-col cols="4">
-								<v-autocomplete
-									v-model="material.producto"
-									:items="nombres_productos"
-									item-text="nombre"
-									item-value="id"
-									label="Producto"
-									no-data-text="Producto inexistente"
-									required>
-								</v-autocomplete>
-							</v-col>
-							<v-col cols="4">
-								<v-text-field
-									v-model="material.cantidad"
-									type="number"
-									label="Cantidad"
-									required>
-								</v-text-field>
-							</v-col>
-							<v-col cols="4">
-								<v-text-field
-									v-model="material.precio_unitario"
-									type="number"
-									label="Precio Unitario"
-									required>
-								</v-text-field>
-							</v-col>
-						</v-row>
-						
+			<v-divider :thickness="1" class="border-opacity-100 border-slate-400 my-6"></v-divider>
+
+			<div v-for="(material, index) in materiales" :key="index" class="my-4">	
+				<v-card class="pa-4 mb-4">
+					<div class="flex justify-between mb-4">
+						<h6 class="font-bold">{{index+1}})</h6>
 						<v-btn @click="removeMaterial(index)" class="mt-2" color="red">Quitar</v-btn>
-					</v-card>
-				</div>
+					</div>
+					<v-row>
+						<v-col cols="4">
+							<v-autocomplete
+							v-model="material.producto"
+							:items="nombres_productos"
+							item-text="nombre"
+							item-value="id"
+							label="Producto"
+							no-data-text="Producto inexistente"
+							required>
+						</v-autocomplete>
+					</v-col>
+					<v-col cols="4">
+						<v-text-field
+						v-model="material.cantidad"
+						type="number"
+						label="Cantidad"
+						required>
+					</v-text-field>
+				</v-col>
+				<v-col cols="4">
+					<v-text-field
+					v-model="material.precio_unitario"
+					type="number"
+					label="Precio Unitario"
+					required>
+				</v-text-field>
+			</v-col>
+		</v-row>
+	</v-card>
+</div>
 
-				<button type="submit" class="btn-primary" @click="handleSubmit">Guardar</button>
-			</form>
-		</section>
-	</v-container>
+
+<div>
+	<h6 class="font-bold text-4xl my-4">Total: $<span>{{ formattedTotalRemision }}</span></h6>
+</div>
+<button type="submit" class="btn-primary" @click="handleSubmit">Guardar</button>
+</form>
+</section>
+</v-container>
 </template>
 
 <script setup>
-	import { ref, onMounted } from 'vue';
+	import { ref, onMounted, computed } from 'vue';
 	import { useRouter } from 'vue-router';
 
 	const router = useRouter();
@@ -131,8 +139,18 @@
 	id_remision.value = await getNextId('remisiones');
 	id_remision.value = parseInt(id_remision.value, 10);
 
+	const total_remision = computed(() => {
+		return materiales.value.reduce((total, material) => {
+			return total + (material.precio_unitario * material.cantidad);
+		}, 0);
+	});
+
+	const formattedTotalRemision = computed(() => {
+		return total_remision.value.toFixed(2);
+	});
+
 	const addMaterial = () => {
-		materiales.value.push({ producto: '', cantidad: 1, precioUnitario: 0 });
+		materiales.value.push({ producto: '', cantidad: 1, precio_unitario: 0 });
 	};
 
 	const removeMaterial = (index) => {
@@ -143,12 +161,52 @@
 
 	const handleSubmit = async () => {
 		try {
-			const nuevo_id = id_remision_personalizada.value || await getNextId("remisiones"); // Usar el ID del usuario si está disponible
+			// Validaciones
+			if (!cliente.value) {
+				alert('El campo cliente es obligatorio');
+				return;
+			}
+
+			for (const material of materiales.value) {
+				if (!material.producto) {
+					alert('Todos los productos deben estar especificados');
+					return;
+				}
+				if (material.cantidad <= 0) {
+					alert('La cantidad debe ser mayor que 0');
+					return;
+				}
+				if (material.precio_unitario <= 0) {
+					alert('El precio unitario debe ser mayor que 0');
+					return;
+				}
+			}
+
+			//Sacar el nuevo id
+			let nuevo_id = '';
+			if(id_remision_personalizada.value){
+				nuevo_id = padWithZeros(id_remision_personalizada.value, 6);
+			}else{
+				nuevo_id = await getNextId("remisiones"); // Usar el ID del usuario si está disponible
+			}
+
+			// Convertir los nombres de productos a IDs
+			const materialesConIds = materiales.value.map(material => {
+				const producto = api_productos._value.productos.find(prod => prod.nombre === material.producto);
+				if (!producto) {
+					throw new Error(`Producto no encontrado: ${material.producto}`);
+				}
+				return {
+					producto: producto.id,
+					cantidad: material.cantidad,
+					precio_unitario: material.precio_unitario
+				};
+			});
 
 			// Crear un nuevo objeto con los datos de la remisión
 			const nuevoDoc = {
-				cliente: parseInt(api_clientes._value.clientes.find((cli) => cli.nombre == cliente.value).id, 10),
-				material: materiales.value,
+				cliente: api_clientes._value.clientes.find((cli) => cli.nombre == cliente.value).id,
+				material: materialesConIds,
 				id: nuevo_id,
 				fecha: fecha.value,
 				obra: obra.value,
@@ -167,11 +225,12 @@
 
 		} catch (error) {
 			console.error('Error al agregar remisión:', error.message);
+			alert(`Error al agregar remisión: ${error.message}`);
 		}
 	};
 
-	onMounted( () => {
-		loading.value =  false;
+	onMounted(() => {
+		loading.value = false;
 	});
 
 	function obtenerFechaHoraActual() {
@@ -190,6 +249,9 @@
 		}
 	}
 </script>
+
+
+
 
 
 <style>

@@ -1,24 +1,25 @@
 <template>
 	<section>
-		<h1 class="font-bold text-4xl">Remisiones</h1>
+		<h1 class="font-bold text-4xl">Abonos</h1>
 	
 		<div class="mt-4">
-			<ButtonsAddNew route="./remisiones/create" text="Remision" />
+			<ButtonsAddNew route="./abonos/create" text="Abono" />
 		</div>
 
 		<hr class="border-1 border-slate-300 my-4">
+
 		<section>
 			<!-- Mensaje de éxito -->
 			<div v-if="$route.query.c" class="transition-opacity bg-blue-200 text-blue-800 text-xs p-2 italic my-2">
-				*Se ha agregado la remisión de manera exitosa.
+				*Se ha agregado el Abono de manera exitosa.
 			</div>
 
 			<div v-if="$route.query.documentoActualizado" class="transition-opacity bg-yellow-200 text-yellow-800 text-xs p-2 italic my-2">
-				*Se ha actualizado la información de la Remisión.
+				*Se ha actualizado la información del Abono.
 			</div>
 
 			<div v-if="documento_eliminado" class="transition-opacity bg-red-200 text-red-800 text-xs p-2 italic my-2">
-				*Se ha borrado la remisión de manera exitosa.
+				*Se ha borrado el Abono de manera exitosa.
 			</div>
 
 			<!-- Mensaje de error -->
@@ -36,21 +37,19 @@
 				<td class="pl-2">ID</td>
 				<td>Cliente</td>
 				<td>Fecha</td>
-				<td>Obra</td>
-				<td>Importe</td>
+				<td>Cantidad</td>
 				<td>Acciones</td>
 			</thead>
 			<tbody class="border-1 border-black pl-2">
-				<tr v-for="remision in remisiones" :key="remision.id" :data-key="remision.id" class="odd:bg-slate-200 even:bg-slate-50 hover:bg-slate-300">
-					<td class="pl-2">{{  parseInt(remision.id, 10) }}</td>
-					<td>{{ api_clientes.clientes.find(cliente => parseInt(cliente.id) == remision.cliente).nombre }}</td>
-					<td>{{remision.fecha.split('T')[0]}}</td>
-					<td>{{remision.obra}}</td>
-					<td class="text-right pr-2">{{ formatCurrency(calcular_importe_remision(remision)) }}</td>
+				<tr v-for="abono in abonos" :key="abono.id" :data-key="abono.id" class="odd:bg-slate-200 even:bg-slate-50 hover:bg-slate-300">
+					<td class="pl-2">{{parseInt(abono.id, 10) }}</td>
+					<td>{{abono.cliente}}</td>
+					<td>{{abono.fecha}}</td>
+					<td>{{abono.cantidad}}</td>
 					<td class="py-2 pr-2">
-						<buttonsSeeMore :route="`./remisiones/read/${remision.id}`" />
-						<ButtonsEdit :route="`./remisiones/edit/${remision.id}`" />
-						<ButtonsDelete :item="remision" @confirm="confirmar_eliminacion" />
+						<buttonsSeeMore :route="`./abonos/read/${abono.id}`" />
+						<ButtonsEdit :route="`./abonos/edit/${abono.id}`" />
+						<ButtonsDelete :item="abono" @confirm="confirmar_eliminacion" />
 					</td>
 				</tr>
 			</tbody>
@@ -60,19 +59,17 @@
 	<ModalsConfirmDelete 
       :show="dialog" 
       :item="documento_seleccionado" 
-      confirmMessage="¿Estás seguro de que deseas eliminar esta Remisión?" 
+      confirmMessage="¿Estás seguro de que deseas eliminar este abono?" 
       :deleteFunction="eliminar_documento_confirmado" 
       @cancel="cancelar_eliminacion" 
       @confirm="eliminar_documento_confirmado"
       data_name="" 
       :data_value="data_value"
-    />	
+    />
 </template>
 
 <script setup>
-	let { data: api_clientes} = await useFetch('/api/clientes');
-
-	const remisiones = ref([]);
+	const abonos = ref([]);
 	const loading = ref(true);
 	const dialog = ref(false);
 	const documento_seleccionado = ref(null);
@@ -82,8 +79,8 @@
 	let data_value = ref('');
 
 	const fetchDataFromFirebase = async () => {
-		const data = await fetchDataByCollection("remisiones");
-		remisiones.value = data;
+		const data = await fetchDataByCollection("abonos");
+		abonos.value = data;
 		loading.value = false;
 	};
 
@@ -109,13 +106,13 @@
 
 			setTimeout(async () => {
 				try {
-					await deleteDataByDocId('remisiones', documento_seleccionado.value.id);
-					remisiones.value = remisiones.value.filter(u => u.id !== documento_seleccionado.value.id);
+					await deleteDataByDocId('abonos', documento_seleccionado.value.id);
+					abonos.value = abonos.value.filter(u => u.id !== documento_seleccionado.value.id);
 					documento_seleccionado.value = null;
 					dialog.value = false;
 					documento_eliminado.value = true;
 				} catch (err) {
-					error.value = 'Error eliminando la remisión. Por favor, intenta de nuevo.';
+					error.value = 'Error eliminando el abono. Por favor, intenta de nuevo.';
 				} finally {
 				eliminando.value = false; // Termina la eliminación
 			}
@@ -125,16 +122,4 @@
 			}, 500); // Duración de la animación
 		}
 	};
-
-	function calcular_importe_remision(remision){
-		let total = 0;
-
-		if(remision.hasOwnProperty('material')){
-			remision.material.forEach((material) => {
-				total += (material.precio_unitario * material.cantidad);
-			});
-		}
-
-		return total;
-	}
 </script>

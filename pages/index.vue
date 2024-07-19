@@ -18,6 +18,9 @@
 				<li>~ Agregar boton para ver estado de cuenta en tabla de clientes.</li>
 				<li>~ mostrar nombre del cliente en remisiones en index</li>
 				<li>~ Hacer ejemplo de estado de cuenta de un cliente/Proveedor</li>
+				<li>~ Mostrar total de la remision antes de crearlo.</li>
+				<li>~ En remisiones al momento de guardar materiales guarda el nombre del producto en vez de su id para referencia</li>
+				<li>~ Agregar 0´s a la izquierda en remisiones al agregar si es un id personalizado.</li>
 			</ol>
 		</section>
 
@@ -30,6 +33,10 @@
 				<li>~ Manejo de sesión de usuarios.</li>
 				<li>~ Mostrar nombre de usuario conectado en el panel de admin.</li>
 				<li>~ Inventario.</li>
+				<li>~ Función para evitar que se sobreescriban o se creen remisiones con un id ya hecho.</li>
+				<li>~ Abonos CRUD</li>
+				<li>~ Opción de abonar todo o una cantidad parcial al momento de crear abonos</li>
+				<li>~ Agregar campo de informacion adicional para detalles en arqueos.</li>
 			</ol>
 		</section>
 
@@ -129,10 +136,10 @@
 				<div>
 					<h6 class="font-bold">Abonos</h6>
 					<ol class="text-xs">
-						<li>Crear.</li>
-						<li>Ver</li>
+						<li><span class="text-green-600">✓ - </span>Crear.</li>
+						<li><span class="text-green-600">✓ - </span>Ver</li>
 						<li>Modificar</li>
-						<li>Eliminar</li>
+						<li><span class="text-green-600">✓ - </span>Eliminar</li>
 						<li>Detalles</li>
 					</ol>
 				</div>
@@ -145,7 +152,7 @@
 	import { db } from '~/utils/firebase';
 	import { getFirestore, collection, getDocs, doc, setDoc, deleteDoc } from 'firebase/firestore';
 
-	let {data} = await useFetch('/api/clientes');
+	let { data: api_clientes } = await useFetch('/api/clientes');
 
 	useHead({
 		title: 'Bloquera GDL'

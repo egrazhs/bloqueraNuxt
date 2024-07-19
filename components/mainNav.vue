@@ -10,6 +10,7 @@
             <NavItem to="/sucursales" imgSource="building-storefront.svg" text="Sucursales" />
             <NavItem to="/arqueos" imgSource="presentation-chart.svg" text="Arqueos" />
             <NavItem to="/remisiones" imgSource="banknote.svg" text="Remisiones" />
+            <NavItem to="/abonos" imgSource="banknote.svg" text="Abonos" />
             <NavItem to="/ejemplo" imgSource="window.svg" text="Ejemplo de E.C." />		
         </div>
 
