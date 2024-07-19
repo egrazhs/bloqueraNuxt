@@ -37,6 +37,7 @@
 				<li>~ Abonos CRUD</li>
 				<li>~ Opción de abonar todo o una cantidad parcial al momento de crear abonos</li>
 				<li>~ Agregar campo de informacion adicional para detalles en arqueos.</li>
+				<li>~ Abono deberia guardar el id del cliente y no su nombre.</li>
 			</ol>
 		</section>
 
@@ -140,7 +141,7 @@
 						<li><span class="text-green-600">✓ - </span>Ver</li>
 						<li>Modificar</li>
 						<li><span class="text-green-600">✓ - </span>Eliminar</li>
-						<li>Detalles</li>
+						<li><span class="text-green-600">✓ - </span>Detalles</li>
 					</ol>
 				</div>
 			</article>
