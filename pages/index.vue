@@ -160,11 +160,6 @@
 		title: 'Bloquera GDL'
 	});
 
-	// Función para agregar padding a un número
-	const padWithZeros = (num, length) => {
-	    return num.toString().padStart(length, "0");
-	};
-
 
 	const arreglarIds = async () => {
 		console.log('Función para arreglar Ids de documentos llamada');
