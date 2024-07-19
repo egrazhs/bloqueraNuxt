@@ -21,6 +21,7 @@
 				<li>~ Mostrar total de la remision antes de crearlo.</li>
 				<li>~ En remisiones al momento de guardar materiales guarda el nombre del producto en vez de su id para referencia</li>
 				<li>~ Agregar 0´s a la izquierda en remisiones al agregar si es un id personalizado.</li>
+				<li>~ CRUD Abonos</li>
 			</ol>
 		</section>
 
@@ -34,10 +35,10 @@
 				<li>~ Mostrar nombre de usuario conectado en el panel de admin.</li>
 				<li>~ Inventario.</li>
 				<li>~ Función para evitar que se sobreescriban o se creen remisiones con un id ya hecho.</li>
-				<li>~ Abonos CRUD</li>
 				<li>~ Opción de abonar todo o una cantidad parcial al momento de crear abonos</li>
 				<li>~ Agregar campo de informacion adicional para detalles en arqueos.</li>
 				<li>~ Abono deberia guardar el id del cliente y no su nombre.</li>
+				<li>~ El input de cliente en abonos deberia ser un v-autocomplete</li>
 			</ol>
 		</section>
 
@@ -139,7 +140,7 @@
 					<ol class="text-xs">
 						<li><span class="text-green-600">✓ - </span>Crear.</li>
 						<li><span class="text-green-600">✓ - </span>Ver</li>
-						<li>Modificar</li>
+						<li><span class="text-green-600">✓ - </span>Modificar</li>
 						<li><span class="text-green-600">✓ - </span>Eliminar</li>
 						<li><span class="text-green-600">✓ - </span>Detalles</li>
 					</ol>
