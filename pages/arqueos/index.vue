@@ -45,7 +45,7 @@
 					<td class="pl-2">{{ parseInt(arqueo.id, 10) }}</td>
 					<td>{{arqueo.fecha.split('T')[0]}}</td>
 					<td>{{arqueo.fecha.split('T')[1]}}</td>
-					<td>{{calcular_total_arqueo(arqueo)}}</td>
+					<td>{{ formatCurrency(calcular_total_arqueo(arqueo)) }}</td>
 					<td class="py-2 pr-2">
 						<buttonsSeeMore :route="`./arqueos/read/${arqueo.id}`" />
 						<ButtonsEdit :route="`./arqueos/edit/${arqueo.id}`" />
