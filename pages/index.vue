@@ -28,7 +28,8 @@
 				<li>~ Paginar documentos en donde haya mas de 10 en una pagina.</li>
 				<li>~ Subir página a dominio de prueba.</li>
 				<li>~ Manejo de sesión de usuarios.</li>
-				<li>~ Mostrar nombre de usuario conectado en el panel de admin</li>
+				<li>~ Mostrar nombre de usuario conectado en el panel de admin.</li>
+				<li>~ Inventario.</li>
 			</ol>
 		</section>
 
@@ -122,6 +123,17 @@
 						<li><span class="text-green-600">✓ - </span>Modificar</li>
 						<li><span class="text-green-600">✓ - </span>Eliminar</li>
 						<li><span class="text-green-600">✓ - </span>Detalles</li>
+					</ol>
+				</div>
+
+				<div>
+					<h6 class="font-bold">Abonos</h6>
+					<ol class="text-xs">
+						<li>Crear.</li>
+						<li>Ver</li>
+						<li>Modificar</li>
+						<li>Eliminar</li>
+						<li>Detalles</li>
 					</ol>
 				</div>
 			</article>
