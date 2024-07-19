@@ -85,7 +85,7 @@
 				<div>
 					<h6 class="font-bold">Remisiones</h6>
 					<ol class="text-xs">
-						<li>Crear.</li>
+						<li><span class="text-green-600">✓ - </span>Crear.</li>
 						<li><span class="text-green-600">✓ - </span>Ver</li>
 						<li>Modificar</li>
 						<li><span class="text-green-600">✓ - </span>Eliminar</li>

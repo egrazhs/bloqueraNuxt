@@ -10,7 +10,18 @@
 			<v-divider :thickness="2" class="border-opacity-100 border-slate-400 my-4"></v-divider>
 
 			<form @submit.prevent="handleSubmit">
-				<div class="my-4">
+				<div class="my-2">
+					<label for="id_remision" class="block font-semibold">Número de remisión:</label>
+					<v-text-field
+						v-model="id_remision_personalizada"
+						:label="id_remision"
+						type="number"
+						placeholder="el numero será el indicado arriba si no se especifica uno.">
+					</v-text-field>
+				</div>
+
+				<div class="my-2">
+					<label for="cliente" class="block font-semibold">Cliente:</label>
 					<v-autocomplete
 						v-model="cliente"
 						:items="nombres_clientes"
@@ -21,6 +32,29 @@
 						required>
 					</v-autocomplete>
 				</div>
+
+				<v-row>
+					<v-col cols="6">
+						<div class="my-2">
+							<label for="obra" class="block font-semibold">Obra:</label>
+							<input v-model="obra" type="text" id="obra" class="input-field">
+						</div>
+					</v-col>
+
+					<v-col cols="6">
+						<div class="my-4">
+							<label for="datetime" class="block font-semibold">Fecha:</label>
+							<input v-model="fecha" type="datetime-local" id="datetime" class="input-field" required>
+						</div>
+
+						<div class="my-4">
+							<input v-model="usarHoraActual" type="checkbox" id="usarHoraActual" @change="actualizarFecha">
+			      			<label for="usarHoraActual" class="font-semibold italic">: *Usar hora actual</label>
+			    		</div>
+					</v-col>
+				</v-row>
+				
+				<v-divider :thickness="2" class="border-opacity-100 border-slate-400 my-4"></v-divider>
 
 				<h4 class="font-bold">Materiales:</h4>
 
@@ -70,14 +104,19 @@
 </template>
 
 <script setup>
-	import { ref } from 'vue';
+	import { ref, onMounted } from 'vue';
 	import { useRouter } from 'vue-router';
 
 	const router = useRouter();
 
 	const loading = ref(true);
-	const nombre = ref('');
+
+	const id_remision = ref(0);
+	const id_remision_personalizada = ref(''); // Nuevo campo para el ID especificado por el usuario
+	const usarHoraActual = ref(false);
 	const cliente = ref('');
+	const obra = ref('');
+	const fecha = ref('');
 	const materiales = ref([{ producto: '', cantidad: 1, precio_unitario: 0 }]);
 
 	let { data: api_clientes } = await useFetch('/api/clientes');
@@ -88,6 +127,9 @@
 
 	const nombres_productos = ref([]); 
 	nombres_productos.value = api_productos._value.productos.map(producto => producto.nombre);
+
+	id_remision.value = await getNextId('remisiones');
+	id_remision.value = parseInt(id_remision.value, 10);
 
 	const addMaterial = () => {
 		materiales.value.push({ producto: '', cantidad: 1, precioUnitario: 0 });
@@ -101,15 +143,15 @@
 
 	const handleSubmit = async () => {
 		try {
-			const nuevo_id = await getNextId("remisiones");
+			const nuevo_id = id_remision_personalizada.value || await getNextId("remisiones"); // Usar el ID del usuario si está disponible
 
 			// Crear un nuevo objeto con los datos de la remisión
 			const nuevoDoc = {
 				cliente: parseInt(api_clientes._value.clientes.find((cli) => cli.nombre == cliente.value).id, 10),
 				material: materiales.value,
 				id: nuevo_id,
-				fecha: '2024-07-02T01:32',
-				obra: 'Obra de prueba',
+				fecha: fecha.value,
+				obra: obra.value,
 				_type: 'remisiones'
 			};
 
@@ -131,7 +173,24 @@
 	onMounted( () => {
 		loading.value =  false;
 	});
+
+	function obtenerFechaHoraActual() {
+		const now = new Date();
+		const year = now.getFullYear();
+		const month = String(now.getMonth() + 1).padStart(2, '0');
+		const day = String(now.getDate()).padStart(2, '0');
+		const hours = String(now.getHours()).padStart(2, '0');
+		const minutes = String(now.getMinutes()).padStart(2, '0');
+		return `${year}-${month}-${day}T${hours}:${minutes}`;
+	}
+
+	function actualizarFecha() {
+		if (usarHoraActual.value) {
+			fecha.value = obtenerFechaHoraActual();
+		}
+	}
 </script>
+
 
 <style>
 	.input-field {
