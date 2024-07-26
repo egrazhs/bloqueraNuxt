@@ -35,7 +35,7 @@
 				<li>~ Mostrar nombre de usuario conectado en el panel de admin.</li>
 				<li>~ Inventario.</li>
 				<li>~ Función para evitar que se sobreescriban o se creen remisiones con un id ya hecho.</li>
-				<li>~ Opción de abonar todo o una cantidad parcial al momento de crear abonos</li>
+				<li>~ Opción de abonar todo o una cantidad parcial al momento de crear Remisiones</li>
 				<li>~ Agregar campo de informacion adicional para detalles en arqueos.</li>
 				<li>~ Abono deberia guardar el id del cliente y no su nombre.</li>
 				<li>~ El input de cliente en abonos deberia ser un v-autocomplete</li>
