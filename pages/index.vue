@@ -26,6 +26,7 @@
 				<li>~ El input de cliente en abonos deberia ser un v-autocomplete</li>
 				<li>~ Pagina de estado de cuenta.</li>
 				<li>~ Agregar campo de informacion adicional para detalles en abonos.</li>
+				<li>~ Opción de abonar todo o una cantidad parcial al momento de crear Remisiones</li>
 			</ol>
 		</section>
 
@@ -39,7 +40,6 @@
 				<li>~ Mostrar nombre de usuario conectado en el panel de admin.</li>
 				<li>~ Inventario.</li>
 				<li>~ Función para evitar que se sobreescriban o se creen remisiones con un id ya hecho.</li>
-				<li>~ Opción de abonar todo o una cantidad parcial al momento de crear Remisiones</li>
 				<li>~ Modificar el precio unitario de un producto al elegir nuevo en remisiones.</li>
 			</ol>
 		</section>

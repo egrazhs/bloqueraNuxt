@@ -3,7 +3,7 @@
 		<h1 class="font-bold text-4xl">Remisiones</h1>
 	
 		<div class="mt-4">
-			<ButtonsAddNew route="./remisiones/create" text="Remision" />
+			<ButtonsAddNew route="/remisiones/create" text="Remision" />
 		</div>
 
 		<hr class="border-1 border-slate-300 my-4">
@@ -48,8 +48,8 @@
 					<td>{{remision.obra}}</td>
 					<td class="text-right pr-2">{{ formatCurrency(calcular_importe_remision(remision)) }}</td>
 					<td class="py-2 pr-2">
-						<buttonsSeeMore :route="`./remisiones/read/${remision.id}`" />
-						<ButtonsEdit :route="`./remisiones/edit/${remision.id}`" />
+						<buttonsSeeMore :route="`/remisiones/read/${remision.id}`" />
+						<ButtonsEdit :route="`/remisiones/edit/${remision.id}`" />
 						<ButtonsDelete :item="remision" @confirm="confirmar_eliminacion" />
 					</td>
 				</tr>
