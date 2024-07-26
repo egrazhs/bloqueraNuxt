@@ -46,7 +46,7 @@
 
 	const { data: api_clientes } = await useFetch('/api/clientes');
 
-	const nombres_clientes = ref([]); 
+	const nombres_clientes = ref([]);
 	nombres_clientes.value = api_clientes._value.clientes.map(cliente => cliente.nombre);
 
 	const cantidad = ref(0);
@@ -58,21 +58,27 @@
 		try {
 			const nuevo_id = await getNextId("abonos");
 
-			// Crear un nuevo objeto con los datos del usuario
+			// Buscar el ID del cliente en base al nombre seleccionado
+			const cliente_obj = api_clientes._value.clientes.find(cli => cli.nombre === cliente.value);
+			const cliente_id = cliente_obj ? cliente_obj.id : null;
+
+			if (!cliente_id) {
+				throw new Error('Cliente no encontrado');
+			}
+
+			// Crear un nuevo objeto con los datos del abono
 			const nuevoDoc = {
-				cliente: cliente.value,
+				cliente: cliente_id,
 		  		fecha: fecha.value,
 		  		cantidad: cantidad.value,
 		  		id: nuevo_id,
 		  		_type: 'abonos'
 			};
 
-			
-
-			// Agregar el nuevo usuario a Firestore utilizando el ID personalizado
+			// Agregar el nuevo abono a Firestore utilizando el ID personalizado
 			await agregarDocumento('abonos', nuevoDoc, nuevo_id);
 
-			// Limpiar los campos del formulario después de agregar el usuario
+			// Limpiar los campos del formulario después de agregar el abono
 			cliente.value = '';
 			fecha.value = '';
 			cantidad.value = 0;
@@ -101,6 +107,7 @@
 		}
 	}
 </script>
+
 
 <style>
 	.input-field {

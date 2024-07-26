@@ -43,7 +43,7 @@
 			<tbody class="border-1 border-black pl-2">
 				<tr v-for="abono in abonos" :key="abono.id" :data-key="abono.id" class="odd:bg-slate-200 even:bg-slate-50 hover:bg-slate-300">
 					<td class="pl-2">{{parseInt(abono.id, 10) }}</td>
-					<td>{{abono.cliente}}</td>
+					<td>{{ getClienteNombre(abono.cliente) }}</td>
 					<td>{{abono.fecha}}</td>
 					<td>{{abono.cantidad}}</td>
 					<td class="py-2 pr-2">
@@ -69,6 +69,8 @@
 </template>
 
 <script setup>
+	const { data: api_clientes } = await useFetch('/api/clientes');
+
 	const abonos = ref([]);
 	const loading = ref(true);
 	const dialog = ref(false);
@@ -121,6 +123,12 @@
 			  }, 3000); // Ocultar el mensaje de éxito después de 3 segundos
 			}, 500); // Duración de la animación
 		}
+	};
+
+
+	const getClienteNombre = (id) => {
+		const cliente = api_clientes._value.clientes.find(cli => cli.id === id);
+		return cliente ? cliente.nombre : 'Cliente no encontrado';
 	};
 </script>
 
