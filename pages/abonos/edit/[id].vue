@@ -33,6 +33,12 @@
 					label="Cantidad"
 					required
 					></v-text-field>
+
+					<v-text-field 
+					type="text"
+					v-model="documento.info_adicional"
+					label="Información Adicional"
+					></v-text-field>
 				</v-form>
 			</v-card-text>
 			<v-divider></v-divider>
@@ -59,7 +65,8 @@
 	const documento = ref({
 		cliente: '',
 		fecha: '',
-		cantidad: 0
+		cantidad: 0,
+		info_adicional: ''
 	});
 	const loading = ref(true);
 	const valid = ref(false);

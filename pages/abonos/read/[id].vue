@@ -34,6 +34,11 @@
 						<v-list-item-title>Hora:</v-list-item-title>
 						<v-list-item-subtitle>{{doc_info.fecha.split('T')[1]}}</v-list-item-subtitle>
 					</v-list-item>
+
+					<v-list-item>
+						<v-list-item-title>Información Adicional:</v-list-item-title>
+						<v-list-item-subtitle>{{doc_info.info_adicional? doc_info.info_adicional : 'N/A'}}</v-list-item-subtitle>
+					</v-list-item>
 				</v-list>
 			</v-card-text>
 		</v-card>

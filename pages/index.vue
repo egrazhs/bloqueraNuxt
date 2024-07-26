@@ -24,6 +24,8 @@
 				<li>~ CRUD Abonos</li>
 				<li>~ Abono deberia guardar el id del cliente y no su nombre.</li>
 				<li>~ El input de cliente en abonos deberia ser un v-autocomplete</li>
+				<li>~ Pagina de estado de cuenta.</li>
+				<li>~ Agregar campo de informacion adicional para detalles en abonos.</li>
 			</ol>
 		</section>
 
@@ -38,8 +40,6 @@
 				<li>~ Inventario.</li>
 				<li>~ Función para evitar que se sobreescriban o se creen remisiones con un id ya hecho.</li>
 				<li>~ Opción de abonar todo o una cantidad parcial al momento de crear Remisiones</li>
-				<li>~ Agregar campo de informacion adicional para detalles en arqueos.</li>
-				<li>~ Pagina de estado de cuenta.</li>
 				<li>~ Modificar el precio unitario de un producto al elegir nuevo en remisiones.</li>
 			</ol>
 		</section>

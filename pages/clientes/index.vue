@@ -45,10 +45,10 @@
 					<td>{{cliente.nombre}}</td>
 					<td>{{cliente.alias}}</td>
 					<td class="py-2 pr-2">
-						<buttonsSeeMore :route="`./clientes/read/${cliente.id}`" />
-						<ButtonsEdit :route="`./clientes/edit/${cliente.id}`" />
+						<buttonsSeeMore :route="`/clientes/read/${cliente.id}`" />
+						<ButtonsEdit :route="`/clientes/edit/${cliente.id}`" />
 						<ButtonsDelete :item="cliente" @confirm="confirmar_eliminacion" />
-						<ButtonsSeeAccount :route="`./estado_de_cuenta/${cliente.id}`" />
+						<ButtonsSeeAccount :route="`/estado_de_cuenta/${cliente.id}`" />
 					</td>
 				</tr>
 			</tbody>

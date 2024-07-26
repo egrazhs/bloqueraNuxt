@@ -35,6 +35,13 @@
 				<input v-model="usarHoraActual" type="checkbox" id="usarHoraActual" @change="actualizarFecha">
 				<label for="usarHoraActual" class="font-semibold italic">: *Usar hora actual</label>
 			</div>
+
+
+			<div class="my-4">
+				<label for="info_adicional" class="block font-semibold">Información Adicional:</label>
+				<input v-model="info_adicional" type="text" id="info_adicional" class="border-black">
+			</div>
+			
 			
 			<button type="submit" class="btn-primary" @click="handleSubmit">Guardar</button>
 		</form>
@@ -53,6 +60,7 @@
 	const fecha = ref('');
 	const usarHoraActual = ref(false);
 	const cliente = ref('');
+	const info_adicional = ref('');
 
 	const handleSubmit = async () => {
 		try {
@@ -72,6 +80,7 @@
 		  		fecha: fecha.value,
 		  		cantidad: cantidad.value,
 		  		id: nuevo_id,
+		  		info_adicional: info_adicional.value,
 		  		_type: 'abonos'
 			};
 
