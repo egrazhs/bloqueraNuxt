@@ -3,7 +3,7 @@
 		<h1 class="font-bold text-4xl">Abonos</h1>
 	
 		<div class="mt-4">
-			<ButtonsAddNew route="./abonos/create" text="Abono" />
+			<ButtonsAddNew route="/abonos/create" text="Abono" />
 		</div>
 
 		<hr class="border-1 border-slate-300 my-4">
@@ -47,8 +47,8 @@
 					<td>{{abono.fecha}}</td>
 					<td>{{abono.cantidad}}</td>
 					<td class="py-2 pr-2">
-						<buttonsSeeMore :route="`./abonos/read/${abono.id}`" />
-						<ButtonsEdit :route="`./abonos/edit/${abono.id}`" />
+						<buttonsSeeMore :route="`/abonos/read/${abono.id}`" />
+						<ButtonsEdit :route="`/abonos/edit/${abono.id}`" />
 						<ButtonsDelete :item="abono" @confirm="confirmar_eliminacion" />
 					</td>
 				</tr>

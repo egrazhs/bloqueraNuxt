@@ -22,6 +22,7 @@
 				<li>~ En remisiones al momento de guardar materiales guarda el nombre del producto en vez de su id para referencia</li>
 				<li>~ Agregar 0´s a la izquierda en remisiones al agregar si es un id personalizado.</li>
 				<li>~ CRUD Abonos</li>
+				<li>~ Abono deberia guardar el id del cliente y no su nombre.</li>
 			</ol>
 		</section>
 
