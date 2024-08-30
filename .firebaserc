@@ -1,0 +1,9 @@
+{
+  "projects": {
+    "default": "bloqueranuxt",
+    "bloqueraguadalajara": "bloqueraguadalajara"
+  },
+  "targets": {},
+  "etags": {},
+  "dataconnectEmulatorConfig": {}
+}
