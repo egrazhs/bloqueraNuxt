@@ -43,7 +43,10 @@
 			<tbody class="border-1 border-black pl-2">
 				<tr v-for="remision in remisiones" :key="remision.id" :data-key="remision.id" class="odd:bg-slate-200 even:bg-slate-50 hover:bg-slate-300">
 					<td class="pl-2">{{  parseInt(remision.id, 10) }}</td>
-					<td>{{ api_clientes.clientes.find(cliente => parseInt(cliente.id) == remision.cliente).nombre }}</td>
+					<td class="flex justify-between">
+						<span>{{ api_clientes.clientes.find(cliente => parseInt(cliente.id) == remision.cliente).nombre }}</span>
+						<ButtonsSeeAccount route="/estado_de_cuenta/000251"></ButtonsSeeAccount>
+					</td>
 					<td>{{remision.fecha.split('T')[0]}}</td>
 					<td>{{remision.obra}}</td>
 					<td class="text-right pr-2">{{ formatCurrency(calcular_importe_remision(remision)) }}</td>

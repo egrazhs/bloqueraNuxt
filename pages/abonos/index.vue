@@ -44,8 +44,8 @@
 				<tr v-for="abono in abonos" :key="abono.id" :data-key="abono.id" class="odd:bg-slate-200 even:bg-slate-50 hover:bg-slate-300">
 					<td class="pl-2">{{parseInt(abono.id, 10) }}</td>
 					<td>{{ getClienteNombre(abono.cliente) }}</td>
-					<td>{{abono.fecha}}</td>
-					<td>{{abono.cantidad}}</td>
+					<td>{{abono.fecha.split('T')[0]}}</td>
+					<td class="text-right">{{abono.cantidad}}</td>
 					<td class="py-2 pr-2">
 						<buttonsSeeMore :route="`/abonos/read/${abono.id}`" />
 						<ButtonsEdit :route="`/abonos/edit/${abono.id}`" />

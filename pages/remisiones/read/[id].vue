@@ -17,7 +17,7 @@
 
 					<v-list-item>
 						<v-list-item-title>Cliente:</v-list-item-title>
-						<v-list-item-subtitle>{{doc_info.cliente}}</v-list-item-subtitle>
+						<v-list-item-subtitle>{{ api_clientes.clientes.find(cliente => parseInt(cliente.id) == doc_info.cliente).nombre }}</v-list-item-subtitle>
 					</v-list-item>
 
 					<v-list-item>
@@ -45,6 +45,8 @@
 <script setup>
 	import { db } from '~/utils/firebase';
 	import { getDoc, doc } from 'firebase/firestore';
+
+	let { data: api_clientes} = await useFetch('/api/clientes');
 
 	const router = useRouter();
 	const doc_info = ref(null);

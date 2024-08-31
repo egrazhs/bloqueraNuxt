@@ -3,30 +3,10 @@
 		<h1 class="font-bold text-4xl">Inicio</h1>
 		<hr>
 
-		<section class="p-2 hover:bg-slate-200">
-			<h4 class="font-bold">Ultimos cambios agregados</h4>
+		<section class="p-2 hover:bg-slate-200">	
+			<h4 class="font-bold">Ultimos cambios agregados:</h4>
 			<ol class="text-xs">
-				<li>~ Reemplazo de Links por componentes de Boton <i>AddNew</i> en todos los tipos de documentos.</li>
-				<li>~ Realizadas pruebas en Paginas index de todos los documentos.</li>
-				<li>~ Cambiar el id de los documentos en la BD para normalizar el tipo de numeración</li>
-				<li>~ Dar formato a 0´s a la izquierda en numeraciones de las tablas [UI/UX]</li>
-				<li>~ Utils para consultas a BD.</li>
-				<li>~ mostrar Hora de arqueo en index</li>
-				<li>~ Utils para arqueos</li>
-				<li>~ Mostrar bien el formato de la fecha en arqueos</li>
-				<li>~ API local de productos y clientes</li>
-				<li>~ Agregar boton para ver estado de cuenta en tabla de clientes.</li>
-				<li>~ mostrar nombre del cliente en remisiones en index</li>
-				<li>~ Hacer ejemplo de estado de cuenta de un cliente/Proveedor</li>
-				<li>~ Mostrar total de la remision antes de crearlo.</li>
-				<li>~ En remisiones al momento de guardar materiales guarda el nombre del producto en vez de su id para referencia</li>
-				<li>~ Agregar 0´s a la izquierda en remisiones al agregar si es un id personalizado.</li>
-				<li>~ CRUD Abonos</li>
-				<li>~ Abono deberia guardar el id del cliente y no su nombre.</li>
-				<li>~ El input de cliente en abonos deberia ser un v-autocomplete</li>
-				<li>~ Pagina de estado de cuenta.</li>
-				<li>~ Agregar campo de informacion adicional para detalles en abonos.</li>
-				<li>~ Opción de abonar todo o una cantidad parcial al momento de crear Remisiones</li>
+				<li>~ Ya se muestra nombre del cliente en Ver remisión en vez del id.</li>
 			</ol>
 		</section>
 
@@ -37,10 +17,25 @@
 				<li>~ Paginar documentos en donde haya mas de 10 en una pagina.</li>
 				<li>~ Subir página a dominio de prueba.</li>
 				<li>~ Manejo de sesión de usuarios.</li>
-				<li>~ Mostrar nombre de usuario conectado en el panel de admin.</li>
 				<li>~ Inventario.</li>
 				<li>~ Función para evitar que se sobreescriban o se creen remisiones con un id ya hecho.</li>
 				<li>~ Modificar el precio unitario de un producto al elegir nuevo en remisiones.</li>
+				<li>~ Dar Formato a cantidades y fechas en Abonos</li>
+				<li>~ Dar Formato a cantidades y fechas en Estado de Cuenta</li>
+				<li>~ Agregar Boton de ver estado de cuenta en Ver Cliente.</li>
+				<li>~ Al parecer hay  un bug donde en algunos casos la cantidad abonada o total de una remision se guarda como un string.</li>
+				<li>~ Poner Slugs en clientes; Poner tanto codigo como nombre en los input [Cod - Nombre.]</li>
+				<li>~ "Levantado en Piso" como opcion por default en remisones para la Obra.</li>
+				<li>~ Compactar Diseño de la lista de productos.</li>
+				<li>~ Desglosar precio subtotal de cada producto en materiales al agregar Remisión.</li>
+				<li>~ Checkbox de IVA en agregar remision.</li>
+				<li>~ Poner Opcion de Chofer/Fletero y Vendedor en Remision.</li>
+				<li>~ CRUD de Vendedores.</li>
+				<li>~ CRUD de chofer/Fletes.</li>
+				<li>~ Poder elegir periodo de tiempo en estado de cuenta.</li>
+				<li>~ Desglosar lista de productos en Ver Remisión en vez de mostrar solo el array.</li>
+				<li>~ Dar formato a Fecha en Ver Remisión.</li>
+				<li>~ Agregar botón de editar en pantallas de Ver Documento.</li>
 			</ol>
 		</section>
 
@@ -148,6 +143,37 @@
 					</ol>
 				</div>
 			</article>
+		</section>
+
+		<section class="p-2 hover:bg-slate-200">
+			<h4 class="font-bold">Backlog</h4>
+
+			<section class="p-2 hover:bg-slate-200">	
+				<h4 class="font-bold">31/08/2024</h4>
+				<ol class="text-xs">
+					<li>~ Reemplazo de Links por componentes de Boton <i>AddNew</i> en todos los tipos de documentos.</li>
+					<li>~ Realizadas pruebas en Paginas index de todos los documentos.</li>
+					<li>~ Cambiar el id de los documentos en la BD para normalizar el tipo de numeración</li>
+					<li>~ Dar formato a 0´s a la izquierda en numeraciones de las tablas [UI/UX]</li>
+					<li>~ Utils para consultas a BD.</li>
+					<li>~ mostrar Hora de arqueo en index</li>
+					<li>~ Utils para arqueos</li>
+					<li>~ Mostrar bien el formato de la fecha en arqueos</li>
+					<li>~ API local de productos y clientes</li>
+					<li>~ Agregar boton para ver estado de cuenta en tabla de clientes.</li>
+					<li>~ mostrar nombre del cliente en remisiones en index</li>
+					<li>~ Hacer ejemplo de estado de cuenta de un cliente/Proveedor</li>
+					<li>~ Mostrar total de la remision antes de crearlo.</li>
+					<li>~ En remisiones al momento de guardar materiales guarda el nombre del producto en vez de su id para referencia</li>
+					<li>~ Agregar 0´s a la izquierda en remisiones al agregar si es un id personalizado.</li>
+					<li>~ CRUD Abonos</li>
+					<li>~ Abono deberia guardar el id del cliente y no su nombre.</li>
+					<li>~ El input de cliente en abonos deberia ser un v-autocomplete</li>
+					<li>~ Pagina de estado de cuenta.</li>
+					<li>~ Agregar campo de informacion adicional para detalles en abonos.</li>
+					<li>~ Opción de abonar todo o una cantidad parcial al momento de crear Remisiones</li>
+				</ol>
+			</section>
 		</section>
 	</section>
 </template>

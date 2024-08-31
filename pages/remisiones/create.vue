@@ -109,7 +109,7 @@
 				<!-- Sección para el abono -->
 				<div class="my-4">
 					<input v-model="hacerAbono" type="checkbox" id="hacerAbono" />
-					<label for="hacerAbono" class="font-semibold">Hacer Abono</label>
+					<label for="hacerAbono" class="font-semibold">Hacer Abono al momento de la remision.</label>
 
 					<div v-if="hacerAbono" class="mt-2">
 						<input v-model="pagarEnSuTotalidad" type="checkbox" id="pagarEnSuTotalidad" @change="actualizarCantidadAbono" />

@@ -80,7 +80,7 @@
 			cliente.value = await fetchDataById('clientes', clienteId);
 
 			if (cliente.value) {
-  				// Obtener abonos del cliente
+  			// Obtener abonos del cliente
 				const abonosRef = collection(db, 'abonos');
 				const q_abonos = query(abonosRef, where('cliente', '==', clienteId));
 				const abonosSnapshot = await getDocs(q_abonos);
