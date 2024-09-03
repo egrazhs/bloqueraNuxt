@@ -12,12 +12,7 @@
 				<v-list>
 					<v-list-item>
 						<v-list-item-title>ID:</v-list-item-title>
-						<v-list-item-subtitle>{{parseInt(doc_info.id, 10)}}</v-list-item-subtitle>
-					</v-list-item>
-
-					<v-list-item>
-						<v-list-item-title>Nombre:</v-list-item-title>
-						<v-list-item-subtitle>{{doc_info.nombre}}</v-list-item-subtitle>
+						<v-list-item-subtitle>{{doc_info.id}}</v-list-item-subtitle>
 					</v-list-item>
 
 					<v-list-item>
@@ -27,7 +22,7 @@
 
 					<v-list-item>
 						<v-list-item-title>Código:</v-list-item-title>
-						<v-list-item-subtitle>{{doc_info.prefijo}}</v-list-item-subtitle>
+						<v-list-item-subtitle>{{doc_info.codigo}}</v-list-item-subtitle>
 					</v-list-item>
 
 					<v-list-item>
@@ -35,34 +30,21 @@
 						<v-list-item-subtitle>{{doc_info.peso}}</v-list-item-subtitle>
 					</v-list-item>
 
-					<h4 class="px-4 py-2 font-bold text-lg">Precios:</h4>
-
 					<v-list-item>
-						<v-list-item-title>Piso:</v-list-item-title>
-						<v-list-item-subtitle>{{doc_info.piso}}</v-list-item-subtitle>
+						<v-list-item-title>Porcentaje de comisión a vendedores:</v-list-item-title>
+						<v-list-item-subtitle>{{doc_info.porcentaje_comision_vendedores}}%</v-list-item-subtitle>
 					</v-list-item>
 
 					<v-list-item>
-						<v-list-item-title>Obra:</v-list-item-title>
-						<v-list-item-subtitle>{{doc_info.obra}}</v-list-item-subtitle>
-					</v-list-item>
-
-					<h4 class="px-4 py-2 font-bold text-lg">Cantidades</h4>
-
-					<v-list-item>
-						<v-list-item-title>Rabón:</v-list-item-title>
-						<v-list-item-subtitle>{{doc_info.rabon}}</v-list-item-subtitle>
+						<v-list-item-title>Unidad de medida:</v-list-item-title>
+						<v-list-item-subtitle>{{doc_info.unidad_medida}}</v-list-item-subtitle>
 					</v-list-item>
 
 					<v-list-item>
-						<v-list-item-title>Tarima:</v-list-item-title>
-						<v-list-item-subtitle>{{doc_info.tarima}}</v-list-item-subtitle>
+						<v-list-item-title>Piezas por Tarima:</v-list-item-title>
+						<v-list-item-subtitle>{{doc_info.piezas_por_tarima}}</v-list-item-subtitle>
 					</v-list-item>
 
-					<v-list-item>
-						<v-list-item-title>Tortón:</v-list-item-title>
-						<v-list-item-subtitle>{{doc_info.torton}}</v-list-item-subtitle>
-					</v-list-item>
 				</v-list>
 			</v-card-text>
 		</v-card>

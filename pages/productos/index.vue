@@ -35,13 +35,13 @@
 		<table class="w-full text-xs">
 			<thead class="font-bold text-sm">
 				<td class="pl-2">ID</td>
-				<td>Producto: </td>
+				<td>Descripción: </td>
 				<td>Acciones</td>
 			</thead>
 			<tbody class="border-1 border-black pl-2">
 				<tr v-for="producto in productos" :key="producto.id" :data-key="producto.id" class="odd:bg-slate-200 even:bg-slate-50 hover:bg-slate-300">
-					<td class="pl-2">{{ parseInt(producto.id, 10) }}</td>
-					<td>{{producto.nombre}}</td>
+					<td class="pl-2">{{ producto.id }}</td>
+					<td>{{producto.descripcion}}</td>
 					<td class="py-2 pr-2">
 						<buttonsSeeMore :route="`./productos/read/${producto.id}`" />
 						<ButtonsEdit :route="`./productos/edit/${producto.id}`" />

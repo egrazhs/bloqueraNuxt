@@ -9,11 +9,6 @@
 
 		<form @submit.prevent="handleSubmit">
 			<div class="my-4">
-				<label for="nombre" class="block font-semibold">Nombre:</label>
-				<input v-model="nombre" type="text" id="nombre" class="input-field" required>
-			</div>
-
-			<div class="my-4">
 				<label for="matricula" class="block font-semibold">Descripción:</label>
 				<input v-model="descripcion" type="text" id="descripcion" class="input-field" required>
 			</div>
@@ -24,39 +19,46 @@
 			</div>
 
 			<div class="my-4">
+				<label for="year" class="block font-semibold">Familia de producto:</label>
+				<v-select
+					v-model="familia_de_producto"
+					:items="familias_de_productos"
+					item-text="nombre"
+					item-value="id"
+					label="Familia de producto"
+					no-data-text="Familia inexistente"
+					required>
+				</v-select>
+			</div>
+
+			<div class="my-4">
 				<label for="year" class="block font-semibold">Peso (Kg):</label>
 				<input v-model="peso" type="number" id="peso" class="input-field" required>
 			</div>
 
-			<h4>Precios</h4>
-
 			<div class="my-4">
-				<label for="piso" class="block font-semibold">Piso:</label>
-				<input v-model="piso" type="number" id="piso" class="input-field" required>
+				<label for="year" class="block font-semibold">Piezas por Tarima:</label>
+				<input v-model="piezas_por_tarima" type="number" id="peso" class="input-field" required>
 			</div>
 
 			<div class="my-4">
-				<label for="obra" class="block font-semibold">Obra:</label>
-				<input v-model="obra" type="number" id="obra" class="input-field" required>
-			</div>
-
-			<h4>Cantidades: </h4>
-
-			<div class="my-4">
-				<label for="rabon" class="block font-semibold">Rabón:</label>
-				<input v-model="rabon" type="number" id="rabon" class="input-field" required>
-			</div>
-
-			<div class="my-4">
-				<label for="tarima" class="block font-semibold">Tarima:</label>
-				<input v-model="tarima" type="number" id="tarima" class="input-field" required>
-			</div>
-
-			<div class="my-4">
-				<label for="torton" class="block font-semibold">Tortón:</label>
-				<input v-model="torton" type="number" id="torton" class="input-field" required>
+				<label for="year" class="block font-semibold">Porcentaje de comisión a vendedores:</label>
+				<input v-model="porcentaje_comision" type="number" id="porcentaje_comision" class="input-field" required>
 			</div>
 			
+			<div class="my-4">
+				<label for="year" class="block font-semibold">Unidad de medida:</label>
+				<v-select
+					v-model="unidad_medida"
+					:items="unidades_de_medida"
+					item-text="nombre"
+					item-value="id"
+					label="Unidad de medida"
+					no-data-text="Unidad inexistente"
+					required>
+				</v-select>
+			</div>
+
 			<button type="submit" class="btn-primary">Guardar</button>
 		</form>
 	</section>
@@ -66,32 +68,31 @@
 
 const router = useRouter();
 
-const nombre = ref('');
 const descripcion = ref('');
 const codigo = ref('');
 const peso = ref(0);
-const piso = ref(0);
-const obra = ref(0);
-const rabon = ref(0);
-const tarima = ref(0);
-const torton =ref(0);
+const piezas_por_tarima = ref(0);
+const porcentaje_comision = ref(0);
+const unidad_medida = ref('PIEZA');
+const familia_de_producto = ref('');
 
+const unidades_de_medida = ref(["PIEZA", "METRO LINEAL", "METRO CUADRADO", "KG", "METRO CUBICO"]);
+const familias_de_productos = ref([]);
 
 const handleSubmit = async () => {
 	try {
-		const nuevo_id = await getNextId("productos");
+		const nuevo_id = await getNextId("productos", 3);
 
 		// Crear un nuevo objeto con los datos del usuario
 		const nuevoDoc = {
-	  		nombre: nombre.value,
 	  		descripcion: descripcion.value,
 	  		codigo: codigo.value,
 	  		peso: peso.value,
-	  		piso: piso.value,
-	  		obra: obra.value,
-	  		rabon: rabon.value,
-	  		tarima: tarima.value,
-	  		torton: torton.value,
+	  		piezas_por_tarima: piezas_por_tarima.value,
+	  		porcentaje_comision_vendedores: porcentaje_comision.value,
+	  		ruta: "/images/productos/"+codigo,
+	  		familia: familia_de_producto.value,
+	  		unidad_medida: unidad_medida.value,
 	  		id: nuevo_id,
 	  		_type: 'productos'
 		};
@@ -100,15 +101,6 @@ const handleSubmit = async () => {
 		await agregarDocumento('productos', nuevoDoc, nuevo_id);
 
 		// Limpiar los campos del formulario después de agregar el usuario
-		nombre.value = '';
-		descripcion.value = '';
-		codigo.value = '';
-		peso.value = 0;
-		piso.value = 0;
-		obra.value = 0;
-		rabon.value = 0;
-		tarima.value = 0;
-		torton.value = 0;
 
 		// Mostrar un mensaje de éxito u otra acción deseada
 		await router.push({ path: '/productos', query: { c: true } });
