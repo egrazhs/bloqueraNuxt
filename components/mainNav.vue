@@ -11,6 +11,7 @@
             <NavItem to="/arqueos" imgSource="/images/heroicons/presentation-chart.svg" text="Arqueos" />
             <NavItem to="/remisiones" imgSource="/images/heroicons/banknote.svg" text="Remisiones" />
             <NavItem to="/abonos" imgSource="/images/heroicons/banknote.svg" text="Abonos" />
+            <NavItem to="/familias_productos" imgSource="/images/heroicons/cog.svg" text="Familias Produtos" />
             <NavItem to="/ejemplo" imgSource="/images/heroicons/window.svg" text="Ejemplo de E.C." />		
         </div>
 

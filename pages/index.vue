@@ -36,6 +36,8 @@
 				<li>~ Desglosar lista de productos en Ver Remisión en vez de mostrar solo el array.</li>
 				<li>~ Dar formato a Fecha en Ver Remisión.</li>
 				<li>~ Agregar botón de editar en pantallas de Ver Documento.</li>
+				<li>~ Modificar productos en database; Agregar familia a los productos.</li>
+				<li>~ Agregar CRUD de Familias de productos.</li>
 			</ol>
 		</section>
 
@@ -74,6 +76,17 @@
 						<li><span class="text-green-600">✓ - </span>Modificar</li>
 						<li><span class="text-green-600">✓ - </span>Eliminar</li>
 						<li><span class="text-green-600">✓ - </span>Detalles</li>
+					</ol>
+				</div>
+
+				<div>
+					<h6 class="font-bold">Familias Productos</h6>
+					<ol class="text-xs">
+						<li>Detalles</li>
+						<li>Crear</li>
+						<li>Ver</li>
+						<li>Modificar</li>
+						<li>Eliminar</li>
 					</ol>
 				</div>
 
