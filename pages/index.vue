@@ -7,6 +7,7 @@
 			<h4 class="font-bold">Ultimos cambios agregados:</h4>
 			<ol class="text-xs">
 				<li>~ Ya se muestra nombre del cliente en Ver remisión en vez del id.</li>
+				<li>~ Agregar CRUD de Familias de productos.</li>
 			</ol>
 		</section>
 
@@ -23,7 +24,7 @@
 				<li>~ Dar Formato a cantidades y fechas en Abonos</li>
 				<li>~ Dar Formato a cantidades y fechas en Estado de Cuenta</li>
 				<li>~ Agregar Boton de ver estado de cuenta en Ver Cliente.</li>
-				<li>~ Al parecer hay  un bug donde en algunos casos la cantidad abonada o total de una remision se guarda como un string.</li>
+				<li>~ Al parecer hay un bug donde en algunos casos la cantidad abonada o total de una remision se guarda como un string.</li>
 				<li>~ Poner Slugs en clientes; Poner tanto codigo como nombre en los input [Cod - Nombre.]</li>
 				<li>~ "Levantado en Piso" como opcion por default en remisones para la Obra.</li>
 				<li>~ Compactar Diseño de la lista de productos.</li>
@@ -37,7 +38,6 @@
 				<li>~ Dar formato a Fecha en Ver Remisión.</li>
 				<li>~ Agregar botón de editar en pantallas de Ver Documento.</li>
 				<li>~ Modificar productos en database; Agregar familia a los productos.</li>
-				<li>~ Agregar CRUD de Familias de productos.</li>
 			</ol>
 		</section>
 
@@ -82,11 +82,11 @@
 				<div>
 					<h6 class="font-bold">Familias Productos</h6>
 					<ol class="text-xs">
-						<li>Detalles</li>
-						<li>Crear</li>
-						<li>Ver</li>
-						<li>Modificar</li>
-						<li>Eliminar</li>
+						<li><span class="text-green-600">✓ - </span>Detalles</li>
+						<li><span class="text-green-600">✓ - </span>Crear</li>
+						<li><span class="text-green-600">✓ - </span>Ver</li>
+						<li><span class="text-green-600">✓ - </span>Modificar</li>
+						<li><span class="text-green-600">✓ - </span>Eliminar</li>
 					</ol>
 				</div>
 

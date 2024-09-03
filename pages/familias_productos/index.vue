@@ -105,8 +105,8 @@
 
 			setTimeout(async () => {
 				try {
-					await deleteDataByDocId('familia_productos', documento_seleccionado.value.id);
-					productos.value = productos.value.filter(u => u.id !== documento_seleccionado.value.id);
+					await deleteDataByDocId('familias_productos', documento_seleccionado.value.id);
+					familias_productos.value = familias_productos.value.filter(u => u.id !== documento_seleccionado.value.id);
 					documento_seleccionado.value = null;
 					dialog.value = false;
 					documento_eliminado.value = true;
