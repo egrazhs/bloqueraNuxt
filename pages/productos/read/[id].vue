@@ -26,6 +26,11 @@
 					</v-list-item>
 
 					<v-list-item>
+						<v-list-item-title>Familia:</v-list-item-title>
+						<v-list-item-subtitle>{{doc_info.familia}}</v-list-item-subtitle>
+					</v-list-item>
+
+					<v-list-item>
 						<v-list-item-title>Peso:</v-list-item-title>
 						<v-list-item-subtitle>{{doc_info.peso}}</v-list-item-subtitle>
 					</v-list-item>
