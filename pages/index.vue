@@ -9,6 +9,8 @@
 				<li>~ Ya se muestra nombre del cliente en Ver remisión en vez del id.</li>
 				<li>~ Agregar CRUD de Familias de productos.</li>
 				<li>~ Modificar productos en database; Agregar familia a los productos.</li>
+				<li>~ Agregar CRUD de Trabajadores.</li>
+				<li>~ Actualizado CRUD de Productos.</li>
 			</ol>
 		</section>
 
@@ -38,6 +40,14 @@
 				<li>~ Desglosar lista de productos en Ver Remisión en vez de mostrar solo el array.</li>
 				<li>~ Dar formato a Fecha en Ver Remisión.</li>
 				<li>~ Agregar botón de editar en pantallas de Ver Documento.</li>
+				<li>~ Agregar propiedad de Rabon (tarima *7) y Torton (Tarima *10) en productos.</li>
+				<li>~ Agregar Precio en productos.</li>
+				<li>~ Listar/Mostrar productos de esa familia de productos</li>
+				<li>~ Agregar Lista de Precios en main Nav</li>
+				<li>~ Quitar documentos del main nav que no esten utilizando al momento.</li>
+				<li>~ Hacer vista de remisiones.</li>
+				<li>~ Poner chofer al lado de sucursal.</li>
+				<li>~ POner Cantidad a pagar a chofer</li>
 			</ol>
 		</section>
 
