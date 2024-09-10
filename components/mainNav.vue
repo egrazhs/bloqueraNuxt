@@ -3,6 +3,7 @@
 		<div>
             <NavItem to="/" imgSource="/images/heroicons/clipboard.svg" text="Inicio" />
             <NavItem to="/usuarios" imgSource="/images/heroicons/user.svg" text="Usuarios" />
+            <NavItem to="/trabajadores" imgSource="/images/heroicons/user-group.svg" text="Trabajadores" />
             <NavItem to="/clientes" imgSource="/images/heroicons/user-group.svg" text="Clientes" />
             <NavItem to="/proveedores" imgSource="/images/heroicons/briefcase.svg" text="Proveedores" />
             <NavItem to="/vehiculos" imgSource="/images/heroicons/truck.svg" text="Vehiculos" />
@@ -11,8 +12,8 @@
             <NavItem to="/arqueos" imgSource="/images/heroicons/presentation-chart.svg" text="Arqueos" />
             <NavItem to="/remisiones" imgSource="/images/heroicons/banknote.svg" text="Remisiones" />
             <NavItem to="/abonos" imgSource="/images/heroicons/banknote.svg" text="Abonos" />
-            <NavItem to="/familias_productos" imgSource="/images/heroicons/cog.svg" text="Familias Produtos" />
-            <NavItem to="/ejemplo" imgSource="/images/heroicons/window.svg" text="Ejemplo de E.C." />		
+            <NavItem to="/familias_productos" imgSource="/images/heroicons/cog.svg" text="Familias Productos" />
+            <!--<NavItem to="/ejemplo" imgSource="/images/heroicons/window.svg" text="Ejemplo de E.C." />-->
         </div>
 
 		<div>

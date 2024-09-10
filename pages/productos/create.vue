@@ -108,32 +108,16 @@
 			// Limpiar los campos del formulario después de agregar el usuario
 
 			// Mostrar un mensaje de éxito u otra acción deseada
-			await router.push({ path: '/', query: { c: true } });
+			await router.push({ path: '/productos/', query: { c: true } });
 
 		} catch (error) {
 			console.error('Error al agregar Producto:', error.message);
 		}
 	};
 
-	const cargarFamiliasDeProductos = async () => {
-		try {
-			const querySnapshot = await fetchDataByCollection("familias_productos");
-			const familias = [];
-			console.log(querySnapshot);
-			querySnapshot.forEach((doc) => {
-				familias.push({
-						id: doc.id,
-						descripcion: doc.id + " - " +doc.descripcion
-				});
-			});
-			familias_de_productos.value = familias;
-		} catch (error) {
-			console.error('Error al cargar familias de productos:', error.message);
-		}
-	};
 
-	onMounted( ()=>{
-		cargarFamiliasDeProductos();
+	onMounted(async ()=>{
+		familias_de_productos.value = await createSelectOfDocuments("familias_productos", "descripcion");
 		loading.value = false;
 	});
 </script>

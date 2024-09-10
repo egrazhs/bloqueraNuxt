@@ -1,6 +1,8 @@
 <template>
 	<v-container>
-		<v-card class="mx-auto mt-5" max-width="600">
+		<ScreensLoading v-if="loading"></ScreensLoading>
+
+		<v-card v-else class="mx-auto mt-5" max-width="600">
 			<v-card-title class="headline d-flex align-center">
 				<v-btn icon @click="volver">
 					<v-icon size="24">mdi-arrow-left</v-icon>
@@ -11,77 +13,62 @@
 			<v-card-text>
 				<v-form ref="form" v-model="valid" lazy-validation>
 					<v-text-field
-					type="text"
-					v-model="documento.nombre"
-					:rules="rules.required"
-					label="Nombre"
-					required
+						type="text"
+						v-model="documento.descripcion"
+						:rules="rules.required"
+						label="Descripción"
+						required
 					></v-text-field>
 
 					<v-text-field
-					type="text"
-					v-model="documento.descripcion"
-					:rules="rules.required"
-					label="Descripción"
-					required
+						type="text"
+						v-model="documento.codigo"
+						:rules="rules.required"
+						label="Código"
+						required
+					></v-text-field>
+
+					<v-select
+						v-model="documento.familia"
+						:items="familias_de_productos"
+						item-title="descripcion"
+						item-value="id"
+						label="Familia de producto"
+						no-data-text="Familia inexistente"
+						required>
+					</v-select>
+
+					<v-text-field
+						type="number"
+						v-model="documento.peso"
+						label="Peso (Kg)"
+						required
 					></v-text-field>
 
 					<v-text-field
-					type="text"
-					v-model="documento.codigo"
-					:rules="rules.required"
-					label="Código"
-					required
+						type="number"
+						v-model="documento.piezas_por_tarima"
+						label="Piezas por tarima"
+						required
 					></v-text-field>
+
+					<v-select
+						v-model="documento.unidad_medida"
+						:items="unidades_de_medida"
+						item-text="nombre"
+						item-value="id"
+						label="Unidad de medida"
+						no-data-text="Unidad inexistente"
+						required>
+					</v-select>
 
 					<v-text-field
-					type="number"
-					v-model="documento.peso"
-					:rules="rules.required"
-					label="Peso (Kg)"
-					required
+						type="number"
+						v-model="documento.porcentaje_comision_vendedores"
+						:rules="rules.required"
+						label="Porcentaje de Comision por vendedores (%)"
+						required
 					></v-text-field>
-
-					<v-text-field
-					type="number"
-					v-model="documento.piso"
-					:rules="rules.required"
-					label="Piso"
-					required
-					></v-text-field>
-
-					<v-text-field
-					type="number"
-					v-model="documento.obra"
-					:rules="rules.required"
-					label="Obra"
-					required
-					></v-text-field>
-
-					<v-text-field
-					type="number"
-					v-model="documento.rabon"
-					:rules="rules.required"
-					label="Rabón"
-					required
-					></v-text-field>
-
-					<v-text-field
-					type="number"
-					v-model="documento.tarima"
-					:rules="rules.required"
-					label="Tarima"
-					required
-					></v-text-field>
-
-					<v-text-field
-					type="number"
-					v-model="documento.torton"
-					:rules="rules.required"
-					label="Tortón"
-					required
-					></v-text-field>
-
 				</v-form>
 			</v-card-text>
 			<v-divider></v-divider>
@@ -93,8 +80,7 @@
 			</v-card-actions>
 		</v-card>
 
-		<ScreensLoading v-if="loading">	
-		</ScreensLoading>
+		
 	</v-container>
 </template>
 
@@ -105,17 +91,16 @@
 	const route = useRoute();
 	const router = useRouter();
 
+	const unidades_de_medida = ref(["PIEZA", "METRO LINEAL", "METRO CUADRADO", "KG", "METRO CUBICO"]);
+	const familias_de_productos = ref([]);
+
 	const documento = ref({
-		nombre: '',
 		descripcion: '',
 		codigo: '',
 		peso: 0,
-		piso: 0,
-		obra: 0,
-		rabon: 0,
-		tarima: 0,
-		torton: 0
+		familia: ''
 	});
+
 	const loading = ref(true);
 	const valid = ref(false);
 	const rules = {
@@ -123,7 +108,7 @@
 	};
 
 	const volver = () => {
-		router.push('/sucursales');
+		router.push('/productos');
 	};
 
 	const fetchDoc = async () => {
@@ -137,14 +122,15 @@
 			}
 		} catch (error) {
 			console.error('Error al obtener detalles del producto:', error.message);
-		} finally {
-			loading.value = false;
 		}
 	};
 
 	const guardar = async () => {
 		try {
 			const { id } = route.params;
+			//Parsear a int piezas por tarima
+			documento.value.piezas_por_tarima = parseInt(documento.value.piezas_por_tarima, 10);
+			
 			await updateDoc(doc(db, 'productos', id), documento.value);
 			router.push({ path: '/productos', query: { documentoActualizado: true } });
 		} catch (error) {
@@ -152,5 +138,9 @@
 		}
 	};
 
-	onMounted(fetchDoc);
+	onMounted(async ()=>{
+		familias_de_productos.value = await createSelectOfDocuments("familias_productos", "descripcion");
+		fetchDoc();
+		loading.value = false;
+	});
 </script>

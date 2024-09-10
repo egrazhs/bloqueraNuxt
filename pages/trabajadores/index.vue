@@ -1,9 +1,9 @@
 <template>
 	<section>
-		<h1 class="font-bold text-4xl">Productos</h1>
+		<h1 class="font-bold text-4xl">Trabajadores</h1>
 	
 		<div class="mt-4">
-			<ButtonsAddNew route="./productos/create" text="Producto" />
+			<ButtonsAddNew route="/trabajadores/create" text="Trabajador" />
 		</div>
 
 		<hr class="border-1 border-slate-300 my-4">
@@ -11,15 +11,15 @@
 		<section>
 			<!-- Mensaje de éxito -->
 			<div v-if="$route.query.c" class="transition-opacity bg-blue-200 text-blue-800 text-xs p-2 italic my-2">
-				*Se ha agregado el producto de manera exitosa.
+				*Se ha agregado el trabajador de manera exitosa.
 			</div>
 
 			<div v-if="$route.query.documentoActualizado" class="transition-opacity bg-yellow-200 text-yellow-800 text-xs p-2 italic my-2">
-				*Se ha actualizado la información del producto.
+				*Se ha actualizado la información del trabajador.
 			</div>
 
 			<div v-if="documento_eliminado" class="transition-opacity bg-red-200 text-red-800 text-xs p-2 italic my-2">
-				*Se ha borrado el producto de manera exitosa.
+				*Se ha borrado el trabajador de manera exitosa.
 			</div>
 
 			<!-- Mensaje de error -->
@@ -39,13 +39,13 @@
 				<td>Acciones</td>
 			</thead>
 			<tbody class="border-1 border-black pl-2">
-				<tr v-for="producto in productos" :key="producto.id" :data-key="producto.id" class="odd:bg-slate-200 even:bg-slate-50 hover:bg-slate-300">
-					<td class="pl-2">{{ producto.id }}</td>
-					<td>{{producto.descripcion}}</td>
+				<tr v-for="trabajador in trabajadores" :key="trabajador.id" :data-key="trabajador.id" class="odd:bg-slate-200 even:bg-slate-50 hover:bg-slate-300">
+					<td class="pl-2">{{ trabajador.id }}</td>
+					<td>{{trabajador.nombre}}</td>
 					<td class="py-2 pr-2">
-						<buttonsSeeMore :route="`/productos/read/${producto.id}`" />
-						<ButtonsEdit :route="`/productos/edit/${producto.id}`" />
-						<ButtonsDelete :item="producto" @confirm="confirmar_eliminacion" />
+						<buttonsSeeMore :route="`/trabajadores/read/${trabajador.id}`" />
+						<ButtonsEdit :route="`/trabajadores/edit/${trabajador.id}`" />
+						<ButtonsDelete :item="trabajador" @confirm="confirmar_eliminacion" />
 					</td>
 				</tr>
 			</tbody>
@@ -55,7 +55,7 @@
 	<ModalsConfirmDelete 
 		:show="dialog" 
 		:item="documento_seleccionado" 
-		confirmMessage="¿Estás seguro de que deseas eliminar este Producto?" 
+		confirmMessage="¿Estás seguro de que deseas eliminar este Trabajador?" 
 		:deleteFunction="eliminar_documento_confirmado" 
 		@cancel="cancelar_eliminacion" 
 		@confirm="eliminar_documento_confirmado"
@@ -65,7 +65,7 @@
 </template>
 
 <script setup>
-	const productos = ref([]);
+	const trabajadores = ref([]);
 	const loading = ref(true);
 	const dialog = ref(false);
 	const documento_seleccionado = ref(null);
@@ -75,10 +75,10 @@
 	let data_value = ref('');
 
 	const fetchDataFromFirebase = async () => {
-		const data = await fetchDataByCollection("productos");
-		productos.value = data;
+		const data = await fetchDataByCollection("trabajadores");
+		trabajadores.value = data;
 		loading.value = false;
-		console.log(productos.value);
+		console.log(trabajadores.value);
 	};
 
 	onMounted(fetchDataFromFirebase);
@@ -103,13 +103,13 @@
 
 			setTimeout(async () => {
 				try {
-					await deleteDataByDocId('productos', documento_seleccionado.value.id);
-					productos.value = productos.value.filter(u => u.id !== documento_seleccionado.value.id);
+					await deleteDataByDocId('trabajadores', documento_seleccionado.value.id);
+					trabajadores.value = trabajadores.value.filter(u => u.id !== documento_seleccionado.value.id);
 					documento_seleccionado.value = null;
 					dialog.value = false;
 					documento_eliminado.value = true;
 				} catch (err) {
-					error.value = 'Error eliminando el usuario. Por favor, intenta de nuevo.';
+					error.value = 'Error eliminando el Trabajo. Por favor, intenta de nuevo.';
 				} finally {
 				eliminando.value = false; // Termina la eliminación
 			}
