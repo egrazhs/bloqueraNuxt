@@ -11,6 +11,7 @@
 				<li>~ Modificar productos en database; Agregar familia a los productos.</li>
 				<li>~ Agregar CRUD de Trabajadores.</li>
 				<li>~ Actualizado CRUD de Productos.</li>
+				<li>~ Agregar Boton de ver estado de cuenta en Ver Cliente.</li>
 			</ol>
 		</section>
 
@@ -24,9 +25,6 @@
 				<li>~ Inventario.</li>
 				<li>~ Función para evitar que se sobreescriban o se creen remisiones con un id ya hecho.</li>
 				<li>~ Modificar el precio unitario de un producto al elegir nuevo en remisiones.</li>
-				<li>~ Dar Formato a cantidades y fechas en Abonos</li>
-				<li>~ Dar Formato a cantidades y fechas en Estado de Cuenta</li>
-				<li>~ Agregar Boton de ver estado de cuenta en Ver Cliente.</li>
 				<li>~ Al parecer hay un bug donde en algunos casos la cantidad abonada o total de una remision se guarda como un string.</li>
 				<li>~ Poner Slugs en clientes; Poner tanto codigo como nombre en los input [Cod - Nombre.]</li>
 				<li>~ "Levantado en Piso" como opcion por default en remisones para la Obra.</li>
@@ -47,7 +45,8 @@
 				<li>~ Quitar documentos del main nav que no esten utilizando al momento.</li>
 				<li>~ Hacer vista de remisiones.</li>
 				<li>~ Poner chofer al lado de sucursal.</li>
-				<li>~ POner Cantidad a pagar a chofer</li>
+				<li>~ Poner Cantidad a pagar a chofer</li>
+				<li>~ Posible CRUD de Viajes de choferes.</li>
 			</ol>
 		</section>
 
@@ -95,7 +94,7 @@
 					<ol class="text-xs">
 						<li>Detalles</li>
 						<li>Crear</li>
-						<li>Ver</li>
+						<li><span class="text-green-600">✓ - </span>Ver</li>
 						<li>Modificar</li>
 						<li>Eliminar</li>
 					</ol>

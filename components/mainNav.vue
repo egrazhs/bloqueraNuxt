@@ -6,13 +6,13 @@
             <NavItem to="/trabajadores" imgSource="/images/heroicons/user-group.svg" text="Trabajadores" />
             <NavItem to="/clientes" imgSource="/images/heroicons/user-group.svg" text="Clientes" />
             <NavItem to="/proveedores" imgSource="/images/heroicons/briefcase.svg" text="Proveedores" />
-            <NavItem to="/vehiculos" imgSource="/images/heroicons/truck.svg" text="Vehiculos" />
-            <NavItem to="/productos" imgSource="/images/heroicons/cog.svg" text="Productos" />
-            <NavItem to="/sucursales" imgSource="/images/heroicons/building-storefront.svg" text="Sucursales" />
-            <NavItem to="/arqueos" imgSource="/images/heroicons/presentation-chart.svg" text="Arqueos" />
-            <NavItem to="/remisiones" imgSource="/images/heroicons/banknote.svg" text="Remisiones" />
-            <NavItem to="/abonos" imgSource="/images/heroicons/banknote.svg" text="Abonos" />
             <NavItem to="/familias_productos" imgSource="/images/heroicons/cog.svg" text="Familias Productos" />
+            <NavItem to="/productos" imgSource="/images/heroicons/cog.svg" text="Productos" />
+            <!--<NavItem to="/vehiculos" imgSource="/images/heroicons/truck.svg" text="Vehiculos" />-->
+            <!--<NavItem to="/sucursales" imgSource="/images/heroicons/building-storefront.svg" text="Sucursales" />-->
+            <!--<NavItem to="/arqueos" imgSource="/images/heroicons/presentation-chart.svg" text="Arqueos" />-->
+            <!--<NavItem to="/remisiones" imgSource="/images/heroicons/banknote.svg" text="Remisiones" />-->
+            <!--<NavItem to="/abonos" imgSource="/images/heroicons/banknote.svg" text="Abonos" />-->
             <!--<NavItem to="/ejemplo" imgSource="/images/heroicons/window.svg" text="Ejemplo de E.C." />-->
         </div>
 

@@ -35,6 +35,7 @@
 		<table class="w-full text-xs">
 			<thead class="font-bold text-sm">
 				<td class="pl-2">ID</td>
+				<td>Código</td>
 				<td>Nombre</td>
 				<td>Alias</td>
 				<td>Acciones</td>
@@ -42,6 +43,7 @@
 			<tbody class="border-1 border-black pl-2">
 				<tr v-for="proveedor in proveedores" :key="proveedor.id" :data-key="proveedor.id" class="odd:bg-slate-200 even:bg-slate-50 hover:bg-slate-300">
 					<td class="pl-2">{{parseInt(proveedor.id, 10) }}</td>
+					<td>{{proveedor.codigo}}</td>
 					<td>{{proveedor.nombre}}</td>
 					<td>{{proveedor.alias}}</td>
 					<td class="py-2 pr-2">
