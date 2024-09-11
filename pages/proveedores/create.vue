@@ -1,5 +1,6 @@
 <template>
-	<section>
+	<ScreensLoading v-if="loading"></ScreensLoading>
+	<section v-else>
 		<div class="flex align-center">
 			<ButtonsReturnArrow class="mr-4" size="x-small" />
 			<h1 class="font-bold text-4xl">Crear Proveedor</h1>
@@ -46,8 +47,8 @@
 				<v-select
 					v-model="hace_factura"
 					:items="opciones_booleanas"
-					item-text="nombre"
-					item-value="id"
+					item-title="descripcion"
+					item-value="descripcion"
 					label="Hace factura?"
 					no-data-text=""
 					required>
@@ -69,10 +70,18 @@
 
 			<div class="my-4">
 				<label for="tiene_credito" class="block font-semibold">Tiene Crédito:</label>
-				<input v-model="tiene_credito" type="text" id="tiene_credito" class="input-field">
+				<v-select
+					v-model="tiene_credito"
+					:items="opciones_booleanas"
+					item-title="descripcion"
+					item-value="descripcion"
+					label="Tiene Crédito?"
+					no-data-text=""
+					required>
+				</v-select>
 			</div>
 
-			<div v-if="tiene_credito.value == 'SI'" class="my-4">
+			<div v-if="tiene_credito == 'SI'" class="my-4">
 				<label for="monto_credito" class="block font-semibold">Monto de Crédito:</label>
 				<input v-model="monto_credito" type="number" id="monto_credito" class="input-field">
 			</div>
@@ -122,15 +131,16 @@
 <script setup>
 
 const router = useRouter();
+const loading = ref(true);
 
 const codigo = ref('');
 const nombre = ref('');
 const alias = ref('');
-const tipo_de_persona = ref('');
+const tipo_de_persona = ref('FISICA');
 const que_vende = ref('');
-const hace_factura = ref('');
-const forma_de_pago = ref('');
-const tiene_credito = ref('');
+const hace_factura = ref('SI');
+const forma_de_pago = ref('EFECTIVO');
+const tiene_credito = ref('SI');
 const monto_credito = ref(0);
 const contacto = ref('');
 const telefono = ref('');
@@ -142,8 +152,8 @@ const domicilio = ref('');
 
 
 const tipos_de_personas = ["FISICA", "MORAL"];
-const opciones_booleanas = ["SI","NO"];
-const formas_de_pagos = ["EFECTIVO", "FISCAL", "TRANSFER NO FISCAL",];
+const opciones_booleanas = ["SI", "NO"];
+const formas_de_pagos = ["EFECTIVO", "FISCAL", "TRANSFER NO FISCAL"];
 
 const handleSubmit = async () => {
 	try {
@@ -183,6 +193,11 @@ const handleSubmit = async () => {
 		console.error('Error al agregar proveedor:', error.message);
 	}
 };
+
+
+onMounted(()=>{
+	loading.value = false;
+});
 </script>
 
 <style>

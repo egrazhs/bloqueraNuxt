@@ -52,7 +52,7 @@
 				<v-select
 					v-model="unidad_medida"
 					:items="unidades_de_medida"
-					item-text="nombre"
+					item-title="nombre"
 					item-value="id"
 					label="Unidad de medida"
 					no-data-text="Unidad inexistente"

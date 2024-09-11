@@ -12,7 +12,7 @@
 				<v-list>
 					<v-list-item>
 						<v-list-item-title>ID:</v-list-item-title>
-						<v-list-item-subtitle>{{parseInt(doc_info.id, 10)}}</v-list-item-subtitle>
+						<v-list-item-subtitle>{{doc_info.id}}</v-list-item-subtitle>
 					</v-list-item>
 
 					<v-list-item>
@@ -21,8 +21,78 @@
 					</v-list-item>
 
 					<v-list-item>
+						<v-list-item-title>Código:</v-list-item-title>
+						<v-list-item-subtitle>{{doc_info.codigo}}</v-list-item-subtitle>
+					</v-list-item>
+
+					<v-list-item>
 						<v-list-item-title>Alias:</v-list-item-title>
 						<v-list-item-subtitle>{{doc_info.alias}}</v-list-item-subtitle>
+					</v-list-item>
+
+					<v-list-item>
+						<v-list-item-title>Tipo de Persona:</v-list-item-title>
+						<v-list-item-subtitle>{{doc_info.tipo_de_persona}}</v-list-item-subtitle>
+					</v-list-item>
+
+					<v-list-item>
+						<v-list-item-title>Vende:</v-list-item-title>
+						<v-list-item-subtitle>{{doc_info.que_vende}}</v-list-item-subtitle>
+					</v-list-item>
+
+					<v-list-item>
+						<v-list-item-title>Factura:</v-list-item-title>
+						<v-list-item-subtitle>{{doc_info.hace_factura}}</v-list-item-subtitle>
+					</v-list-item>
+
+					<v-list-item>
+						<v-list-item-title>Forma de Pago:</v-list-item-title>
+						<v-list-item-subtitle>{{doc_info.forma_de_pago}}</v-list-item-subtitle>
+					</v-list-item>
+
+					<v-list-item>
+						<v-list-item-title>Crédito:</v-list-item-title>
+						<v-list-item-subtitle>{{doc_info.tiene_credito}}</v-list-item-subtitle>
+					</v-list-item>
+
+					<v-list-item v-if="doc_info.tiene_credito == 'SI'">
+						<v-list-item-title>Monto de Crédito:</v-list-item-title>
+						<v-list-item-subtitle>{{doc_info.monto_credito}}</v-list-item-subtitle>
+					</v-list-item>
+
+					<v-list-item>
+						<v-list-item-title>Contacto:</v-list-item-title>
+						<v-list-item-subtitle>{{doc_info.contacto}}</v-list-item-subtitle>
+					</v-list-item>
+
+					<v-list-item>
+						<v-list-item-title>Teléfono:</v-list-item-title>
+						<v-list-item-subtitle><span v-if="doc_info.telefono == ''">N/A</span>{{doc_info.telefono}}</v-list-item-subtitle>
+					</v-list-item>
+
+					<v-list-item>
+						<v-list-item-title>Banco:</v-list-item-title>
+						<v-list-item-subtitle><span v-if="doc_info.banco == ''">N/A</span>{{doc_info.banco}}</v-list-item-subtitle>
+					</v-list-item>
+
+					<v-list-item>
+						<v-list-item-title>No. de Cuenta:</v-list-item-title>
+						<v-list-item-subtitle><span v-if="doc_info.cuenta == ''">N/A</span>{{doc_info.cuenta}}</v-list-item-subtitle>
+					</v-list-item>
+
+					<v-list-item>
+						<v-list-item-title>Alerta:</v-list-item-title>
+						<v-list-item-subtitle><span v-if="doc_info.alerta == ''">N/A</span>{{doc_info.alerta}}</v-list-item-subtitle>
+					</v-list-item>
+
+					<v-list-item>
+						<v-list-item-title>Correo:</v-list-item-title>
+						<v-list-item-subtitle><span v-if="doc_info.correo == ''">N/A</span>{{doc_info.correo}}</v-list-item-subtitle>
+					</v-list-item>
+
+					<v-list-item>
+						<v-list-item-title>Domicilio:</v-list-item-title>
+						<v-list-item-subtitle><span v-if="doc_info.domicilio == ''">N/A</span>{{doc_info.domicilio}}</v-list-item-subtitle>
 					</v-list-item>
 				</v-list>
 			</v-card-text>
