@@ -1,9 +1,9 @@
 <template>
 	<section>
-		<h1 class="font-bold text-4xl">Proveedores</h1>
+		<h1 class="font-bold text-4xl">Formas de Pago</h1>
 	
 		<div class="mt-4">
-			<ButtonsAddNew route="./proveedores/create" text="Proveedor" />
+			<ButtonsAddNew route="./formas_de_pago/create" text="Forma de pago" />
 		</div>
 
 		<hr class="border-1 border-slate-300 my-4">
@@ -11,15 +11,15 @@
 		<section>
 			<!-- Mensaje de éxito -->
 			<div v-if="$route.query.c" class="transition-opacity bg-blue-200 text-blue-800 text-xs p-2 italic my-2">
-				*Se ha agregado el Proveedor de manera exitosa.
+				*Se ha agregado la forma de pago de manera exitosa.
 			</div>
 
 			<div v-if="$route.query.documentoActualizado" class="transition-opacity bg-yellow-200 text-yellow-800 text-xs p-2 italic my-2">
-				*Se ha actualizado la información del Proveedor.
+				*Se ha actualizado la información de la forma de pago.
 			</div>
 
 			<div v-if="documento_eliminado" class="transition-opacity bg-red-200 text-red-800 text-xs p-2 italic my-2">
-				*Se ha borrado el Proveedor de manera exitosa.
+				*Se ha borrado la forma de pago de manera exitosa.
 			</div>
 
 			<!-- Mensaje de error -->
@@ -36,30 +36,28 @@
 			<thead class="font-bold text-sm">
 				<td class="pl-2">ID</td>
 				<td>Código</td>
-				<td>Nombre</td>
-				<td>Alias</td>
+				<td>Descripción</td>
 				<td>Acciones</td>
 			</thead>
 			<tbody class="border-1 border-black pl-2">
-				<tr v-for="proveedor in proveedores" :key="proveedor.id" :data-key="proveedor.id" class="odd:bg-slate-200 even:bg-slate-50 hover:bg-slate-300">
-					<td class="pl-2">{{proveedor.id}}</td>
-					<td>{{proveedor.codigo}}</td>
-					<td>{{proveedor.nombre}}</td>
-					<td>{{proveedor.alias}}</td>
+				<tr v-for="forma_de_pago in formas_de_pagos" :key="forma_de_pago.id" :data-key="forma_de_pago.id" class="odd:bg-slate-200 even:bg-slate-50 hover:bg-slate-300">
+					<td class="pl-2">{{ forma_de_pago.id }}</td>
+					<td>{{forma_de_pago.codigo}}</td>
+					<td>{{forma_de_pago.descripcion}}</td>
 					<td class="py-2 pr-2">
-						<buttonsSeeMore :route="`./proveedores/read/${proveedor.id}`" />
-						<ButtonsEdit :route="`./proveedores/edit/${proveedor.id}`" />
-						<ButtonsDelete :item="proveedor" @confirm="confirmar_eliminacion" />
+						<buttonsSeeMore :route="`/formas_de_pago/read/${forma_de_pago.id}`" />
+						<ButtonsEdit :route="`/formas_de_pago/edit/${forma_de_pago.id}`" />
+						<ButtonsDelete :item="forma_de_pago" @confirm="confirmar_eliminacion" />
 					</td>
 				</tr>
 			</tbody>
 		</table>
-	</article>
+	</article>	
 
 	<ModalsConfirmDelete 
       :show="dialog" 
       :item="documento_seleccionado" 
-      confirmMessage="¿Estás seguro de que deseas eliminar este Proveedor?" 
+      confirmMessage="¿Estás seguro de que deseas eliminar este Cliente?" 
       :deleteFunction="eliminar_documento_confirmado" 
       @cancel="cancelar_eliminacion" 
       @confirm="eliminar_documento_confirmado"
@@ -69,7 +67,7 @@
 </template>
 
 <script setup>
-	const proveedores = ref([]);
+	const formas_de_pagos = ref([]);
 	const loading = ref(true);
 	const dialog = ref(false);
 	const documento_seleccionado = ref(null);
@@ -79,8 +77,8 @@
 	let data_value = ref('');
 
 	const fetchDataFromFirebase = async () => {
-		const data = await fetchDataByCollection("proveedores");
-		proveedores.value = data;
+		const data = await fetchDataByCollection("formas_de_pagos");
+		formas_de_pagos.value = data;
 		loading.value = false;
 	};
 
@@ -106,8 +104,8 @@
 
 			setTimeout(async () => {
 				try {
-					await deleteDataByDocId('proveedores', documento_seleccionado.value.id);
-					proveedores.value = proveedores.value.filter(u => u.id !== documento_seleccionado.value.id);
+					await deleteDataByDocId('formas_de_pagos', documento_seleccionado.value.id);
+					formas_de_pagos.value = formas_de_pagos.value.filter(u => u.id !== documento_seleccionado.value.id);
 					documento_seleccionado.value = null;
 					dialog.value = false;
 					documento_eliminado.value = true;

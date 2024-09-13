@@ -35,20 +35,22 @@
 		<table class="w-full text-xs">
 			<thead class="font-bold text-sm">
 				<td class="pl-2">ID</td>
+				<td>Código</td>
 				<td>Nombre</td>
 				<td>Alias</td>
 				<td>Acciones</td>
 			</thead>
 			<tbody class="border-1 border-black pl-2">
 				<tr v-for="cliente in clientes" :key="cliente.id" :data-key="cliente.id" class="odd:bg-slate-200 even:bg-slate-50 hover:bg-slate-300">
-					<td class="pl-2">{{ parseInt(cliente.id, 10) }}</td>
+					<td class="pl-2">{{ cliente.id }}</td>
+					<td>{{cliente.codigo}}</td>
 					<td>{{cliente.nombre}}</td>
 					<td>{{cliente.alias}}</td>
 					<td class="py-2 pr-2">
 						<buttonsSeeMore :route="`/clientes/read/${cliente.id}`" />
 						<ButtonsEdit :route="`/clientes/edit/${cliente.id}`" />
 						<ButtonsDelete :item="cliente" @confirm="confirmar_eliminacion" />
-						<ButtonsSeeAccount :route="`/estado_de_cuenta/${cliente.id}`" />
+						<!--<ButtonsSeeAccount :route="`/estado_de_cuenta/${cliente.id}`" />-->
 					</td>
 				</tr>
 			</tbody>
@@ -81,7 +83,6 @@
 		const data = await fetchDataByCollection("clientes");
 		clientes.value = data;
 		loading.value = false;
-		console.log(clientes);
 	};
 
 	onMounted(fetchDataFromFirebase);

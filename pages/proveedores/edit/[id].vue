@@ -130,7 +130,6 @@
 			</v-card-actions>
 		</v-card>
 
-		
 	</v-container>
 </template>
 
@@ -171,7 +170,7 @@
 	};
 
 	const volver = () => {
-		router.push('/sucursales');
+		router.push('/proveedores');
 	};
 
 	const fetchDoc = async () => {

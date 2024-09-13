@@ -8,6 +8,7 @@
             <NavItem to="/proveedores" imgSource="/images/heroicons/briefcase.svg" text="Proveedores" />
             <NavItem to="/familias_productos" imgSource="/images/heroicons/cog.svg" text="Familias Productos" />
             <NavItem to="/productos" imgSource="/images/heroicons/cog.svg" text="Productos" />
+            <NavItem to="/formas_de_pago" imgSource="/images/heroicons/cog.svg" text="Formas de Pago" />
             <!--<NavItem to="/vehiculos" imgSource="/images/heroicons/truck.svg" text="Vehiculos" />-->
             <!--<NavItem to="/sucursales" imgSource="/images/heroicons/building-storefront.svg" text="Sucursales" />-->
             <!--<NavItem to="/arqueos" imgSource="/images/heroicons/presentation-chart.svg" text="Arqueos" />-->

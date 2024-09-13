@@ -17,6 +17,8 @@
 				<li>~ Poner Slugs en clientes; Poner tanto codigo como nombre en los input [Cod - Nombre.]</li>
 				<li>~ [SOLUCIONADO] Al parecer hay un bug donde en algunos casos la cantidad abonada o total de una remision se guarda como un string.</li>
 				<li>~ CRUD de Trabajadores.</li>
+				<li>~ CRUD de clientes de acuerdo al excel</li>
+				<li>~ CRUD de Formas de pago</li>
 			</ol>
 		</section>
 
@@ -24,10 +26,7 @@
 			<h4 class="font-bold">To Do:</h4>
 			<ol class="text-xs">
 				<li>~ Barras de búsqueda en documentos</li>
-				<li>~ Paginar documentos en donde haya mas de 10 en una pagina.</li>
-				<li>~ Manejo de sesión de usuarios.</li>
 				<li>~ Inventario.</li>
-				<li>~ Función para evitar que se sobreescriban o se creen remisiones con un id ya hecho.</li>
 				<li>~ Modificar el precio unitario de un producto al elegir nuevo en remisiones.</li>
 				<li>~ "Levantado en Piso" como opcion por default en remisones para la Obra.</li>
 				<li>~ Compactar Diseño de la lista de productos.</li>
@@ -35,17 +34,14 @@
 				<li>~ Checkbox de IVA en agregar remision.</li>
 				<li>~ Poner Opcion de Chofer/Fletero y Vendedor en Remision.</li>
 				<li>~ Poder elegir periodo de tiempo en estado de cuenta.</li>
-				<li>~ Desglosar lista de productos en Ver Remisión en vez de mostrar solo el array.</li>
-				<li>~ Dar formato a Fecha en Ver Remisión.</li>
-				<li>~ Agregar botón de editar en pantallas de Ver Documento.</li>
 				<li>~ Agregar propiedad de Rabon (tarima *7) y Torton (Tarima *10) en productos.</li>
 				<li>~ Agregar Precio en productos.</li>
 				<li>~ Listar/Mostrar productos de esa familia de productos</li>
 				<li>~ Agregar Lista de Precios en main Nav</li>
 				<li>~ Hacer vista de remisiones.</li>
-				<li>~ Poner chofer al lado de sucursal.</li>
-				<li>~ Poner Cantidad a pagar a chofer</li>
-				<li>~ Posible CRUD de Viajes de choferes.</li>
+				<li>~ Poner chofer al lado de sucursal en ver remisiones.</li>
+				<li>~ Poner Cantidad a pagar a chofer [en las remisiones]</li>
+				<li>~ Agregar botón de editar en pantallas de Ver Documento.</li>
 			</ol>
 		</section>
 
@@ -80,11 +76,11 @@
 				<div>
 					<h6 class="font-bold">Clientes</h6>
 					<ol class="text-xs">
-						<li>Detalles</li>
-						<li>Crear</li>
-						<li>Ver</li>
-						<li>Modificar</li>
-						<li>Eliminar</li>
+						<li><span class="text-green-600">✓ - </span>Detalles</li>
+						<li><span class="text-green-600">✓ - </span>Crear</li>
+						<li><span class="text-green-600">✓ - </span>Ver</li>
+						<li><span class="text-green-600">✓ - </span>Modificar</li>
+						<li><span class="text-green-600">✓ - </span>Eliminar</li>
 					</ol>
 				</div>
 
@@ -102,11 +98,11 @@
 				<div>
 					<h6 class="font-bold">Formas de Pago</h6>
 					<ol class="text-xs">
-						<li>Detalles</li>
-						<li>Crear</li>
-						<li>Ver</li>
-						<li>Modificar</li>
-						<li>Eliminar</li>
+						<li><span class="text-green-600">✓ - </span>Detalles</li>
+						<li><span class="text-green-600">✓ - </span>Crear</li>
+						<li><span class="text-green-600">✓ - </span>Ver</li>
+						<li><span class="text-green-600">✓ - </span>Modificar</li>
+						<li><span class="text-green-600">✓ - </span>Eliminar</li>
 					</ol>
 				</div>
 

@@ -181,8 +181,6 @@ const handleSubmit = async () => {
 	  		_type: 'proveedores'
 		};
 
-		
-
 		// Agregar el nuevo usuario a Firestore utilizando el ID personalizado
 		await agregarDocumento('proveedores', nuevoDoc, nuevo_id);
 
