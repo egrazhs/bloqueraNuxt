@@ -37,7 +37,6 @@
 				<td class="pl-2">ID</td>
 				<td>Código</td>
 				<td>Nombre</td>
-				<td>Alias</td>
 				<td>Acciones</td>
 			</thead>
 			<tbody class="border-1 border-black pl-2">
@@ -45,7 +44,6 @@
 					<td class="pl-2">{{ cliente.id }}</td>
 					<td>{{cliente.codigo}}</td>
 					<td>{{cliente.nombre}}</td>
-					<td>{{cliente.alias}}</td>
 					<td class="py-2 pr-2">
 						<buttonsSeeMore :route="`/clientes/read/${cliente.id}`" />
 						<ButtonsEdit :route="`/clientes/edit/${cliente.id}`" />

@@ -24,7 +24,6 @@
 						<v-text-field
 							type="text"
 							v-model="documento.alias"
-							:rules="rules.required"
 							label="Alias"
 						></v-text-field>
 
