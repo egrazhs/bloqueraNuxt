@@ -75,3 +75,23 @@
 		</article>
 	</section>
 </template>
+
+<script setup>
+	const remision = {
+		status: 'pagado',
+		vendedor: 'V',
+		sucursal: 'sl',
+		remision: 12438,
+		cliente: 'Ramon Alvarado',
+		fecha: '09-SEP-2024',
+		productos: [
+			{
+				codigo: '11R40',
+				cantidad: 1000,
+				descripcion: 'TABICON 1X14X28',
+				precio_unitario: 4.15,
+			}
+		],
+		anticipo: 0,
+	};
+</script>

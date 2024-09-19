@@ -37,6 +37,9 @@
 				<td class="pl-2">ID</td>
 				<td>Código: </td>
 				<td>Descripción: </td>
+				<td>Piezas por Tarima</td>
+				<td>Rabon</td>
+				<td>Torton</td>
 				<td>Acciones</td>
 			</thead>
 			<tbody class="border-1 border-black pl-2">
@@ -44,6 +47,9 @@
 					<td class="pl-2">{{ producto.id }}</td>
 					<td>{{producto.codigo}}</td>
 					<td>{{producto.descripcion}}</td>
+					<td>{{producto.piezas_por_tarima}}</td>
+					<td>{{producto.piezas_por_tarima * 7}}</td>
+					<td>{{producto.piezas_por_tarima * 10}}</td>
 					<td class="py-2 pr-2">
 						<buttonsSeeMore :route="`/productos/read/${producto.id}`" />
 						<ButtonsEdit :route="`/productos/edit/${producto.id}`" />

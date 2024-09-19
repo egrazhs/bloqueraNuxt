@@ -6,19 +6,6 @@
 		<section class="p-2 hover:bg-slate-200">	
 			<h4 class="font-bold">Ultimos cambios agregados:</h4>
 			<ol class="text-xs">
-				<li>~ Ya se muestra nombre del cliente en Ver remisión en vez del id.</li>
-				<li>~ Agregar CRUD de Familias de productos.</li>
-				<li>~ Modificar productos en database; Agregar familia a los productos.</li>
-				<li>~ Agregar CRUD de Trabajadores.</li>
-				<li>~ Actualizado CRUD de Productos.</li>
-				<li>~ Agregar Boton de ver estado de cuenta en Ver Cliente.</li>
-				<li>~ Listo CRUD de proveedores adhoc al excel.</li>
-				<li>~ Quitar documentos del main nav que no esten utilizando al momento.</li>
-				<li>~ Poner Slugs en clientes; Poner tanto codigo como nombre en los input [Cod - Nombre.]</li>
-				<li>~ [SOLUCIONADO] Al parecer hay un bug donde en algunos casos la cantidad abonada o total de una remision se guarda como un string.</li>
-				<li>~ CRUD de Trabajadores.</li>
-				<li>~ CRUD de clientes de acuerdo al excel</li>
-				<li>~ CRUD de Formas de pago</li>
 			</ol>
 		</section>
 
@@ -29,19 +16,23 @@
 				<li>~ Inventario.</li>
 				<li>~ Modificar el precio unitario de un producto al elegir nuevo en remisiones.</li>
 				<li>~ "Levantado en Piso" como opcion por default en remisones para la Obra.</li>
-				<li>~ Compactar Diseño de la lista de productos.</li>
 				<li>~ Desglosar precio subtotal de cada producto en materiales al agregar Remisión.</li>
 				<li>~ Checkbox de IVA en agregar remision.</li>
-				<li>~ Poner Opcion de Chofer/Fletero y Vendedor en Remision.</li>
 				<li>~ Poder elegir periodo de tiempo en estado de cuenta.</li>
-				<li>~ Agregar propiedad de Rabon (tarima *7) y Torton (Tarima *10) en productos.</li>
 				<li>~ Agregar Precio en productos.</li>
 				<li>~ Listar/Mostrar productos de esa familia de productos</li>
 				<li>~ Agregar Lista de Precios en main Nav</li>
-				<li>~ Hacer vista de remisiones.</li>
 				<li>~ Poner chofer al lado de sucursal en ver remisiones.</li>
 				<li>~ Poner Cantidad a pagar a chofer [en las remisiones]</li>
 				<li>~ Agregar botón de editar en pantallas de Ver Documento.</li>
+				<li>~ Agregar propiedad de dias de monto de credito. [7, 15 , 21, 30]</li>
+				<li>~ CRUD de Moldes.</li>
+				<li>~ Agregar la forma de pago al ejemplo de remisiones.</li>
+				<li>~ Guardar comision de pago a vendedores en remisiones (no es visible en detalles de la remision).</li>
+				<li>~ Lista de Precios de productos.</li>
+				<li>~ Opcion para ordenar tablas.</li>
+				<li>~ En Familia de produtos, mostrar los productos de esa familia en Ver Mas</li>
+				<li>~ Mandar a poder agregar producto en esa familia.</li>
 			</ol>
 		</section>
 
@@ -182,13 +173,43 @@
 						<li><span class="text-green-600">✓ - </span>Detalles</li>
 					</ol>
 				</div>
+
+				<div>
+					<h6 class="font-bold">Moldes</h6>
+					<ol class="text-xs">
+						<li>Crear.</li>
+						<li>Ver</li>
+						<li>Modificar</li>
+						<li>Eliminar</li>
+						<li>Detalles</li>
+					</ol>
+				</div>
 			</article>
 		</section>
 
 		<section class="p-2 hover:bg-slate-200">
 			<h4 class="font-bold">Backlog</h4>
 
-			<section class="p-2 hover:bg-slate-200">	
+			<section class="p-2 hover:bg-slate-200">
+				<h4 class="font-bold">19/09/2024</h4>
+				<ol class="text-xs">
+					<li>~ Ya se muestra nombre del cliente en Ver remisión en vez del id.</li>
+					<li>~ Agregar CRUD de Familias de productos.</li>
+					<li>~ Modificar productos en database; Agregar familia a los productos.</li>
+					<li>~ Agregar CRUD de Trabajadores.</li>
+					<li>~ Actualizado CRUD de Productos.</li>
+					<li>~ Agregar Boton de ver estado de cuenta en Ver Cliente.</li>
+					<li>~ Listo CRUD de proveedores adhoc al excel.</li>
+					<li>~ Quitar documentos del main nav que no esten utilizando al momento.</li>
+					<li>~ Poner Slugs en clientes; Poner tanto codigo como nombre en los input [Cod - Nombre.]</li>
+					<li>~ [SOLUCIONADO] Al parecer hay un bug donde en algunos casos la cantidad abonada o total de una remision se guarda como un string.</li>
+					<li>~ CRUD de Trabajadores.</li>
+					<li>~ CRUD de clientes de acuerdo al excel</li>
+					<li>~ CRUD de Formas de pago</li>
+					<li>~ Agregar propiedad de Rabon (tarima *7) y Torton (Tarima *10) en productos.</li>
+					<li>~ Hacer vista de remisiones.</li>
+				</ol>
+
 				<h4 class="font-bold">31/08/2024</h4>
 				<ol class="text-xs">
 					<li>~ Reemplazo de Links por componentes de Boton <i>AddNew</i> en todos los tipos de documentos.</li>
