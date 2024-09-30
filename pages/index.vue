@@ -6,6 +6,8 @@
 		<section class="p-2 hover:bg-slate-200">	
 			<h4 class="font-bold">Ultimos cambios agregados:</h4>
 			<ol class="text-xs">
+				<li>~ Agregar propiedad de dias de monto de credito. [7, 15 , 21, 30]</li>
+				<li>~ Cambiados estilos  funcionalidad de la barra de navegación</li>
 			</ol>
 		</section>
 
@@ -25,8 +27,6 @@
 				<li>~ Poner chofer al lado de sucursal en ver remisiones.</li>
 				<li>~ Poner Cantidad a pagar a chofer [en las remisiones]</li>
 				<li>~ Agregar botón de editar en pantallas de Ver Documento.</li>
-				<li>~ Agregar propiedad de dias de monto de credito. [7, 15 , 21, 30]</li>
-				<li>~ CRUD de Moldes.</li>
 				<li>~ Agregar la forma de pago al ejemplo de remisiones.</li>
 				<li>~ Guardar comision de pago a vendedores en remisiones (no es visible en detalles de la remision).</li>
 				<li>~ Lista de Precios de productos.</li>
@@ -238,48 +238,3 @@
 		</section>
 	</section>
 </template>
-
-<script setup>
-	import { db } from '~/utils/firebase';
-	import { getFirestore, collection, getDocs, doc, setDoc, deleteDoc } from 'firebase/firestore';
-
-	let { data: api_clientes } = await useFetch('/api/clientes');
-
-	useHead({
-		title: 'Bloquera GDL'
-	});
-
-
-	const arreglarIds = async () => {
-		console.log('Función para arreglar Ids de documentos llamada');
-
-		const documento = 'clientes';
-		
-		try {
-			let abonos = await fetchDataByCollection(documento);
-			console.log('Abonos obtenidos:', abonos);
-			let contador = 1;
-			for (const abono of abonos) {
-				// Convertir el ID a un número, agregar ceros a la izquierda y convertir de nuevo a string
-				const newId = padWithZeros(contador, 6);
-				const viejo_id = abono.id;
-				console.log('Nuevo ID:', newId);
-
-				// Crear un nuevo documento con el ID ajustado
-				abono.id = newId;
-				const newDocRef = doc(db, documento, newId);
-				await setDoc(newDocRef, abono);
-
-				// Eliminar el documento original si es necesario
-				const oldDocRef = doc(db, documento, viejo_id);
-				await deleteDoc(oldDocRef);
-
-				console.log(`Documento con ID ${viejo_id} renombrado a ${newId}`);
-				contador++;
-			}
-
-		} catch (error) {
-			console.error('Error al arreglar los IDs:', error);
-		}
-	};
-</script>

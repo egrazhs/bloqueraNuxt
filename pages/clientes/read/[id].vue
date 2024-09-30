@@ -50,6 +50,11 @@
 						<v-list-item-subtitle>{{doc_info.monto_credito}}</v-list-item-subtitle>
 					</v-list-item>
 
+					<v-list-item v-if="doc_info.tiene_credito == 'SI'">
+						<v-list-item-title>Dias de Credito:</v-list-item-title>
+						<v-list-item-subtitle>{{doc_info.dias_de_credito}}</v-list-item-subtitle>
+					</v-list-item>
+
 					<v-list-item>
 						<v-list-item-title>Contacto:</v-list-item-title>
 						<v-list-item-subtitle><span v-if="doc_info.contacto == ''">N/A</span>{{doc_info.contacto}}</v-list-item-subtitle>

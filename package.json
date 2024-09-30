@@ -20,5 +20,10 @@
     "@nuxtjs/tailwindcss": "^6.11.4",
     "vite-plugin-vuetify": "^2.0.3",
     "vuetify": "^3.5.13"
-  }
+  },
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/egrazhs/bloqueraNuxt.git",
+  "author": "egrazhs <egrazhs@gmail.com>",
+  "license": "MIT"
 }

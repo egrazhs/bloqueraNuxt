@@ -1,5 +1,5 @@
 <template>
-	<section>
+	<section class="container mx-auto">
 		<h1 class="font-bold text-4xl">Clientes</h1>
 	
 		<div class="mt-4">
@@ -31,7 +31,7 @@
 
 	<ScreensLoading v-if="loading"></ScreensLoading>
 
-	<article v-else>
+	<article class="container mx-auto" v-else>
 		<table class="w-full text-xs">
 			<thead class="font-bold text-sm">
 				<td class="pl-2">ID</td>

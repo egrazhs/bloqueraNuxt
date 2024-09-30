@@ -19,6 +19,11 @@ export default defineNuxtConfig({
     },
     '@nuxtjs/tailwindcss'
   ],
+  tailwindcss: {
+    exposeConfig: true,
+    viewer: true,
+    // and more...
+  },
   vite: {
     vue: {
       template: {

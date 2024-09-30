@@ -65,6 +65,14 @@
 							label="Monto Credito:"
 						></v-text-field>
 
+						<v-select v-if="documento.tiene_credito == 'SI'"
+							v-model="documento.dias_de_credito"
+							:items="cantidad_dias_de_credito"
+							item-title="descripcion"
+							item-value="id"
+							label="Cantidad de días de crédito"
+						></v-select>
+
 						<v-text-field
 							type="text"
 							v-model="documento.contacto"
@@ -123,6 +131,7 @@
 			revende: '',
 			tiene_credito: 'SI',
 			monto_credito: 0,
+			dias_de_credito: 0,
 			contacto: '',
 			telefono: '',
 			alerta: '',
@@ -133,6 +142,7 @@
 		const tipos_de_personas = ["FISICA", "MORAL"];
 		const opciones_booleanas = ["SI", "NO"];
 		const formas_de_pagos = ["EFECTIVO", "FISCAL", "TRANSFER NO FISCAL"];
+		const cantidad_dias_de_credito = [7, 15, 21, 28];
 
 		const loading = ref(true);
 		const valid = ref(false);
@@ -164,6 +174,7 @@
 
 				//Parsear a int piezas por tarima
 				documento.value.monto_credito = parseInt(documento.value.monto_credito, 10);
+				documento.value.dias_de_credito = parseInt(documento.value.dias_de_credito, 10);
 
 				await updateDoc(doc(db, 'clientes', id), documento.value);
 				router.push({ path: '/clientes', query: { documentoActualizado: true } });

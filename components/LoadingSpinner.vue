@@ -8,12 +8,10 @@
 </template>
 
 <script setup>
-	import { defineProps } from 'vue';
-
 	const props = defineProps({
 		mensaje: {
 			type: String,
-		default: 'Cargando...'
+			default: 'Cargando...'
 		}
 	});
 </script>

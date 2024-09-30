@@ -68,6 +68,18 @@
 				<input v-model="monto_credito" type="number" id="monto_credito" class="input-field">
 			</div>
 
+			<div v-if="tiene_credito == 'SI'" class="my-4">
+				<label for="dias_de_credito" class="block font-semibold">Días de Crédito:</label>
+				<v-select
+					v-model="dias_de_credito"
+					:items="cantidad_dias_de_credito"
+					item-title="Dias de crédito"
+					item-value="descripcion"
+					label="Dias de crédito"
+					no-data-text="">
+				</v-select>
+			</div>
+
 			<div class="my-4">
 				<label for="contacto" class="block font-semibold">Contacto:</label>
 				<input v-model="contacto" type="text" id="contacto" class="input-field">
@@ -109,6 +121,7 @@
 	const revende = ref('NO');
 	const tiene_credito = ref('NO');
 	const monto_credito = ref(0);
+	const dias_de_credito = ref(7);
 	const contacto = ref('');
 	const telefono = ref('');
 	const alerta = ref('');
@@ -118,6 +131,7 @@
 	const tipos_de_personas = ["FISICA", "MORAL"];
 	const opciones_booleanas = ["SI", "NO"];
 	const formas_de_pagos = ["EFECTIVO", "FISCAL", "TRANSFER NO FISCAL"];
+	const cantidad_dias_de_credito = [7, 15, 21, 28];
 
 	const handleSubmit = async () => {
 		try {
@@ -132,6 +146,7 @@
 				revende: revende.value,
 				tiene_credito: tiene_credito.value,
 				monto_credito: monto_credito.value,
+				dias_de_credito: dias_de_credito.value,
 				contacto: contacto.value,
 				telefono: telefono.value,
 				alerta: alerta.value,

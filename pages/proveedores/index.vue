@@ -1,71 +1,122 @@
 <template>
-	<section>
-		<h1 class="font-bold text-4xl">Proveedores</h1>
-	
-		<div class="mt-4">
-			<ButtonsAddNew route="./proveedores/create" text="Proveedor" />
-		</div>
-
-		<hr class="border-1 border-slate-300 my-4">
-
+	<v-container>
 		<section>
-			<!-- Mensaje de éxito -->
-			<div v-if="$route.query.c" class="transition-opacity bg-blue-200 text-blue-800 text-xs p-2 italic my-2">
-				*Se ha agregado el Proveedor de manera exitosa.
+			<h1 class="font-bold text-4xl">Proveedores</h1>
+		
+			<div class="mt-4">
+				<ButtonsAddNew route="./proveedores/create" text="Proveedor" />
 			</div>
 
-			<div v-if="$route.query.documentoActualizado" class="transition-opacity bg-yellow-200 text-yellow-800 text-xs p-2 italic my-2">
-				*Se ha actualizado la información del Proveedor.
-			</div>
+			<hr class="border-1 border-slate-300 my-4">
 
-			<div v-if="documento_eliminado" class="transition-opacity bg-red-200 text-red-800 text-xs p-2 italic my-2">
-				*Se ha borrado el Proveedor de manera exitosa.
-			</div>
+			<section>
+				<!-- Mensaje de éxito -->
+				<div v-if="$route.query.c" class="transition-opacity bg-blue-200 text-blue-800 text-xs p-2 italic my-2">
+					*Se ha agregado el Proveedor de manera exitosa.
+				</div>
 
-			<!-- Mensaje de error -->
-			<div v-if="error" class="transition-opacity bg-red-200 text-red-800 text-xs p-2 italic my-2">
-				{{ error }}
-			</div>
+				<div v-if="$route.query.documentoActualizado" class="transition-opacity bg-yellow-200 text-yellow-800 text-xs p-2 italic my-2">
+					*Se ha actualizado la información del Proveedor.
+				</div>
+
+				<div v-if="documento_eliminado" class="transition-opacity bg-red-200 text-red-800 text-xs p-2 italic my-2">
+					*Se ha borrado el Proveedor de manera exitosa.
+				</div>
+
+				<!-- Mensaje de error -->
+				<div v-if="error" class="transition-opacity bg-red-200 text-red-800 text-xs p-2 italic my-2">
+					{{ error }}
+				</div>
+			</section>
 		</section>
-	</section>
 
-	<ScreensLoading v-if="loading"></ScreensLoading>
+		<ScreensLoading v-if="loading"></ScreensLoading>
 
-	<article v-else>
-		<table class="w-full text-xs">
-			<thead class="font-bold text-sm">
-				<td class="pl-2">ID</td>
-				<td>Código</td>
-				<td>Nombre</td>
-				<td>Alias</td>
-				<td>Acciones</td>
-			</thead>
-			<tbody class="border-1 border-black pl-2">
-				<tr v-for="proveedor in proveedores" :key="proveedor.id" :data-key="proveedor.id" class="odd:bg-slate-200 even:bg-slate-50 hover:bg-slate-300">
-					<td class="pl-2">{{proveedor.id}}</td>
-					<td>{{proveedor.codigo}}</td>
-					<td>{{proveedor.nombre}}</td>
-					<td>{{proveedor.alias}}</td>
-					<td class="py-2 pr-2">
-						<buttonsSeeMore :route="`./proveedores/read/${proveedor.id}`" />
-						<ButtonsEdit :route="`./proveedores/edit/${proveedor.id}`" />
-						<ButtonsDelete :item="proveedor" @confirm="confirmar_eliminacion" />
-					</td>
-				</tr>
-			</tbody>
-		</table>
-	</article>
+		<article v-else>
+			<table class="w-full text-xs">
+				<thead class="font-bold text-sm">
+					<td class="pl-2">ID</td>
+					<td>Código</td>
+					<td>Nombre</td>
+					<td>Alias</td>
+					<td>Acciones</td>
+				</thead>
+				<tbody class="border-1 border-black pl-2">
+					<tr v-for="proveedor in proveedores" :key="proveedor.id" :data-key="proveedor.id" class="odd:bg-slate-200 even:bg-slate-50 hover:bg-slate-300">
+						<td class="pl-2">{{proveedor.id}}</td>
+						<td>{{proveedor.codigo}}</td>
+						<td>{{proveedor.nombre}}</td>
+						<td>{{proveedor.alias}}</td>
+						<td class="py-2 pr-2">
+							<buttonsSeeMore :route="`./proveedores/read/${proveedor.id}`" />
+							<ButtonsEdit :route="`./proveedores/edit/${proveedor.id}`" />
+							<ButtonsDelete :item="proveedor" @confirm="confirmar_eliminacion" />
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</article>
 
-	<ModalsConfirmDelete 
-      :show="dialog" 
-      :item="documento_seleccionado" 
-      confirmMessage="¿Estás seguro de que deseas eliminar este Proveedor?" 
-      :deleteFunction="eliminar_documento_confirmado" 
-      @cancel="cancelar_eliminacion" 
-      @confirm="eliminar_documento_confirmado"
-      data_name="" 
-      :data_value="data_value"
-    />
+		<article>
+		  <div class="flex mb-4">
+		    <!-- Checkbox para seleccionar columnas dinámicas -->
+		    <label>
+		      <input type="checkbox" v-model="selectedColumns.id" />
+		      Mostrar ID
+		    </label>
+		    <label>
+		      <input type="checkbox" v-model="selectedColumns.codigo" />
+		      Mostrar Código
+		    </label>
+		    <label>
+		      <input type="checkbox" v-model="selectedColumns.nombre" />
+		      Mostrar Nombre
+		    </label>
+		    <label>
+		      <input type="checkbox" v-model="selectedColumns.alias" />
+		      Mostrar Alias
+		    </label>
+		  </div>
+
+		  <table class="w-full text-xs">
+		    <thead class="font-bold text-sm">
+		      <tr>
+		        <th v-if="selectedColumns.id" @click="sortBy('id')" class="pl-2 cursor-pointer">ID</th>
+		        <th v-if="selectedColumns.codigo" @click="sortBy('codigo')" class="pl-2 cursor-pointer">Código</th>
+		        <th v-if="selectedColumns.nombre" @click="sortBy('nombre')" class="pl-2 cursor-pointer">Nombre</th>
+		        <th v-if="selectedColumns.alias" @click="sortBy('alias')" class="pl-2 cursor-pointer">Alias</th>
+		        <th>Acciones</th>
+		      </tr>
+		    </thead>
+		    <tbody class="border-1 border-black pl-2">
+		      <tr v-for="proveedor in sortedProveedores" :key="proveedor.id" data-key="proveedor.id" class="odd:bg-slate-200 even:bg-slate-50 hover:bg-slate-300">
+		        <td v-if="selectedColumns.id" class="pl-2">{{ proveedor.id }}</td>
+		        <td v-if="selectedColumns.codigo">{{ proveedor.codigo }}</td>
+		        <td v-if="selectedColumns.nombre">{{ proveedor.nombre }}</td>
+		        <td v-if="selectedColumns.alias">{{ proveedor.alias }}</td>
+		        <td class="py-2 pr-2">
+		          <ButtonsSeeMore :route="'./proveedores/read/' + proveedor.id" />
+		          <ButtonsEdit :route="'./proveedores/edit/' + proveedor.id" />
+		          <ButtonsDelete :item="proveedor" @confirm="confirmar_eliminacion" />
+		        </td>
+		      </tr>
+		    </tbody>
+		  </table>
+		</article>
+
+
+		<ModalsConfirmDelete 
+	      :show="dialog" 
+	      :item="documento_seleccionado" 
+	      confirmMessage="¿Estás seguro de que deseas eliminar este Proveedor?" 
+	      :deleteFunction="eliminar_documento_confirmado" 
+	      @cancel="cancelar_eliminacion" 
+	      @confirm="eliminar_documento_confirmado"
+	      data_name="" 
+	      :data_value="data_value"
+	    />
+
+    </v-container>
 </template>
 
 <script setup>
@@ -77,6 +128,40 @@
 	const eliminando = ref(false);
 	const error = ref('');
 	let data_value = ref('');
+
+
+	const selectedColumns = ref({
+	  id: true,
+	  codigo: true,
+	  nombre: true,
+	  alias: true
+	});
+
+	// Estado para el orden de columnas
+	const sortKey = ref(null);
+	const sortOrder = ref(1);
+
+	// Función para ordenar la tabla
+	const sortBy = (key) => {
+	  if (sortKey.value === key) {
+	    sortOrder.value = sortOrder.value * -1;
+	  } else {
+	    sortKey.value = key;
+	    sortOrder.value = 1;
+	  }
+	};
+
+	const sortedProveedores = computed(() => {
+	  return [...proveedores.value].sort((a, b) => {
+	    if (!sortKey.value) return 0;
+	    const compareA = a[sortKey.value];
+	    const compareB = b[sortKey.value];
+
+	    if (compareA < compareB) return -1 * sortOrder.value;
+	    if (compareA > compareB) return 1 * sortOrder.value;
+	    return 0;
+	  });
+	});
 
 	const fetchDataFromFirebase = async () => {
 		const data = await fetchDataByCollection("proveedores");
