@@ -33,75 +33,63 @@
 		<ScreensLoading v-if="loading"></ScreensLoading>
 
 		<article v-else>
+			<!-- Botón de menú para las opciones de visibilidad -->
+			<v-menu transition="scale-transition">
+				<template v-slot:activator="{ props }">
+		        	<v-btn icon v-bind="props" class="mb-4">
+		          		<v-icon>mdi-cog</v-icon>
+		        	</v-btn>
+      			</template>
+				<!-- Contenido del menú: opciones de propiedades a mostrar -->
+				<v-list>
+					<v-list-item density="compact">
+						<v-checkbox v-model="selectedColumns.codigo" label="Código"></v-checkbox>
+					</v-list-item>
+					<v-list-item density="compact">
+						<v-checkbox v-model="selectedColumns.nombre" label="Nombre"></v-checkbox>
+					</v-list-item>
+					<v-list-item density="compact">
+						<v-checkbox v-model="selectedColumns.alias" label="Alias"></v-checkbox>
+					</v-list-item>
+				</v-list>
+			</v-menu>
+
 			<table class="w-full text-xs">
 				<thead class="font-bold text-sm">
-					<td class="pl-2">ID</td>
-					<td>Código</td>
-					<td>Nombre</td>
-					<td>Alias</td>
-					<td>Acciones</td>
+					<tr>
+						<th v-if="selectedColumns.id" @click="sortBy('id')" class="pl-2 cursor-pointer">
+							<span>ID</span>
+							<v-icon small class="ml-1">mdi-swap-vertical</v-icon>
+						</th>
+						<th v-if="selectedColumns.codigo" @click="sortBy('codigo')" class="pl-2 cursor-pointer">
+							<span>Código</span>
+							<v-icon small class="ml-1">mdi-swap-vertical</v-icon>
+						</th>
+						<th v-if="selectedColumns.nombre" @click="sortBy('nombre')" class="pl-2 cursor-pointer">
+							<span>Nombre</span>
+							<v-icon small class="ml-1">mdi-swap-vertical</v-icon>
+						</th>
+						<th v-if="selectedColumns.alias" @click="sortBy('alias')" class="pl-2 cursor-pointer">
+							<span>Alias</span>
+							<v-icon small class="ml-1">mdi-swap-vertical</v-icon>
+						</th>
+						<th>Acciones</th>
+					</tr>
 				</thead>
 				<tbody class="border-1 border-black pl-2">
-					<tr v-for="proveedor in proveedores" :key="proveedor.id" :data-key="proveedor.id" class="odd:bg-slate-200 even:bg-slate-50 hover:bg-slate-300">
-						<td class="pl-2">{{proveedor.id}}</td>
-						<td>{{proveedor.codigo}}</td>
-						<td>{{proveedor.nombre}}</td>
-						<td>{{proveedor.alias}}</td>
+					<tr v-for="proveedor in sortedProveedores" :key="proveedor.id" data-key="proveedor.id" class="odd:bg-slate-200 even:bg-slate-50 hover:bg-slate-300">
+						<td v-if="selectedColumns.id" class="pl-2">{{ proveedor.id }}</td>
+						<td v-if="selectedColumns.codigo">{{ proveedor.codigo }}</td>
+						<td v-if="selectedColumns.nombre">{{ proveedor.nombre }}</td>
+						<td v-if="selectedColumns.alias">{{ proveedor.alias }}</td>
 						<td class="py-2 pr-2">
-							<buttonsSeeMore :route="`./proveedores/read/${proveedor.id}`" />
-							<ButtonsEdit :route="`./proveedores/edit/${proveedor.id}`" />
+							<ButtonsSeeMore :route="'./proveedores/read/' + proveedor.id" />
+							<ButtonsEdit :route="'./proveedores/edit/' + proveedor.id" />
 							<ButtonsDelete :item="proveedor" @confirm="confirmar_eliminacion" />
 						</td>
 					</tr>
 				</tbody>
 			</table>
-		</article>
-
-		<article>
-		  <div class="flex mb-4">
-		    <!-- Checkbox para seleccionar columnas dinámicas -->
-		    <label>
-		      <input type="checkbox" v-model="selectedColumns.id" />
-		      Mostrar ID
-		    </label>
-		    <label>
-		      <input type="checkbox" v-model="selectedColumns.codigo" />
-		      Mostrar Código
-		    </label>
-		    <label>
-		      <input type="checkbox" v-model="selectedColumns.nombre" />
-		      Mostrar Nombre
-		    </label>
-		    <label>
-		      <input type="checkbox" v-model="selectedColumns.alias" />
-		      Mostrar Alias
-		    </label>
-		  </div>
-
-		  <table class="w-full text-xs">
-		    <thead class="font-bold text-sm">
-		      <tr>
-		        <th v-if="selectedColumns.id" @click="sortBy('id')" class="pl-2 cursor-pointer">ID</th>
-		        <th v-if="selectedColumns.codigo" @click="sortBy('codigo')" class="pl-2 cursor-pointer">Código</th>
-		        <th v-if="selectedColumns.nombre" @click="sortBy('nombre')" class="pl-2 cursor-pointer">Nombre</th>
-		        <th v-if="selectedColumns.alias" @click="sortBy('alias')" class="pl-2 cursor-pointer">Alias</th>
-		        <th>Acciones</th>
-		      </tr>
-		    </thead>
-		    <tbody class="border-1 border-black pl-2">
-		      <tr v-for="proveedor in sortedProveedores" :key="proveedor.id" data-key="proveedor.id" class="odd:bg-slate-200 even:bg-slate-50 hover:bg-slate-300">
-		        <td v-if="selectedColumns.id" class="pl-2">{{ proveedor.id }}</td>
-		        <td v-if="selectedColumns.codigo">{{ proveedor.codigo }}</td>
-		        <td v-if="selectedColumns.nombre">{{ proveedor.nombre }}</td>
-		        <td v-if="selectedColumns.alias">{{ proveedor.alias }}</td>
-		        <td class="py-2 pr-2">
-		          <ButtonsSeeMore :route="'./proveedores/read/' + proveedor.id" />
-		          <ButtonsEdit :route="'./proveedores/edit/' + proveedor.id" />
-		          <ButtonsDelete :item="proveedor" @confirm="confirmar_eliminacion" />
-		        </td>
-		      </tr>
-		    </tbody>
-		  </table>
 		</article>
 
 
