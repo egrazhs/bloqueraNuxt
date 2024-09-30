@@ -35,6 +35,7 @@
 				<li>~ Opcion para ordenar tablas.</li>
 				<li>~ En Familia de produtos, mostrar los productos de esa familia en Ver Mas</li>
 				<li>~ Mandar a poder agregar producto en esa familia.</li>
+				<li>~ Agregar propiedades de tarima y torton en productos.</li>
 			</ol>
 		</section>
 

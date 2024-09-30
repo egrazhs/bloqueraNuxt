@@ -34,7 +34,7 @@
 
         
 
-        <article >
+        <article>
             <!-- Botón de menú para las opciones de visibilidad -->
             <v-menu transition="scale-transition">
                 <template v-slot:activator="{ props }">
