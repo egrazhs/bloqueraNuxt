@@ -9,6 +9,7 @@
 				<li>~ Agregar propiedad de dias de monto de credito. [7, 15 , 21, 30]</li>
 				<li>~ Cambiados estilos  funcionalidad de la barra de navegación</li>
 				<li>~ Tabla de Proveedores ya se puede ordenar por orden alfabetico o numerico</li>
+				<li>~ Tabla de Proveedores ya se puede elegir que propiedades mostrar o quitar.</li>
 			</ol>
 		</section>
 
