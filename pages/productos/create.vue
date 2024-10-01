@@ -33,12 +33,38 @@
 			</div>
 
 			<div class="my-4">
-				<label for="year" class="block font-semibold">Peso (Kg):</label>
+				<label for="precio_recogido_en_planta" class="block font-semibold">Precio (Recogido en planta):</label>
+				<input v-model="precio_recogido_en_planta" type="number" id="precio_recogido_en_planta" class="input-field" required>
+			</div>
+
+			<div class="my-4">
+				<label for="tarimas_por_flete_local_rabon" class="block font-semibold">Tarimas por flete local (Rabón):</label>
+				<input v-model="tarimas_por_flete_local_rabon" type="number" id="tarimas_por_flete_local_rabon" class="input-field" required>
+			</div>
+
+			<div class="my-4">
+				<label for="tarimas_por_flete_local_torton" class="block font-semibold">Tarimas por flete local Torton:</label>
+				<input v-model="tarimas_por_flete_local_torton" type="number" id="tarimas_por_flete_local_torton" class="input-field" required>
+			</div>
+
+
+			<div class="my-4">
+				<label for="precio_puesto_en_obra_rabon" class="block font-semibold">Precio puesto en obra (Rabón):</label>
+				<input v-model="precio_puesto_en_obra_rabon" type="number" id="precio_puesto_en_obra_rabon" class="input-field" required>
+			</div>
+			<div class="my-4">
+				<label for="precio_puesto_en_obra_torton" class="block font-semibold">Precio puesto en obra (Torton):</label>
+				<input v-model="precio_puesto_en_obra_torton" type="number" id="precio_puesto_en_obra_torton" class="input-field" required>
+			</div>
+
+
+			<div class="my-4">
+				<label for="peso" class="block font-semibold">Peso (Kg):</label>
 				<input v-model="peso" type="number" id="peso" class="input-field" required>
 			</div>
 
 			<div class="my-4">
-				<label for="year" class="block font-semibold">Piezas por Tarima:</label>
+				<label for="piezas_por_tarima" class="block font-semibold">Piezas por Tarima:</label>
 				<input v-model="piezas_por_tarima" type="number" id="piezas_por_tarima" class="input-field" required>
 			</div>
 
@@ -80,6 +106,12 @@
 	const porcentaje_comision = ref(4);
 	const unidad_medida = ref('PIEZA');
 	const familia_de_producto = ref('');
+	
+	const precio_recogido_en_planta = ref(0);
+	const tarimas_por_flete_local_rabon = ref(7);
+	const tarimas_por_flete_local_torton = ref(10);
+	const precio_puesto_en_obra_rabon = ref(0);
+	const precio_puesto_en_obra_torton = ref(0);
 
 	const unidades_de_medida = ref(["PIEZA", "METRO LINEAL", "METRO CUADRADO", "KG", "METRO CUBICO"]);
 	const familias_de_productos = ref([]);
@@ -98,6 +130,11 @@
 		  		ruta: "/images/productos/"+codigo.value,
 		  		familia: familia_de_producto.value,
 		  		unidad_medida: unidad_medida.value,
+		  		precio_recogido_en_planta: precio_recogido_en_planta.value,
+		  		tarimas_por_flete_local_rabon: tarimas_por_flete_local_rabon.value,
+		  		tarimas_por_flete_local_torton: tarimas_por_flete_local_torton.value,
+		  		precio_puesto_en_obra_rabon: precio_puesto_en_obra_rabon.value,
+		  		precio_puesto_en_obra_torton: precio_puesto_en_obra_torton.value,
 		  		id: nuevo_id,
 		  		_type: 'productos'
 			};

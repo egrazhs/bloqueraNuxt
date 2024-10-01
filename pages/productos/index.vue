@@ -48,8 +48,8 @@
 					<td>{{producto.codigo}}</td>
 					<td>{{producto.descripcion}}</td>
 					<td>{{producto.piezas_por_tarima}}</td>
-					<td>{{producto.piezas_por_tarima * 7}}</td>
-					<td>{{producto.piezas_por_tarima * 10}}</td>
+					<td>{{producto.piezas_por_tarima * producto.tarimas_por_flete_local_rabon}}</td>
+					<td>{{producto.piezas_por_tarima * producto.tarimas_por_flete_local_torton}}</td>
 					<td class="py-2 pr-2">
 						<buttonsSeeMore :route="`/productos/read/${producto.id}`" />
 						<ButtonsEdit :route="`/productos/edit/${producto.id}`" />

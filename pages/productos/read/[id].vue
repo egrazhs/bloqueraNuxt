@@ -31,6 +31,31 @@
 					</v-list-item>
 
 					<v-list-item>
+						<v-list-item-title>Precio recogido en planta:</v-list-item-title>
+						<v-list-item-subtitle>{{doc_info.precio_recogido_en_planta}}</v-list-item-subtitle>
+					</v-list-item>
+
+					<v-list-item>
+						<v-list-item-title>Tarimas por flete local Rabon:</v-list-item-title>
+						<v-list-item-subtitle>{{doc_info.tarimas_por_flete_local_rabon}}</v-list-item-subtitle>
+					</v-list-item>
+
+					<v-list-item>
+						<v-list-item-title>Tarimas por flete local Torton:</v-list-item-title>
+						<v-list-item-subtitle>{{doc_info.tarimas_por_flete_local_torton}}</v-list-item-subtitle>
+					</v-list-item>
+
+					<v-list-item>
+						<v-list-item-title>Precio puesto en obra Rabon:</v-list-item-title>
+						<v-list-item-subtitle>{{doc_info.precio_puesto_en_obra_rabon}}</v-list-item-subtitle>
+					</v-list-item>
+
+					<v-list-item>
+						<v-list-item-title>Precio puesto en obra Torton:</v-list-item-title>
+						<v-list-item-subtitle>{{doc_info.precio_puesto_en_obra_torton}}</v-list-item-subtitle>
+					</v-list-item>
+
+					<v-list-item>
 						<v-list-item-title>Peso:</v-list-item-title>
 						<v-list-item-subtitle>{{doc_info.peso}}</v-list-item-subtitle>
 					</v-list-item>

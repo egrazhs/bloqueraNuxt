@@ -10,32 +10,32 @@
 				<li>~ Cambiados estilos  funcionalidad de la barra de navegación</li>
 				<li>~ Tabla de Proveedores ya se puede ordenar por orden alfabetico o numerico</li>
 				<li>~ Tabla de Proveedores ya se puede elegir que propiedades mostrar o quitar.</li>
+				<li>~ Agregadas propiedades nuevas a documentos productos, para completar la lista de precios.</li>
+				<li>~ Agregar propiedades de tarima y torton en productos.</li>
+				<li>~ Lista de Precios de productos.</li>
+				<li>~ Agregar Precio en productos (Recogido en planta).</li>
+				<li>~ Agregar Lista de Precios en main Nav</li>
 			</ol>
 		</section>
 
 		<section class="p-2 hover:bg-slate-200">
 			<h4 class="font-bold">To Do:</h4>
 			<ol class="text-xs">
-				<li>~ Barras de búsqueda en documentos</li>
 				<li>~ Inventario.</li>
 				<li>~ Modificar el precio unitario de un producto al elegir nuevo en remisiones.</li>
 				<li>~ "Levantado en Piso" como opcion por default en remisones para la Obra.</li>
 				<li>~ Desglosar precio subtotal de cada producto en materiales al agregar Remisión.</li>
 				<li>~ Checkbox de IVA en agregar remision.</li>
 				<li>~ Poder elegir periodo de tiempo en estado de cuenta.</li>
-				<li>~ Agregar Precio en productos.</li>
 				<li>~ Listar/Mostrar productos de esa familia de productos</li>
-				<li>~ Agregar Lista de Precios en main Nav</li>
 				<li>~ Poner chofer al lado de sucursal en ver remisiones.</li>
 				<li>~ Poner Cantidad a pagar a chofer [en las remisiones]</li>
 				<li>~ Agregar botón de editar en pantallas de Ver Documento.</li>
 				<li>~ Agregar la forma de pago al ejemplo de remisiones.</li>
 				<li>~ Guardar comision de pago a vendedores en remisiones (no es visible en detalles de la remision).</li>
-				<li>~ Lista de Precios de productos.</li>
 				<li>~ Opcion para ordenar tablas.</li>
 				<li>~ En Familia de produtos, mostrar los productos de esa familia en Ver Mas</li>
 				<li>~ Mandar a poder agregar producto en esa familia.</li>
-				<li>~ Agregar propiedades de tarima y torton en productos.</li>
 			</ol>
 		</section>
 

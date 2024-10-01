@@ -40,6 +40,36 @@
 
 					<v-text-field
 						type="number"
+						v-model="documento.precio_recogido_en_planta"
+						label="Precio recogido en planta"
+					></v-text-field>
+
+					<v-text-field
+						type="number"
+						v-model="documento.tarimas_por_flete_local_rabon"
+						label="Tarimas por flete local Rabon"
+					></v-text-field>
+
+					<v-text-field
+						type="number"
+						v-model="documento.tarimas_por_flete_local_torton"
+						label="Tarimas por flete local Torton"
+					></v-text-field>
+
+					<v-text-field
+						type="number"
+						v-model="documento.precio_puesto_en_obra_rabon"
+						label="Precio puesto en obra Rabon"
+					></v-text-field>
+
+					<v-text-field
+						type="number"
+						v-model="documento.precio_puesto_en_obra_torton"
+						label="Precio puesto en obra torton"
+					></v-text-field>
+
+					<v-text-field
+						type="number"
 						v-model="documento.peso"
 						label="Peso (Kg)"
 						required
@@ -98,7 +128,12 @@
 		descripcion: '',
 		codigo: '',
 		peso: 0,
-		familia: ''
+		familia: '',
+		precio_recogido_en_planta: 0,
+		tarimas_por_flete_local_rabon: 7,
+		tarimas_por_flete_local_torton: 10,
+		precio_puesto_en_obra_rabon: 0,
+		precio_puesto_en_obra_torton: 0
 	});
 
 	const loading = ref(true);
@@ -130,6 +165,12 @@
 			const { id } = route.params;
 			//Parsear a int piezas por tarima
 			documento.value.piezas_por_tarima = parseInt(documento.value.piezas_por_tarima, 10);
+
+			documento.value.precio_recogido_en_planta = parseInt(documento.value.precio_recogido_en_planta, 10);
+			documento.value.tarimas_por_flete_local_rabon = parseInt(documento.value.tarimas_por_flete_local_rabon, 10);
+			documento.value.tarimas_por_flete_local_torton = parseInt(documento.value.tarimas_por_flete_local_torton, 10);
+			documento.value.precio_puesto_en_obra_rabon = parseInt(documento.value.precio_puesto_en_obra_rabon, 10);
+			documento.value.precio_puesto_en_obra_torton = parseInt(documento.value.precio_puesto_en_obra_torton, 10);
 			
 			await updateDoc(doc(db, 'productos', id), documento.value);
 			router.push({ path: '/productos', query: { documentoActualizado: true } });

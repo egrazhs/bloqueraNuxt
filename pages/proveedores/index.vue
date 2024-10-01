@@ -153,7 +153,7 @@
 		loading.value = false;
 	};
 
-	//onMounted(fetchDataFromFirebase);
+	onMounted(fetchDataFromFirebase);
 </script>
 
 <style scoped>
