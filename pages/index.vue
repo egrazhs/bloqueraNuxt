@@ -15,6 +15,9 @@
 				<li>~ Lista de Precios de productos.</li>
 				<li>~ Agregar Precio en productos (Recogido en planta).</li>
 				<li>~ Agregar Lista de Precios en main Nav</li>
+				<li>~ Solucionado problema que guardaba los los precios de los productos sin los centavos.</li>
+				<li>~ Agregado iconos en el layout del menu de navegación. (Paquete MDI)</li>
+				<li>~ Agregar botón de editar en pantallas de Ver Documento.</li>
 			</ol>
 		</section>
 
@@ -30,7 +33,6 @@
 				<li>~ Listar/Mostrar productos de esa familia de productos</li>
 				<li>~ Poner chofer al lado de sucursal en ver remisiones.</li>
 				<li>~ Poner Cantidad a pagar a chofer [en las remisiones]</li>
-				<li>~ Agregar botón de editar en pantallas de Ver Documento.</li>
 				<li>~ Agregar la forma de pago al ejemplo de remisiones.</li>
 				<li>~ Guardar comision de pago a vendedores en remisiones (no es visible en detalles de la remision).</li>
 				<li>~ Opcion para ordenar tablas.</li>
@@ -43,7 +45,7 @@
 			<h4 class="font-bold">CRUD</h4>
 			<hr>
 
-			<article class="flex flex-wrap gap-4 justify-between">
+			<article class="flex flex-wrap gap-4">
 				<div>
 					<h6 class="font-bold">Usuarios</h6>
 					<ol class="text-xs">

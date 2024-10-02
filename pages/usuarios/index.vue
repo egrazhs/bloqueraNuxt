@@ -54,7 +54,7 @@
 					<td>{{usuario.username}}</td>
 					<td>{{usuario.nombre_completo}}</td>
 					<td>{{usuario.alias}}</td>
-					<td class="py-2 pr-2">
+					<td class="py-2 px-4 flex">
 						<buttonsSeeMore :route="`./usuarios/read/${usuario.id}`" />
 						<ButtonsEdit :route="`./usuarios/edit/${usuario.id}`" />
 						<ButtonsDelete :item="usuario" @confirm="confirmarEliminacion" />

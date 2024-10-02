@@ -91,8 +91,8 @@
 						<td v-if="selectedColumns.nombre" class="truncate">{{ proveedor.nombre }}</td>
 						<td v-if="selectedColumns.alias" class="truncate">{{ proveedor.alias }}</td>
 						<td class="py-2 pr-2 flex space-x-2">
-							<ButtonsSeeMore :route="'./proveedores/read/' + proveedor.id" />
-							<ButtonsEdit :route="'./proveedores/edit/' + proveedor.id" />
+							<ButtonsSeeMore :route="'/proveedores/read/' + proveedor.id" />
+							<ButtonsEdit :route="'/proveedores/edit/' + proveedor.id" />
 							<ButtonsDelete :item="proveedor" @confirm="confirmar_eliminacion" />
 						</td>
 					</tr>

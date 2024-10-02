@@ -166,11 +166,11 @@
 			//Parsear a int piezas por tarima
 			documento.value.piezas_por_tarima = parseInt(documento.value.piezas_por_tarima, 10);
 
-			documento.value.precio_recogido_en_planta = parseInt(documento.value.precio_recogido_en_planta, 10);
+			documento.value.precio_recogido_en_planta = parseFloat(documento.value.precio_recogido_en_planta);
 			documento.value.tarimas_por_flete_local_rabon = parseInt(documento.value.tarimas_por_flete_local_rabon, 10);
 			documento.value.tarimas_por_flete_local_torton = parseInt(documento.value.tarimas_por_flete_local_torton, 10);
-			documento.value.precio_puesto_en_obra_rabon = parseInt(documento.value.precio_puesto_en_obra_rabon, 10);
-			documento.value.precio_puesto_en_obra_torton = parseInt(documento.value.precio_puesto_en_obra_torton, 10);
+			documento.value.precio_puesto_en_obra_rabon = parseFloat(documento.value.precio_puesto_en_obra_rabon);
+			documento.value.precio_puesto_en_obra_torton = parseFloat(documento.value.precio_puesto_en_obra_torton);
 			
 			await updateDoc(doc(db, 'productos', id), documento.value);
 			router.push({ path: '/productos', query: { documentoActualizado: true } });

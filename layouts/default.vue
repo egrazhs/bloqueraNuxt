@@ -3,7 +3,10 @@
         <!-- Barra de navegación superior -->
         <v-app-bar color="primary" app>
             <v-app-bar-nav-icon :icon="drawer ? 'mdi-close' : 'mdi-menu'" variant="text" @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
-            <v-toolbar-title>Bloquera Guadalajara</v-toolbar-title>
+            <v-toolbar-title>
+                <img src="/images/logo_blanco_transparente.png" class="w-20">
+                <!--<span>Bloquera Guadalajara</span>-->
+            </v-toolbar-title>
         </v-app-bar>
 
         <!-- Navigation Drawer con las categorías y subcategorías -->
@@ -15,17 +18,17 @@
                     <template v-slot:activator="{ props }">
                         <v-list-item
                             v-bind="props"
-                            prepend-icon="mdi-truck"
+                            prepend-icon="mdi-office-building"
                             title="Administración"
                             density="compact"
                             nav
                         ></v-list-item>
                     </template>
                     <v-list-item prepend-icon="mdi-account" title="Usuarios" @click="goToPage('/usuarios')" nav></v-list-item>
-                    <v-list-item prepend-icon="mdi-account" title="Trabajadores" @click="goToPage('/trabajadores')" nav></v-list-item>
+                    <v-list-item prepend-icon="mdi-account-group" title="Trabajadores" @click="goToPage('/trabajadores')" nav></v-list-item>
                     <v-list-item prepend-icon="mdi-cube" title="Productos" @click="goToPage('/productos')" nav></v-list-item>
                     <v-list-item prepend-icon="mdi-cube-outline" title="Fam. Productos" @click="goToPage('/familias_productos')" nav></v-list-item>
-                    <v-list-item prepend-icon="mdi-account-group" title="Clientes" @click="goToPage('/clientes')" nav></v-list-item>
+                    <v-list-item prepend-icon="mdi-briefcase-account" title="Clientes" @click="goToPage('/clientes')" nav></v-list-item>
                     <v-list-item prepend-icon="mdi-truck" title="Proveedores" @click="goToPage('/proveedores')" nav></v-list-item>
                 </v-list-group>
 
@@ -33,7 +36,7 @@
                     <template v-slot:activator="{ props }">
                         <v-list-item
                             v-bind="props"
-                            prepend-icon="mdi-cash"
+                            prepend-icon="mdi-currency-usd"
                             title="Finanzas"
                             density="compact"
                             nav
@@ -46,7 +49,7 @@
                     <template v-slot:activator="{ props }">
                         <v-list-item
                             v-bind="props"
-                            prepend-icon='mdi-folder'
+                            prepend-icon='mdi-factory'
                             title="Operación"
                             density="compact"
                             nav
@@ -58,7 +61,7 @@
                     <template v-slot:activator="{ props }">
                         <v-list-item
                             v-bind="props"
-                            prepend-icon='mdi-folder'
+                            prepend-icon='mdi-shield-check'
                             title="Control"
                             density="compact"
                             nav
