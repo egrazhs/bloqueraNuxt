@@ -35,7 +35,6 @@
         
 
         <article>
-            <!-- Botón de menú para las opciones de visibilidad -->
             <v-menu transition="scale-transition">
                 <template v-slot:activator="{ props }">
                     <v-btn icon v-bind="props" class="mb-4">
@@ -44,8 +43,12 @@
                 </template>
                 <!-- Contenido del menú: opciones de propiedades a mostrar -->
                 <v-list density="compact">
-                    <v-list-item v-for="(label, key) in documentFields" :key="key" density="compact">
-                        <v-checkbox v-model="selectedColumns[key]" :label="label" density="compact"></v-checkbox>
+                    <v-list-item v-for="field in documentFields" :key="field.key" density="compact">
+                        <v-checkbox
+                            v-model="field.show"
+                            :label="field.label"
+                            density="compact"
+                        ></v-checkbox>
                     </v-list-item>
                 </v-list>
             </v-menu>
@@ -57,11 +60,12 @@
                             <span> ID </span>
                             <v-icon small class="ml-1">mdi-swap-vertical</v-icon>
                         </th>
-
-                        <th v-for="(label, key) in documentFields" v-if="selectedColumns[key]" @click="sortBy(key)" :class="columnClass">
-                            <span>{{ label }}</span>
+                        <!--Aqui los Nombre de las propiedades en la tabla-->
+                        <th v-for="field in documentFields" :key="field.key" @click="sortBy(field.key)" v-show="field.show" class="pl-2 cursor-pointer whitespace-nowrap">
+                            <span>{{ field.label }}</span>
                             <v-icon small class="ml-1">mdi-swap-vertical</v-icon>
                         </th>
+
                         
                         <th class="whitespace-nowrap">Acciones</th>
                     </tr>
@@ -69,8 +73,12 @@
                 <tbody class="border-1 border-black pl-2">
                     <tr v-for="document in sortedDocuments" :key="document.id" :data-key="document.id" class="odd:bg-slate-200 even:bg-slate-50 hover:bg-slate-300">
                         <td class="pl-2 truncate">{{document.id}}</td>
-                        <!-- Aquí usamos 'key' para acceder a las propiedades del documento en minúsculas -->
-                        <td v-for="(label, key) in documentFields" v-if="selectedColumns[key]" class="pl-2 truncate">{{ document[key] }}</td>
+                        
+                        <!--Aqui los valores de las propiedades-->
+                        <td v-for="field in documentFields" :key="field.key" v-show="field.show" class="pl-2 truncate">
+                            {{ document[field.key] }}
+                        </td>
+                        
                         <td class="py-2 pr-2 flex space-x-2">
                             <ButtonsSeeMore :route="`${baseRoute}/read/${document.id}`" />
                             <ButtonsEdit :route="`${baseRoute}/edit/${document.id}`" />
@@ -119,10 +127,10 @@ let data_value = ref('');
 
 //Props para la tabla
 const selectedColumns = ref({
-  id: true,  // Siempre será true
-  codigo: props.defaultVisibleColumns.codigo ?? false,
-  nombre: props.defaultVisibleColumns.nombre ?? false,
-  alias: props.defaultVisibleColumns.alias ?? false,
+    id: true,  // Siempre será true
+    codigo: props.defaultVisibleColumns.codigo ?? false,
+    nombre: props.defaultVisibleColumns.nombre ?? false,
+    alias: props.defaultVisibleColumns.alias ?? false,
 });
 const sortKey = ref(null);
 const sortOrder = ref(1);

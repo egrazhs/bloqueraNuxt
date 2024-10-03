@@ -67,6 +67,7 @@
                             nav
                         ></v-list-item>
                     </template>
+                    <v-list-item prepend-icon="mdi-wallet" title="Formas de pago" @click="goToPage('/formas_de_pago')" nav></v-list-item>
                 </v-list-group>
             </v-list>
 
