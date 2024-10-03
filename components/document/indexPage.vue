@@ -43,7 +43,7 @@
                 </template>
                 <!-- Contenido del menú: opciones de propiedades a mostrar -->
                 <v-list density="compact">
-                    <v-list-item v-for="field in documentFields" :key="field.key" density="compact">
+                    <v-list-item v-for="field in documentFields" :key="field.key" density="compact" class="py-0">
                         <v-checkbox
                             v-model="field.show"
                             :label="field.label"

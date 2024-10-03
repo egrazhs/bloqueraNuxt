@@ -9,12 +9,11 @@
             </v-toolbar-title>
         </v-app-bar>
 
-        <!-- Navigation Drawer con las categorías y subcategorías -->
         <v-navigation-drawer v-model="drawer" class="custom-scroll" color="primary" temporary app>
             <v-list v-model:opened="open">
-                <v-list-item prepend-icon="mdi-home" title="Inicio" @click="goToPage('/')" nav></v-list-item>
+                <v-list-item prepend-icon="mdi-home" title="Inicio" @click="goToPage('/')" :class="{ 'bg-yellow': router.currentRoute.value.path === '/' }" nav></v-list-item>
 
-                <v-list-group v-model:opened="openGroup" value="Administración" @click:open="toggleGroup('Administración')">
+               <v-list-group v-model="openGroup" value="Administración" @click="toggleGroup('Administración')">
                     <template v-slot:activator="{ props }">
                         <v-list-item
                             v-bind="props"
@@ -24,15 +23,15 @@
                             nav
                         ></v-list-item>
                     </template>
-                    <v-list-item prepend-icon="mdi-account" title="Usuarios" @click="goToPage('/usuarios')" nav></v-list-item>
-                    <v-list-item prepend-icon="mdi-account-group" title="Trabajadores" @click="goToPage('/trabajadores')" nav></v-list-item>
-                    <v-list-item prepend-icon="mdi-cube" title="Productos" @click="goToPage('/productos')" nav></v-list-item>
-                    <v-list-item prepend-icon="mdi-cube-outline" title="Fam. Productos" @click="goToPage('/familias_productos')" nav></v-list-item>
-                    <v-list-item prepend-icon="mdi-briefcase-account" title="Clientes" @click="goToPage('/clientes')" nav></v-list-item>
-                    <v-list-item prepend-icon="mdi-truck" title="Proveedores" @click="goToPage('/proveedores')" nav></v-list-item>
+                    <v-list-item prepend-icon="mdi-account" title="Usuarios" @click="goToPage('/usuarios')" :class="{ 'bg-yellow': router.currentRoute.value.path === '/usuarios' }" nav></v-list-item>
+                    <v-list-item prepend-icon="mdi-account-group" title="Trabajadores" @click="goToPage('/trabajadores')" :class="{ 'bg-yellow': router.currentRoute.value.path === '/trabajadores' }" nav></v-list-item>
+                    <v-list-item prepend-icon="mdi-cube" title="Productos" @click="goToPage('/productos')" :class="{ 'bg-yellow': router.currentRoute.value.path === '/productos' }" nav></v-list-item>
+                    <v-list-item prepend-icon="mdi-cube-outline" title="Fam. Productos" @click="goToPage('/familias_productos')" :class="{ 'bg-yellow': router.currentRoute.value.path === '/familias_productos' }" nav></v-list-item>
+                    <v-list-item prepend-icon="mdi-briefcase-account" title="Clientes" @click="goToPage('/clientes')" :class="{ 'bg-yellow': router.currentRoute.value.path === '/clientes' }" nav></v-list-item>
+                    <v-list-item prepend-icon="mdi-truck" title="Proveedores" @click="goToPage('/proveedores')" :class="{ 'bg-yellow': router.currentRoute.value.path === '/proveedores' }" nav></v-list-item>
                 </v-list-group>
 
-                <v-list-group v-model:opened="openGroup" value="Finanzas" @click:open="toggleGroup('Finanzas')">
+                <v-list-group v-model="openGroup" value="Finanzas" @click:open="toggleGroup('Finanzas')">
                     <template v-slot:activator="{ props }">
                         <v-list-item
                             v-bind="props"
@@ -42,10 +41,10 @@
                             nav
                         ></v-list-item>
                     </template>
-                    <v-list-item prepend-icon="mdi-cash-multiple" title="Lista de Precios" @click="goToPage('/lista_precios')" nav></v-list-item>
+                    <v-list-item prepend-icon="mdi-cash-multiple" title="Lista de Precios" @click="goToPage('/lista_precios')" :class="{ 'bg-yellow': router.currentRoute.value.path === '/lista_precios' }" nav></v-list-item>
                 </v-list-group>
 
-                <v-list-group v-model:opened="openGroup" value="Operación" @click:open="toggleGroup('Operación')">
+                <v-list-group v-model="openGroup" value="Operación" @click:open="toggleGroup('Operación')">
                     <template v-slot:activator="{ props }">
                         <v-list-item
                             v-bind="props"
@@ -57,7 +56,7 @@
                     </template>
                 </v-list-group>
 
-                <v-list-group v-model:opened="openGroup" value="Control" @click:open="toggleGroup('Control')">
+                <v-list-group v-model="openGroup" value="Control" @click:open="toggleGroup('Control')">
                     <template v-slot:activator="{ props }">
                         <v-list-item
                             v-bind="props"
@@ -67,7 +66,7 @@
                             nav
                         ></v-list-item>
                     </template>
-                    <v-list-item prepend-icon="mdi-wallet" title="Formas de pago" @click="goToPage('/formas_de_pago')" nav></v-list-item>
+                    <v-list-item prepend-icon="mdi-wallet" title="Formas de pago" @click="goToPage('/formas_de_pago')" :class="{ 'bg-yellow': router.currentRoute.value.path === '/formas_de_pago' }" nav></v-list-item>
                 </v-list-group>
             </v-list>
 
@@ -103,7 +102,9 @@ const router = useRouter();
 
 // Función para manejar la navegación a una subcategoría
 const goToPage = (link) => {
-  router.push(link);
+  if (router.currentRoute.value.path !== link) {
+    router.push(link);
+  }
 };
 
 const toggleGroup = (group) => {

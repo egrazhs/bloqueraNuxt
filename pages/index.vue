@@ -20,6 +20,7 @@
 				<li>~ Agregar botón de editar en pantallas de Ver Documento.</li>
 				<li>~ Formas de pago agregado al menu de navegación.</li>
 				<li>~ Opcion para ordenar tablas ent odos los documentos.</li>
+				<li>~ Resolvido Bug del nav que recargaba la pagina si se daba click a esa misma en el menu.</li>
 			</ol>
 		</section>
 
