@@ -18,6 +18,8 @@
 				<li>~ Solucionado problema que guardaba los los precios de los productos sin los centavos.</li>
 				<li>~ Agregado iconos en el layout del menu de navegación. (Paquete MDI)</li>
 				<li>~ Agregar botón de editar en pantallas de Ver Documento.</li>
+				<li>~ Formas de pago agregado al menu de navegación.</li>
+				<li>~ Opcion para ordenar tablas ent odos los documentos.</li>
 			</ol>
 		</section>
 
@@ -35,7 +37,6 @@
 				<li>~ Poner Cantidad a pagar a chofer [en las remisiones]</li>
 				<li>~ Agregar la forma de pago al ejemplo de remisiones.</li>
 				<li>~ Guardar comision de pago a vendedores en remisiones (no es visible en detalles de la remision).</li>
-				<li>~ Opcion para ordenar tablas.</li>
 				<li>~ En Familia de produtos, mostrar los productos de esa familia en Ver Mas</li>
 				<li>~ Mandar a poder agregar producto en esa familia.</li>
 			</ol>
