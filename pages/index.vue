@@ -6,21 +6,7 @@
 		<section class="p-2 hover:bg-slate-200">	
 			<h4 class="font-bold">Ultimos cambios agregados:</h4>
 			<ol class="text-xs">
-				<li>~ Agregar propiedad de dias de monto de credito. [7, 15 , 21, 30]</li>
-				<li>~ Cambiados estilos  funcionalidad de la barra de navegación</li>
-				<li>~ Tabla de Proveedores ya se puede ordenar por orden alfabetico o numerico</li>
-				<li>~ Tabla de Proveedores ya se puede elegir que propiedades mostrar o quitar.</li>
-				<li>~ Agregadas propiedades nuevas a documentos productos, para completar la lista de precios.</li>
-				<li>~ Agregar propiedades de tarima y torton en productos.</li>
-				<li>~ Lista de Precios de productos.</li>
-				<li>~ Agregar Precio en productos (Recogido en planta).</li>
-				<li>~ Agregar Lista de Precios en main Nav</li>
-				<li>~ Solucionado problema que guardaba los los precios de los productos sin los centavos.</li>
-				<li>~ Agregado iconos en el layout del menu de navegación. (Paquete MDI)</li>
-				<li>~ Agregar botón de editar en pantallas de Ver Documento.</li>
-				<li>~ Formas de pago agregado al menu de navegación.</li>
-				<li>~ Opcion para ordenar tablas ent odos los documentos.</li>
-				<li>~ Resolvido Bug del nav que recargaba la pagina si se daba click a esa misma en el menu.</li>
+				
 			</ol>
 		</section>
 
@@ -240,6 +226,26 @@
 					<li>~ Pagina de estado de cuenta.</li>
 					<li>~ Agregar campo de informacion adicional para detalles en abonos.</li>
 					<li>~ Opción de abonar todo o una cantidad parcial al momento de crear Remisiones</li>
+				</ol>
+
+
+				<h4 class="font-bold">Ultimos cambios agregados:</h4>
+				<ol class="text-xs">
+					<li>~ Agregar propiedad de dias de monto de credito. [7, 15 , 21, 30]</li>
+					<li>~ Cambiados estilos  funcionalidad de la barra de navegación</li>
+					<li>~ Tabla de Proveedores ya se puede ordenar por orden alfabetico o numerico</li>
+					<li>~ Tabla de Proveedores ya se puede elegir que propiedades mostrar o quitar.</li>
+					<li>~ Agregadas propiedades nuevas a documentos productos, para completar la lista de precios.</li>
+					<li>~ Agregar propiedades de tarima y torton en productos.</li>
+					<li>~ Lista de Precios de productos.</li>
+					<li>~ Agregar Precio en productos (Recogido en planta).</li>
+					<li>~ Agregar Lista de Precios en main Nav</li>
+					<li>~ Solucionado problema que guardaba los los precios de los productos sin los centavos.</li>
+					<li>~ Agregado iconos en el layout del menu de navegación. (Paquete MDI)</li>
+					<li>~ Agregar botón de editar en pantallas de Ver Documento.</li>
+					<li>~ Formas de pago agregado al menu de navegación.</li>
+					<li>~ Opcion para ordenar tablas ent odos los documentos.</li>
+					<li>~ Resolvido Bug del nav que recargaba la pagina si se daba click a esa misma en el menu.</li>
 				</ol>
 			</section>
 		</section>
