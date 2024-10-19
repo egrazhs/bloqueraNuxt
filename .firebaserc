@@ -4,6 +4,10 @@
     "bloqueraguadalajara": "bloqueraguadalajara"
   },
   "targets": {},
-  "etags": {},
+  "etags": {
+    "bloqueraguadalajara": {
+      "extensionInstances": {}
+    }
+  },
   "dataconnectEmulatorConfig": {}
 }

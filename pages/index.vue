@@ -6,7 +6,14 @@
 		<section class="p-2 hover:bg-slate-200">	
 			<h4 class="font-bold">Ultimos cambios agregados:</h4>
 			<ol class="text-xs">
-				
+				<li>~ Ya se guardan los movimientos del inventario.</li>
+				<li>~ Corregido un error donde no se actualizaba el stock del producto en la pagina.</li>
+				<li>~ La function que se dispara al crear un movimiento del inventario ya actualiza el stock en el producto</li>
+				<li>~ Functions: la function que genera el balance diario sube un solo doc con arreglo de productos y la fecha</li>
+				<li>~ Functions: Function que actualiza el stock al crear movimiento o remision.</li>
+				<li>~ Functions: Function para reestablecer la cantidad de stock de todos los productos.</li>
+				<li>~ Refactor: Cambio enla BD de la tabla de 'movimientos' a 'movimientos_inventario'</li>
+				<li>~ Bug: Solucionado un erroe que guardaba un movimiento que restaba el stock de un producto pero no actualizaba el stock del producto en BD</li>
 			</ol>
 		</section>
 
@@ -21,7 +28,7 @@
 				<li>~ Poder elegir periodo de tiempo en estado de cuenta.</li>
 				<li>~ Listar/Mostrar productos de esa familia de productos</li>
 				<li>~ Poner chofer al lado de sucursal en ver remisiones.</li>
-				<li>~ Poner Cantidad a pagar a chofer [en las remisiones]</li>
+				<li>~ Poner Cantidad a pagar a chofer [en las remisiones.</li>
 				<li>~ Agregar la forma de pago al ejemplo de remisiones.</li>
 				<li>~ Guardar comision de pago a vendedores en remisiones (no es visible en detalles de la remision).</li>
 				<li>~ En Familia de produtos, mostrar los productos de esa familia en Ver Mas</li>

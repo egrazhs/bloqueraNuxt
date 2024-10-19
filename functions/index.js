@@ -11,11 +11,27 @@ const functions = require('firebase-functions');
 const admin = require('firebase-admin');
 admin.initializeApp();
 
+exports.updateStockField = functions.https.onRequest(async (req, res) => {
+  const productsRef = admin.firestore().collection('productos');
+  const snapshot = await productsRef.get();
 
-exports.actualizarStock = functions.firestore.document('movimientos/{movimientoId}').onCreate(async (snap, context) => {
+  const batch = admin.firestore().batch();
+
+  snapshot.forEach((doc) => {
+    if (!doc.data().stock) {
+      batch.update(doc.ref, { stock: 0 });
+    }
+  });
+
+  await batch.commit();
+  res.send('Actualización completa');
+});
+
+
+exports.actualizarStock = functions.firestore.document('movimientos_inventario/{movimientoId}').onCreate(async (snap, context) => {
     // Obtener los datos del movimiento recién creado
     const movimiento = snap.data();
-    const productoId = movimiento.productoId;
+    const productoId = movimiento.id_producto;
     const cantidad = movimiento.cantidad;
     const tipo = movimiento.tipo;
 
@@ -28,9 +44,9 @@ exports.actualizarStock = functions.firestore.document('movimientos/{movimientoI
 
     // Calcular el nuevo stock basado en el tipo de movimiento
     let nuevoStock = stockActual;
-    if (tipo === 'agregar') {
+    if (tipo === 'add') {
         nuevoStock += cantidad;
-    } else if (tipo === 'quitar' || tipo === 'remision') {
+    } else if (tipo === 'substract' || tipo === 'remision') {
         nuevoStock -= cantidad;
     }
 
@@ -50,20 +66,24 @@ exports.generarBalanceDiario = functions.pubsub.schedule('0 0 * * *').timeZone('
     const productosRef = admin.firestore().collection('productos');
     const snapshot = await productosRef.get();
 
-    // Obtener todos los productos
-    snapshot.forEach(async (doc) => {
-        const producto = doc.data();
-        const productoId = doc.id;
-        const stockActual = producto.stock;
-        const fechaActual = new Date().toISOString().split('T')[0]; // yyyy-mm-dd
+    // Obtener todos los productos y su stock
+    const productos = snapshot.docs.map(doc => ({
+        productoId: doc.id,
+        stock: doc.data().stock
+    }));
 
-        // Crear un nuevo balance diario
-        await admin.firestore().collection('balances_diarios').add({
-            productoId: productoId,
-            fecha: fechaActual,
-            stock: stockActual
-        });
-    });
+    // Obtener la fecha actual en formato yyyy-mm-dd para usarla como ID del documento
+    const fechaActual = new Date().toISOString().split('T')[0];
+
+    // Crear el documento de balance diario
+    const nuevoBalanceDiario = {
+        fecha: fechaActual,
+        productos: productos
+    };
+
+    // Guardar el balance diario en Firestore con la fecha como ID
+    await admin.firestore().collection('balances_diarios').doc(fechaActual).set(nuevoBalanceDiario);
 
     return null;
-}); 
+});
+ 

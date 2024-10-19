@@ -136,7 +136,8 @@
 		  		precio_puesto_en_obra_rabon: precio_puesto_en_obra_rabon.value,
 		  		precio_puesto_en_obra_torton: precio_puesto_en_obra_torton.value,
 		  		id: nuevo_id,
-		  		_type: 'productos'
+		  		_type: 'productos',
+		  		stock: 0
 			};
 
 			// Agregar el nuevo usuario a Firestore utilizando el ID personalizado
