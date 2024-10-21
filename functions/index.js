@@ -66,10 +66,23 @@ exports.generarBalanceDiario = functions.pubsub.schedule('0 0 * * *').timeZone('
     const productosRef = admin.firestore().collection('productos');
     const snapshot = await productosRef.get();
 
+    // Obtener las familias de productos
+    const familiasRef = admin.firestore().collection('familias_productos');
+    const snapshotFamilias = await familiasRef.get();
+
+    // Crear un mapa para buscar los nombres de las familias por ID
+    const mapaFamilias = {};
+    snapshotFamilias.forEach(doc => {
+        mapaFamilias[doc.id] = doc.data().nombre; // Mapa de {id_familia: nombre}
+    });
+
     // Obtener todos los productos y su stock
     const productos = snapshot.docs.map(doc => ({
         productoId: doc.id,
-        stock: doc.data().stock
+        stock: doc.data().stock,
+        nombre_producto: doc.data().descripcion,
+        id_familia: doc.data().id_familia,
+        nombre_familia: mapaFamilias[doc.data().id_familia] || 'Sin familia'
     }));
 
     // Obtener la fecha actual en formato yyyy-mm-dd para usarla como ID del documento
@@ -86,4 +99,3 @@ exports.generarBalanceDiario = functions.pubsub.schedule('0 0 * * *').timeZone('
 
     return null;
 });
- 
