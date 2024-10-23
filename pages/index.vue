@@ -20,7 +20,6 @@
 		<section class="p-2 hover:bg-slate-200">
 			<h4 class="font-bold">To Do:</h4>
 			<ol class="text-xs">
-				<li>~ Inventario.</li>
 				<li>~ Modificar el precio unitario de un producto al elegir nuevo en remisiones.</li>
 				<li>~ "Levantado en Piso" como opcion por default en remisones para la Obra.</li>
 				<li>~ Desglosar precio subtotal de cada producto en materiales al agregar Remisión.</li>
@@ -33,6 +32,8 @@
 				<li>~ Guardar comision de pago a vendedores en remisiones (no es visible en detalles de la remision).</li>
 				<li>~ En Familia de produtos, mostrar los productos de esa familia en Ver Mas</li>
 				<li>~ Mandar a poder agregar producto en esa familia.</li>
+				<li>~ Agregar boton e estado de cuenta.</li>
+				<li>~ Implementar Caja (revisar excel)</li>
 			</ol>
 		</section>
 
