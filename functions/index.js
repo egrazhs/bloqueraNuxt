@@ -99,3 +99,88 @@ exports.generarBalanceDiario = functions.pubsub.schedule('0 0 * * *').timeZone('
 
     return null;
 });
+
+
+exports.generarBalanceDiarioManual = functions.https.onRequest(async (req, res) => {
+    try {
+        await generarBalanceDiario();
+        res.status(200).send('Balance diario generado manualmente.');
+    } catch (error) {
+        console.error('Error al generar el balance diario:', error);
+        res.status(500).send('Error al generar el balance diario.');
+    }
+});
+
+async function generarBalanceDiario() {
+    try {
+        console.log('Iniciando generación del balance diario...');
+
+        const productosRef = admin.firestore().collection('productos');
+        const snapshot = await productosRef.get();
+
+        // Verificar si hay productos en la colección
+        if (snapshot.empty) {
+            console.error('No se encontraron productos en la colección.');
+            throw new Error('No se encontraron productos en la colección.');
+        }
+        console.log(`Número de productos encontrados: ${snapshot.size}`);
+
+        // Obtener las familias de productos
+        const familiasRef = admin.firestore().collection('familias_productos');
+        const snapshotFamilias = await familiasRef.get();
+
+        // Verificar si hay familias en la colección
+        if (snapshotFamilias.empty) {
+            console.warn('No se encontraron familias de productos en la colección. Continuando sin familias.');
+        } else {
+            console.log(`Número de familias de productos encontradas: ${snapshotFamilias.size}`);
+        }
+
+        // Crear un mapa para buscar los nombres de las familias por ID
+        const mapaFamilias = {};
+        snapshotFamilias.forEach(doc => {
+            mapaFamilias[doc.id] = doc.data().nombre || 'Nombre no especificado';
+        });
+        console.log('Mapa de familias creado:', mapaFamilias);
+
+        // Obtener todos los productos y su stock
+        const productos = snapshot.docs.map(doc => {
+            const data = doc.data();
+            return {
+                productoId: doc.id,
+                stock: data.stock || 0, // Valor por defecto si no existe
+                nombre_producto: data.descripcion || 'Sin descripción', // Valor por defecto si no existe
+                id_familia: data.familia || 'Sin familia', // Valor por defecto si no existe
+                nombre_familia: mapaFamilias[data.id_familia] || 'Sin familia' // Buscar en el mapa de familias
+            };
+        });
+
+        // Verificar si el array de productos está vacío
+        if (productos.length === 0) {
+            console.error('El array de productos está vacío.');
+            throw new Error('El array de productos está vacío.');
+        }
+        console.log('Productos procesados:', productos);
+
+        // Obtener la fecha actual en formato yyyy-mm-dd para usarla como ID del documento
+        const fechaActual = new Date().toISOString().split('T')[0];
+        console.log('Fecha actual para el balance diario:', fechaActual);
+
+        // Crear el documento de balance diario
+        const nuevoBalanceDiario = {
+            fecha: fechaActual,
+            productos: productos
+        };
+        console.log('Documento de balance diario a guardar:', nuevoBalanceDiario);
+
+        // Guardar el balance diario en Firestore con la fecha como ID
+        await admin.firestore().collection('balances_diarios').doc(fechaActual).set(nuevoBalanceDiario);
+
+        console.log('Balance diario guardado correctamente para la fecha:', fechaActual);
+    } catch (error) {
+        console.error('Error en la función generarBalanceDiario:', error);
+        throw error; // Relanzar el error para que la función principal lo capture
+    }
+}
+
+
