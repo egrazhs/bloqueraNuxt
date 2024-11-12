@@ -63,12 +63,18 @@
 				<v-btn @click="addMaterial" color="primary">+ Agregar Material</v-btn>
 			</div>
 
-			<v-divider :thickness="1" class="border-opacity-100 border-slate-400 my-6"></v-divider>
+			<!-- Checkbox para IVA -->
+			<v-checkbox
+				v-model="aplicar_iva"
+				label="Aplicar IVA (16%)"
+			></v-checkbox>
+
+			<v-divider :thickness="1" class="border-opacity-100 border-slate-400 my-2"></v-divider>
 
 			<!--Listado de Materiales de la remisión-->
 			<div v-for="(material, index) in materiales" :key="index" class="my-2">	
 				<v-card class="pa-2 mb-2">
-					<div class="flex justify-between mb-4">
+					<div class="flex justify-between mb-2">
 						<h6 class="font-bold">{{index+1}})</h6>
 						<v-btn @click="removeMaterial(index)" class="mt-2" color="red">Quitar</v-btn>
 					</div>
@@ -111,7 +117,7 @@
 					<v-row>
 						<v-col cols="12">
 							<v-text class="font-weight-bold">
-								Subtotal: {{ (material.precio_unitario * material.cantidad || 0).toFixed(2) }}
+								Subtotal: {{ calcularSubtotal(material) }}
 							</v-text>
 						</v-col>
 					</v-row>
@@ -165,6 +171,8 @@
 	const fecha = ref('');
 	const usarHoraActual = ref(false);
 
+	const aplicar_iva = ref(true);
+
 	const materiales = ref([{ producto: '', cantidad: 1, precio_unitario: 0 }]);
 
 	const total_remision = computed(() => {
@@ -175,8 +183,13 @@
 		}, 0);
 	});
 
+	// Calcular el total de la remisión considerando el IVA
 	const formattedTotalRemision = computed(() => {
-		return total_remision.value.toFixed(2);
+		const total = materiales.value.reduce((sum, material) => {
+			const subtotal = material.cantidad * material.precio_unitario || 0;
+			return sum + subtotal;
+		}, 0);
+		return aplicar_iva.value ? (total * 1.16).toFixed(2) : total.toFixed(2);
 	});
 
 	const hacerAbono = ref(false);
@@ -240,6 +253,13 @@
 			console.log("Producto no encontrado, precio unitario asignado a 0");
 		}
 	};
+
+	// Calcular el subtotal para cada material
+	function calcularSubtotal(material) {
+		const subtotal = material.cantidad * material.precio_unitario || 0;
+		return aplicar_iva.value ? (subtotal * 1.16).toFixed(2) : subtotal.toFixed(2);
+	}
+
 
 	const actualizarCantidadAbono = () => {
 		if (pagarEnSuTotalidad.value) {
