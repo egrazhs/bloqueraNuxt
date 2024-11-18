@@ -116,9 +116,7 @@
 
 					<v-row>
 						<v-col cols="12">
-							<v-text class="font-weight-bold">
-								Subtotal: {{ calcularSubtotal(material) }}
-							</v-text>
+							<v-card-title class="font-weight-bold">Subtotal: {{ calcularSubtotal(material) }}</v-card-title>
 						</v-col>
 					</v-row>
 				</v-card>
@@ -285,7 +283,7 @@
 	}
 
 
-	//Crear nueva remisión
+	// Crear nueva remisión
 	const handleSubmit = async () => {
 		try {
 			// Validaciones
@@ -299,83 +297,77 @@
 					alert('Todos los productos deben estar especificados');
 					return;
 				}
+	
 				if (material.cantidad <= 0) {
 					alert('La cantidad debe ser mayor que 0');
 					return;
 				}
+			
 				if (material.precio_unitario <= 0) {
 					alert('El precio unitario debe ser mayor que 0');
 					return;
 				}
 			}
 
-			//Checar si se va a agregar un abono
-		 	if(hacerAbono.value){
-		 		const id_abono = await getNextId("abonos");
+			// Checar si se va a agregar un abono
+			if (hacerAbono.value) {
+				const id_abono = await getNextId("abonos");
 
-		 		const nuevoAbono = {
-		 			_type: 'abonos',
-		 			cantidad: cantidadAbono.value,
-		 			id: id_abono,
-		 			id_cliente: clientes.value.find((cli) => cli.id == cliente.value).id,
-		 			nombre_cliente: clientes.value.find((cli) => cli.id == cliente.value).nombre,
-		 		};
+				const nuevoAbono = {
+					_type: 'abonos',
+					cantidad: cantidadAbono.value,
+					id: id_abono,
+					id_cliente: clientes.value.find((cli) => cli.id == cliente.value).id,
+					nombre_cliente: clientes.value.find((cli) => cli.id == cliente.value).nombre,
+				};
 
-		 		await agregarDocumento('abonos', nuevoAbono, id_abono);
-		 	}
+				await agregarDocumento('abonos', nuevoAbono, id_abono);
+			}
 
-
-
-		 	//Agregar remisión
-    		
-    		//Sacar el nuevo id
+			// Agregar remisión
 			let nuevo_id = '';
 			if (id_remision.value) {
 				nuevo_id = padWithZeros(id_remision.value, 6);
 			} else {
-      			nuevo_id = await getNextId("remisiones");
+				nuevo_id = await getNextId("remisiones");
 			}
 
 			// Convertir los nombres de productos a IDs
 			const materialesConIds = materiales.value.map(material => {
-  				const producto = productos.value.find(prod => prod.id === material.producto);
-	  			if (!producto) {
-	  				throw new Error(`Producto no encontrado: ${material.producto}`);
-	  			}
+				const producto = productos.value.find(prod => prod.id === material.producto);
 				return {
-					id_producto: producto.id,
-					nombre_producto: producto.nombre,
-					cantidad: material.cantidad,
-					precio_unitario: material.precio_unitario
+					...material,
+					id_producto: producto.id
 				};
 			});
 
+			// Crear documentos de movimiento de inventario
+			for (const material of materialesConIds) {
+				const movimiento = {
+					_type: 'movimientos_inventario',
+					id: await getNextId("movimientos_inventario", 10),
+					id_producto: material.id_producto,
+					cantidad: material.cantidad,
+					stock_anterior: obtenerStock(material.producto),
+					stock_actual: obtenerStock(material.producto) - material.cantidad,
+					fecha: new Date().toISOString().split('T')[0],
+					hora: new Date().toISOString(),
+					tipo: 'remision',
+					comentarios: ''
+				};
 
-			// Crear un nuevo objeto con los datos de la remisión
-			const nuevoDoc = {
-				id_cliente: clientes.value.find((cli) => cli.id == cliente.value).id,
-				nombre_cliente: clientes.value.find((cli) => cli.id == cliente.value).nombre,
-				material: materialesConIds,
-				id: nuevo_id,
-				fecha: fecha.value,
-				obra: obra.value,
-				_type: 'remisiones',
-				hacerAbono: hacerAbono.value,
-				pagarEnSuTotalidad: pagarEnSuTotalidad.value,
-				cantidadAbono: cantidadAbono.value
-			};
+				// Agregar el documento de movimiento de inventario
+				await agregarDocumento('movimientos_inventario', movimiento, movimiento.id);
+			}
 
-			// Agregar la nueva remision
-		 	await agregarDocumento('remisiones', nuevoDoc, nuevo_id);
-
-		 	// Mostrar un mensaje de éxito u otra acción deseada
-			await router.push({ path: '/remisiones', query: { c: true } });
+			// Mostrar un mensaje de éxito u otra acción deseada
+			await router.push({ path: '/remisiones/', query: { c: true } });
 
 		} catch (error) {
-			console.error('Error al agregar remisión:', error.message);
-			alert(`Error al agregar remisión: ${error.message}`);
+			console.error('Error al crear la remisión:', error);
 		}
 	};
+
 
 	onMounted(async () => {
 		//Logica para la info a mostrar en la pagina antes de mostrar

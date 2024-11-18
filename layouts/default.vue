@@ -42,6 +42,7 @@
                         ></v-list-item>
                     </template>
                     <v-list-item prepend-icon="mdi-cash-multiple" title="Lista de Precios" @click="goToPage('/lista_precios')" :class="{ 'bg-yellow': router.currentRoute.value.path === '/lista_precios' }" nav></v-list-item>
+                    <v-list-item prepend-icon="mdi-cash-register" title="Caja" @click="goToPage('/caja')" :class="{ 'bg-yellow': router.currentRoute.value.path === '/caja' }" nav></v-list-item>
                 </v-list-group>
 
                 <v-list-group v-model="openGroup" value="Operación" @click:open="toggleGroup('Operación')">
@@ -61,14 +62,14 @@
                     <template v-slot:activator="{ props }">
                         <v-list-item
                             v-bind="props"
-                            prepend-icon='mdi-shield-check'
+                            prepend-icon='mdi-monitor-dashboard'
                             title="Control"
                             density="compact"
                             nav
                         ></v-list-item>
                     </template>
-                    <v-list-item prepend-icon="mdi-wallet" title="Formas de pago" @click="goToPage('/formas_de_pago')" :class="{ 'bg-yellow': router.currentRoute.value.path === '/formas_de_pago' }" nav></v-list-item>
-                    <v-list-item prepend-icon="mdi-wallet" title="Inventario" @click="goToPage('/inventario')" :class="{ 'bg-yellow': router.currentRoute.value.path === '/inventario' }" nav></v-list-item>
+                    <v-list-item prepend-icon="mdi-credit-card-outline" title="Formas de pago" @click="goToPage('/formas_de_pago')" :class="{ 'bg-yellow': router.currentRoute.value.path === '/formas_de_pago' }" nav></v-list-item>
+                    <v-list-item prepend-icon="mdi-warehouse" title="Inventario" @click="goToPage('/inventario')" :class="{ 'bg-yellow': router.currentRoute.value.path === '/inventario' }" nav></v-list-item>
                 </v-list-group>
 
                 <v-list-group v-model="openGroup" value="Ejemplos" @click:open="toggleGroup('Ejemplos')">
@@ -81,8 +82,8 @@
                             nav
                         ></v-list-item>
                     </template>
-                    <v-list-item prepend-icon="mdi-wallet" title="Estado de Cuenta" @click="goToPage('/ejemplo')" :class="{ 'bg-yellow': router.currentRoute.value.path === '/ejemplo' }" nav></v-list-item>
-                    <v-list-item prepend-icon="mdi-wallet" title="Remision" @click="goToPage('/ejemplo/remision')" :class="{ 'bg-yellow': router.currentRoute.value.path === '/ejemplo/remision' }" nav></v-list-item>
+                    <v-list-item prepend-icon="mdi-clipboard-text-outline" title="Estado de Cuenta" @click="goToPage('/ejemplo')" :class="{ 'bg-yellow': router.currentRoute.value.path === '/ejemplo' }" nav></v-list-item>
+                    <v-list-item prepend-icon="mdi-clipboard-text-outline" title="Remision" @click="goToPage('/ejemplo/remision')" :class="{ 'bg-yellow': router.currentRoute.value.path === '/ejemplo/remision' }" nav></v-list-item>
                 </v-list-group>
             </v-list>
 

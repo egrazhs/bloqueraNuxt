@@ -1,4 +1,4 @@
-/**
+    /**
  * Import function triggers from their respective submodules:
  *
  * const {onCall} = require("firebase-functions/v2/https");
@@ -63,41 +63,40 @@ exports.actualizarStock = functions.firestore.document('movimientos_inventario/{
 
 
 exports.generarBalanceDiario = functions.pubsub.schedule('0 0 * * *').timeZone('America/Mexico_City').onRun(async (context) => {
-    const productosRef = admin.firestore().collection('productos');
-    const snapshot = await productosRef.get();
+    try {
+        const productosRef = admin.firestore().collection('productos');
+        const snapshot = await productosRef.get();
 
-    // Obtener las familias de productos
-    const familiasRef = admin.firestore().collection('familias_productos');
-    const snapshotFamilias = await familiasRef.get();
+        const familiasRef = admin.firestore().collection('familias_productos');
+        const snapshotFamilias = await familiasRef.get();
 
-    // Crear un mapa para buscar los nombres de las familias por ID
-    const mapaFamilias = {};
-    snapshotFamilias.forEach(doc => {
-        mapaFamilias[doc.id] = doc.data().nombre; // Mapa de {id_familia: nombre}
-    });
+        const mapaFamilias = {};
+        snapshotFamilias.forEach(doc => {
+            mapaFamilias[doc.id] = doc.data().nombre;
+        });
 
-    // Obtener todos los productos y su stock
-    const productos = snapshot.docs.map(doc => ({
-        productoId: doc.id,
-        stock: doc.data().stock,
-        nombre_producto: doc.data().descripcion,
-        id_familia: doc.data().id_familia,
-        nombre_familia: mapaFamilias[doc.data().id_familia] || 'Sin familia'
-    }));
+        const productos = snapshot.docs.map(doc => ({
+            productoId: doc.id,
+            stock: doc.data().stock,
+            nombre_producto: doc.data().descripcion,
+            id_familia: doc.data().id_familia,
+            nombre_familia: mapaFamilias[doc.data().id_familia] || 'Sin familia'
+        }));
 
-    // Obtener la fecha actual en formato yyyy-mm-dd para usarla como ID del documento
-    const fechaActual = new Date().toISOString().split('T')[0];
+        const fechaActual = new Date().toISOString().split('T')[0];
 
-    // Crear el documento de balance diario
-    const nuevoBalanceDiario = {
-        fecha: fechaActual,
-        productos: productos
-    };
+        const nuevoBalanceDiario = {
+            fecha: fechaActual,
+            productos: productos
+        };
 
-    // Guardar el balance diario en Firestore con la fecha como ID
-    await admin.firestore().collection('balances_diarios').doc(fechaActual).set(nuevoBalanceDiario);
-
-    return null;
+        await admin.firestore().collection('balances_diarios').doc(fechaActual).set(nuevoBalanceDiario);
+        console.log('Balance diario generado exitosamente para la fecha:', fechaActual);
+        return null;
+    } catch (error) {
+        console.error('Error al generar el balance diario:', error);
+        return null;
+    }
 });
 
 
@@ -182,5 +181,3 @@ async function generarBalanceDiario() {
         throw error; // Relanzar el error para que la función principal lo capture
     }
 }
-
-
